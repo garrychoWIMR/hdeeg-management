@@ -1,0 +1,113 @@
+<div id=D__ID>
+	<div id=page__ID class=home_page_1>
+		<div class="container-fluid" style='max-width:960px'>
+			<div class="text-center panel__ID" style='color:#fff'>
+				<br>
+				<h2>Sleep Studies</h2>
+				<p >
+					<a id=get1_in__ID class='btn btn-warning m-1' style='color:#000;cursor: pointer;' >Daily</a>
+					<a id=get2_in__ID class='btn btn-warning m-1' style='color:#000;cursor: pointer;' >Weekly</a>
+					<a id=get3_in__ID class='btn btn-warning m-1' style='color:#000;cursor: pointer;' >Monthy</a>
+					<a id=get4_in__ID class='btn btn-warning m-1' style='color:#000;cursor: pointer;' >Waiting List</a>
+					<a id=get5_in__ID class='btn btn-warning m-1' style='color:#000;cursor: pointer;' >All</a>
+				</p>
+				<h4>Link Sleep Studies to Appointments</h4>
+				<p class=''>
+					<a id=get10_in__ID class='btn btn-warning m-1' style='color:#000' >Empty Form</a>
+					<a id=get20_in__ID class='btn btn-warning m-1' style='color:#000' >Weekly</a>
+					<a id=get30_in__ID class='btn btn-warning m-1' style='color:#000' >Monthly</a>
+					<a id=get40_in__ID class='btn btn-warning m-1' style='color:#000' >Wating List</a>
+				</p>
+				<br>
+			</div>
+			<br><br>
+			<br><br>
+			<br><br>
+		</div>
+<	<script>
+		$('#get1_in__ID').on('click',function(){
+			$vm.load_module('calendar-sleepstudy-day','',{})
+		})
+		$('#get2_in__ID').on('click',function(){
+			$vm.load_module('calendar-sleepstudy-week','',{})
+		})
+		$('#get3_in__ID').on('click',function(){
+			$vm.load_module('calendar-sleepstudy-month','',{})
+		})
+		$('#get4_in__ID').on('click',function(){
+			$vm.load_module('calendar-sleepstudy-waiting-list','',{})
+		})
+		$('#get5_in__ID').on('click',function(){
+			$vm.load_module('booking-data','',{})
+		})
+		$('#get10_in__ID').on('click',function(){
+			$vm.load_module('booking-form','',{})
+		})
+		$('#get20_in__ID').on('click',function(){
+			$vm.load_module('calendar-appointment-week','',{})
+		})
+		$('#get30_in__ID').on('click',function(){
+			$vm.load_module('calendar-appointment-month','',{})
+		})
+		$('#get40_in__ID').on('click',function(){
+			$vm.load_module('calendar-appointment-waiting-list','',{})
+		})
+		$('#scroll_down__ID').on('click',function(e){
+			e.preventDefault();
+    		$('html, body').animate({ scrollTop: $('#page2__ID').offset().top-100}, 800, 'linear');
+		})
+	</script>
+	<style>
+		#D__ID{
+			height:100%;
+	        overflow:auto;
+			/*animation: vm_module_fadein 1.0s, D__ID 3s;*/
+		}
+		#page__ID{
+			height:100%;
+			display: flex;
+			align-items: center;
+		}
+		.panel__ID{
+			color:#fff;
+			background: rgba(0, 0, 0, 0.0);
+			border-radius: 25px;
+			padding:10px 30px;
+		}
+		#page__ID h2{
+			text-shadow: 2px 2px 2px #000;
+		}
+		@keyframes D__ID {
+			from {padding-top: 300px;}
+			to {padding-top: 0px;}
+		}
+	    @media screen and (max-width: 992px) {
+	        #D__ID{
+	            animation: vm_module_fadein 1.0s;
+	        }
+	    }
+		#scroll_down__ID {
+			color:#fff;
+			animation:scroll__ID 8s;
+			-moz-animation:scroll__ID 8s infinite; /* Firefox */
+			-webkit-animation:scroll__ID 8s infinite; /* Safari and Chrome */
+		}
+    	@keyframes scroll__ID 
+		{
+			0%   {color:#fff;}
+			50%  {color:#333;}
+			100%   {color:#fff;}
+		}
+        @media screen and (max-width: 1200px) {
+			#page__ID h1{
+				font-size: 26px;
+			}
+		}
+
+	</style>
+	<script>
+		function F__ID(){
+			$vm['home_ready']=1;
+		}
+	</script>
+</div>

@@ -1,0 +1,34 @@
+<section>
+    VmInclude:__COMPONENT__/g/grid.01.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/g/grid.01.js
+        //-------------------------------------
+        var fields="Date,Time,Item_Number,Appointment,Appointment_uid,Item_Number_Procedure,Charge,Research_Project,Referral,Colour,Special_Needs,Comments,Cancelled,Cancelled_Reason";
+        m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
+        //-------------------------------------
+        m.cell_render=function(records,I,field,td){
+            switch(field){
+                case 'Item_Number_Procedure':
+                    td.css('background-color',records[I].Data.Colour);
+                    td.css('color',$vm.whire_or_black_color(records[I].Data.Colour));
+                    break;
+                case 'Colour':
+                    td.html("<span style='color:"+records[I].Data[field]+"'><i class='fas fa-circle'></i></span>");
+                    td.css('text-align','center');
+                    break;
+            }
+        };
+        //-------------------------------------
+        //m.sort={'I1':-1};
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/g/grid.01.css
+    #D__ID{
+        background-color:rgb(255,255,255,0);
+    }
+
+</style>
