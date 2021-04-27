@@ -1,0 +1,184 @@
+<div id=D__ID>
+	<!--third html start -->
+	<div class="container mt-95 mb-3">
+		<div class="row">
+			<!-- form container start -->
+			<div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+				<div class="row">
+					<div class="col-12">
+						<!-- form start -->
+						<form id="F__ID">
+							<h3>Scoring list</span></h3>
+						<div>
+							<div class="form-group ">
+								<div class="questiongroup ">
+									<fieldset class="subquestions">
+										<div class="row">
+											<div class="col-lg-12 col-sm-12">
+												<div class="input-group-sm ">
+													<label><span class="">Date of Study</span></label>
+													<input class="form-control" type=date name=date placeholder="date BP">
+												</div>
+											</div>
+										</div>
+									</fieldset>
+								</div>
+								</div>
+					<!--section start-->
+						<div class="form-group ">
+							<div class="questiongroup ">
+								<fieldset class="subquestions">
+									<div class="row">
+										<div class="col-lg-12 col-sm-12">
+											<div class="input-group-sm ">
+												<label><span class="">Research Project</span></label>
+														<select class="form-control" name=research_project id=research_project__ID>
+														
+														</select>
+												</div>
+											</div>
+										</div>
+									</fieldset>
+								</div>
+						</div>
+						<!--section end-->
+						<!--section start-->
+						<div class="form-group ">
+							<div class="questiongroup ">
+								<fieldset class="subquestions">
+									<div class="row">
+										<div class="col-lg-12 col-sm-12">
+											<div class="input-group-sm ">
+												<label><span class="">Study ID</span></label>
+													<input class="form-control" type=text name=study_id id = study_id__ID>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<!--section end-->
+						<!--section start-->
+						<div class="form-group ">
+							<div class="questiongroup ">
+								<fieldset class="subquestions">
+									<div class="row">
+										<div class="col-lg-12 col-sm-12">
+											<div class="input-group-sm ">
+												<label><span class="">File Location</span></label>
+												<input class="form-control" name=location id=location__ID>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<!--section end-->
+						<!--section start-->
+						<div class="form-group ">
+							<div class="questiongroup ">
+								<fieldset class="subquestions">
+									<div class="row">
+										<div class="col-lg-12 col-sm-12">
+											<div class="input-group-sm ">
+												<label><span class="">Medicared</span></label>
+												<input type="checkbox" name=medicare id=medicare__ID value = "yes">
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<!--section end-->
+						<!--section start-->
+						<div class="form-group ">
+							<div class="questiongroup ">
+								<fieldset class="subquestions">
+									<div class="row">
+										<div class="col-lg-12 col-sm-12">
+											<div class="input-group-sm ">
+												<label><span class="">Scorer</span></label>
+												<select class="form-control" name=scorer id=scorer__ID>
+													<option><b>Please Select...</b></option>
+													<option>Fraser Lowrie</option>
+													<option>Michelle Balenzuela</option>
+													<option>Andrea Ricardello</option>
+													<option></option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<!--section end-->
+							<!--section start-->
+							<div class="form-group ">
+								<div class="questiongroup ">
+									<fieldset class="subquestions">
+										<div class="row">
+											<div class="col-lg-12 col-sm-12">
+												<div class="input-group-sm ">
+													<label><span class="">Scored</span></label>
+													<input type="checkbox" name=scored id=scored__ID value="yes">
+													<input type="time" name="timestamp" step="1" readonly>
+												</div>
+											</div>
+										</div>
+									</fieldset>
+								</div>
+							</div>
+							<!--section end-->
+								<button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+								<button id=delete__ID type="button" class="btn btn-primary btn-lg">Delete</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		function textAreaAdjust__ID(o) {
+			//console.log(o)
+			o.style.height = "1px";
+			o.style.height = (25 + o.scrollHeight) + "px";
+		}
+		//-------------------------------------
+		function F__ID() {
+			//-------------------------------------
+			VmInclude: __COMPONENT__/f/form.01.js
+			//-------------------------------------
+			var autocomplete_req3 = { cmd: "find", field: '.Data.Research_study', table: m.lookup3, options: {}, skip: 0, limit: 10 }
+			var autocomplete_callback3 = function (item) {
+				$('input[name=research_project]').val(item.label);
+			}
+			var autocomplete_list3 = function (records) {
+				var items = [];
+				for (var i = 0; i < records.length; i++) {
+					var obj = {};
+					obj.label = records[i].Data["Research_study"];
+					items.push(obj);
+				}
+				return items;
+			}
+			var wait3 = function () {
+				$vm.autocomplete($('#F__ID input[name=research_project]'), autocomplete_req3, autocomplete_list3, autocomplete_callback3);
+			}
+			var I3 = 0; var loop_3 = setInterval(function () {
+				if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop_3); wait3(); }
+				I3++; if (I3 > 50) { clearInterval(loop_3); alert("jquery-ui.min.js is not installed."); }
+			}, 100);
+
+		}
+		//-------------------------------
+
+	</script>
+	<style>
+		#form_container__ID {
+			max-width: 800px;
+		}
+
+		VmInclude:__CURRENT_PATH__/wappsystem-form.css
+	</style>
+</div>

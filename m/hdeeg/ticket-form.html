@@ -8,18 +8,38 @@
 					<div class="col-12">
 						<!-- form start -->
 						<form id="F__ID">
-							<h3>Setup - <span id=Date__ID class="">Date</span></h3>
+							<h3><span>Support Ticket</span></h3>
 								<div>
 								<div class="form-group ">
 									<div class="questiongroup ">
 										<fieldset class="subquestions">
 											<div class="row">
-												<div class="col-lg-12 col-sm-12">
-													<div><label><span class="">Name of Equipment</span></label></div>
+												<div class="col-lg-3 col-sm-12">
+													<div><label><span class="">Case No. (Provided by Vendor)</span></label></div>
 													<div class="input-group-sm">
-													<textarea style='font-size:12px' class="form-control" name=equipment_name id=equipment_name__ID 
-													placeholder="e.g Acquisition Computer 1 "></textarea>
-													</div>
+														<input type="text" name=case_no id=case_no__ID>
+												</div>
+											</div>
+										</fieldset>
+									</div>
+								</div>
+								<div>
+								<div class="form-group ">
+										<div class="questiongroup ">
+											<fieldset class="subquestions">
+												<div class="row">
+													<div class="col-lg-3 col-sm-12">
+													<div><label><span class="">Equipment</span></label></div>
+												<div class="input-group-sm ">
+												<input type="text" name=Equipment id=Equipment__ID>
+												</div>
+											</div>
+												<div class="col-lg-6 col-sm-12">
+														<div><label><span class="">Others:</span></label></div>
+														<div class="input-group-sm ">
+														<input type="text" name=other_equipment id=other_equipment__ID placeholder="If Others, please specify" size=45%>
+														</div>
+													</div>	
 												</div>
 											</div>
 										</fieldset>
@@ -30,111 +50,74 @@
 									<div class="questiongroup ">
 										<fieldset class="subquestions">
 											<div class="row">
-												<div class="col-lg-4 col-sm-12">
-													<div><label><span class="">Product Number</span></label></div>
-													<div class="input-group-sm ">
-														<input type="text" name=product_number id=product_number__ID>
-													</div>
-												</div>
 													<div class="col-lg-4 col-sm-12">
 														<div><label><span class="">Serial Number</span></label></div>
 														<div class="input-group-sm ">
 															<input type="text" name=serial_number id=serial_number__ID>
 														</div>
 													</div>
-													<div class="col-lg-4 col-sm-12">
-														<div><label><span class="">IP Address</span></label></div>
-														<div class="input-group-sm ">
-															<input type="text" name=ip_address id=ip_address__ID>
-														</div>
-													</div>
-												</div>
 										</fieldset>
 									</div>
 								</div>
-								<div>
-									<div class="form-group ">
-										<div class="questiongroup ">
-											<fieldset class="subquestions">
-												<div class="row">
-													<div class="col-lg-4 col-sm-12">
-														<div><label><span class="">Date Shipped</span></label></div>
-														<div class="input-group-sm ">
-															<input type="date" name=shipped id=shipped__ID>
-														</div>
-													</div>
-													<div class="col-lg-4 col-sm-12">
-														<div><label><span class="">Date of Install</span></label></div>
-														<div class="input-group-sm ">
-															<input type="date" name=install id=install__ID>
-														</div>
-													</div>
-														<div class="col-lg-4 col-sm-12">
-															<div><label><span class="">Personnel of Install</span></label></div>
-															<div class="input-group-sm ">
-																<input type="Text" name=personnel id=personnel__ID>
-															</div>
-														</div>
-												</div>
-											</fieldset>
-										</div>
-									</div>
 									<div class="form-group ">
 										<div class="questiongroup ">
 											<fieldset class="subquestions">
 												<div class="row">
 													<div class="col-lg-6 col-sm-12">
 														<div class="input-group-sm ">
-															<label><span class="">Is there Warranty? </span></label>
+															<label><span class="">Is this covered by Warranty? </span></label>
 															<input type="checkbox" name=warranty id=warranty__ID>
 														</div>
-													</div>
-													<div class="col-lg-6 col-sm-12">
-														<div class="input-group-sm ">
-															<label><span class="">If so, when is it until?</span></label>
-															<input type="date" name=warranty_date id=warranty_date__ID>
-														</div>
-													</div>
-							
+													</div>							
 												</div>
 											</fieldset>
 										</div>
 									</div>
-									<!--div class="form-group ">
-										<div class="questiongroup ">
-											<fieldset class="subquestions">
-												<div class="row">
-													<div class="col-lg-6 col-sm-12">
-														<div class="input-group-sm">
-															<label><span class="">Acquisition Start Date </span></label>
-															<input type="date" name=s_approval_date id=s_approval__ID>
+										<div class="form-group ">
+											<div class="questiongroup ">
+												<fieldset class="subquestions">
+													<div class="row">
+														<div class="col-lg-12 col-sm-12">
+															<div class="input-group-sm ">
+														<textarea class="form-control" id=Add_Comment__ID placeholder="enter new comments here.."></textarea>
+														<label><span class=""><u style='cursor:pointer;margin-bottom:3px;display:inline-block' id=add_comment__ID>
+														<i class="fa fa-plus"></i> Click here to add issues/comments/correspondence</u></span></label>
+														</div>
 														</div>
 													</div>
-													<div class="col-lg-6 col-sm-12">
-														<div class="input-group-sm">
-															<label><span class="">Estimated End Date</span></label>
-															<input type="date" name=end_approval_date id=end_approval__ID>
-														</div>
-													</div>
-												</div>
-											</fieldset>
+												</fieldset>
+											</div>
 										</div>
-									</div--->
-									<div class="form-group ">
-										<div class="questiongroup ">
-											<fieldset class="subquestions">
-												<div class="row">
-													<div class="col-lg-12 col-sm-12">
-														<div><label><span class="">Notes</span></label></div>
-														<div class="input-group-sm">
-															<textarea style='font-size:12px' class="form-control" name=tickets id=tickets__ID
-																placeholder="Listing tickets and maintenance?"></textarea>
+										<div class="form-group ">
+											<div class="questiongroup "> 
+												<fieldset class="subquestions">
+													<div class="row">
+														<div class="col-lg-12 col-sm-12">
+															<div><label><span class="">Notes & Comments</span></label></div>
+															<div class="input-group-sm">
+																<textarea style='font-size:12px' class="form-control" name=Comments id=Comments__ID
+																	placeholder="Anything else?" readonly></textarea>
+															</div>
 														</div>
 													</div>
+												</fieldset>
 												</div>
-											</fieldset>
-										</div>
+											</div>										
 									</div>
+										<div class="form-group ">
+											<div class="questiongroup ">
+												<fieldset class="subquestions">
+													<div class="row">
+														<div class="col-lg-6 col-sm-12">
+															<div class="input-group-sm ">
+																<label><span class="">Resolved?</span></label>
+																<input type="checkbox" name=resolved id=resolved__ID>
+															</div>
+														</div>
+													</div>
+												</fieldset>
+											</div>
+										</div>
 									<button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
 									<button id=delete__ID type="button" class="btn btn-primary btn-lg">Delete</button>
 								</div>
@@ -158,8 +141,35 @@
 
 			//-------------------------------------
 			
-        
-		}
+				$('#add_comment__ID').on('click', function () {
+					var now_time = new Date();
+					now_time = now_time.toString().split(" ");
+					now_time = now_time[4];
+					var now_date = $vm.date_to_string_dmy(new Date());
+					var new_comments = $('#Add_Comment__ID').val();
+					if (new_comments != "") {
+						var old_comments = $('#F__ID textarea[name=Comments]').val()
+						if ($('#F__ID textarea[name=Comments]').val() == undefined) old_comments = "";
+						var comments = now_time + ' ' + now_date + " - " + $vm.user_name + "\n" + new_comments + "\n\n" + old_comments
+						$('#F__ID textarea[name=Comments]').val(comments)
+						$('#Add_Comment__ID').val("");
+					}
+					else $vm.alert("Please enter a comment")
+				})
+			}
+		function myFunction() {
+				// Get the checkbox
+				var checkBox = document.getElementById("myCheck");
+				// Get the output text
+				var text = document.getElementById("text");
+
+				// If the checkbox is checked, display the output text
+				if (checkBox.checked == true) {
+					text.style.display = "block";
+				} else {
+					text.style.display = "none";
+				}
+			}
 		//-------------------------------
 
     </script>

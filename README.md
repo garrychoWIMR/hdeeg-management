@@ -1,1 +1,1 @@
-# sleeplab
+# hdeeg-management-system 
