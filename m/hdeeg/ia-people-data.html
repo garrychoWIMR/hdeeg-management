@@ -9,7 +9,7 @@
         var fields="Name|s_name,Position|position,Active Staff?|a_staff";
         m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
         //-------------------------------------
-      	m.query={"Data.a_staff":"Yes"};
+          m.query={"Data.a_staff":"No"};
 				m.cell_render=function(records,I,field,td){
             switch(field){
                 case 'Colour':

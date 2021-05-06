@@ -6,11 +6,11 @@
         //-------------------------------------
         VmInclude:__COMPONENT__/g/grid.01.js
         //-------------------------------------
-        var fields="Name|s_name,Position|position,Active Staff?|a_staff";
+        var fields="Research_study,Coordinators,Principle Investigator|principle_inv,Status,Date of Ethics Approval|e_approval_date,Start Date|acq_start_date,End Date|acq_end_date,Comments";
         m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
         //-------------------------------------
-      	m.query={"Data.a_staff":"Yes"};
-				m.cell_render=function(records,I,field,td){
+       m.query={"Data.Status":"Complete"};
+			 m.cell_render=function(records,I,field,td){
             switch(field){
                 case 'Colour':
                     td.html("<span style='color:"+records[I].Data[field]+"'><i class='far fa-circle'></i></span>");

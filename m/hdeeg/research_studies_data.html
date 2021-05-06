@@ -9,7 +9,8 @@
         var fields="Research_study,Coordinators,Principle Investigator|principle_inv,Status,Date of Ethics Approval|e_approval_date,Start Date|acq_start_date,End Date|acq_end_date,Comments";
         m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
         //-------------------------------------
-        m.cell_render=function(records,I,field,td){
+        m.query={$or:[{"Data.Status":"Planning"},{ "Data.Status":"Recruiting/Data Collecting"},{"Data.Status":"Analysis"}]};
+				m.cell_render=function(records,I,field,td){
             switch(field){
                 case 'Colour':
                     td.html("<span style='color:"+records[I].Data[field]+"'><i class='far fa-circle'></i></span>");

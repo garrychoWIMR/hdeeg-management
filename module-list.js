@@ -9,7 +9,9 @@
         "research_studies":    { url: "$H/m/hdeeg/research_studies_data.html", Table: "researchstudies-setup", form_module:"research_studies_form" },
         "research_studies_form":    { url: "$H/m/hdeeg/research_studies_form.html", Table: "researchstudies-setup" },
         "equipment_data":           { url: "$H/m/hdeeg/equipment-data.html", Table: "equipment-setup", task_name: "demo-hdeeg-tracking" },
-        "equipment_form":           { url: "$H/m/hdeeg/equipment-form.html", Table: "equipment", task_name: "demo-hdeeg-tracking" },
+        "equipment_form":           { url: "$H/m/hdeeg/equipment-form.html", Table: "equipment-setup", task_name: "demo-hdeeg-tracking" },
+				"ia-people-data": 					{ url: "$H/m/hdeeg/ia-people-data.html", Table: "people-setup", form_module: "people-form"},
+				"ia-research_studies": 				{ url: "$H/m/hdeeg/ia-research_studies_data.html", Table: "researchstudies-setup", form_module: "research_studies_form" },
 
     
     //Operations Admin (POs,Equipment Tracking,Research Studies, Staffing, No. of studies)
@@ -28,7 +30,8 @@
     //Research Study Admin
         "tracking_data":            { url: "$H/m/hdeeg/hdeeg-tracking-data.html", Table: "hdeeg-tracking", form_module: "tracking_form" },
         "tracking_form":            { url: "$H/m/hdeeg/hdeeg-tracking-form.html", Table: "hdeeg-tracking" },
-        "sop_data":                 { url: "$H/m/hdeeg/hdeeg-sop-data.html", Table: "demo-hdeeg-tracking1", task_name: "demo-hdeeg-tracking" },
+        "sop-data":                 { url: "$H/m/hdeeg/sop-data.html", Table: "sop-setup", form_module:"sop-form"},
+				"sop-form": 								{ url: "$H/m/hdeeg/sop-form.html", Table: "sop-setup" },
         "scoring-data":             { url: "$H/m/hdeeg/scoring-data.html", Table: "demo-hdeeg-scoring", form_module: "scoring-form" },
         "scoring-form":             { url: "$H/m/hdeeg/scoring-form.html", Table: "demo-hdeeg-scoring" },
 

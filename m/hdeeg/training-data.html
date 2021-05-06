@@ -6,17 +6,24 @@
 		//-------------------------------------
 		VmInclude: __COMPONENT__/g/grid.01.js
 		//-------------------------------------
-		var fields = "Staff Member|staff,Position|position,Assisted Setup|assisted_setup,Amplifer Setup|amp_setup,Net Application|net_setup,PSG setup|psg_setup,Net Removal and Cleaning|net_remove,Geoscan|geoscan,Netstation Acquisition|netstat_acq,KDT Administration|kdt,Neurocog Testing|neurocog,MSLT|mslt,MWT|mwt,ERP|erp,Backup|backup,NS PSG Preproc|ns_psg_preproc,NS KDT Preproc|ns_kdt_preproc,PRANA PSG Preproc|pr_psg_preproc,PRANA KDT PreProc|pr_kdt_preproc,UWM Preproc|uwm_preproc,BIDS Preproc|bids_preproc,QEEG|qeeg_proc,GCP|gcp,GCP Valid Until|gcp_expired,Venepuncture|venep,Venepuncture Valid Until|venep_expired,Scoring|scoring,Head Model Building|hm_build";
-		m.fields = "" + fields + ",Submit_date,Submitted_by,_Delete";
+		var fields = "Colour,Staff Member|staff,Position|position,Assisted Setup|assisted_setup,Amplifer Setup|amp_setup,Net Application|net_setup,PSG setup|psg_setup,Net Removal and Cleaning|net_remove,Geoscan|geoscan,Netstation Acquisition|netstat_acq,KDT Administration|kdt,Neurocog Testing|neurocog,MSLT|mslt,MWT|mwt,ERP|erp,Backup|backup,NS PSG Preproc|ns_psg_preproc,NS KDT Preproc|ns_kdt_preproc,PRANA PSG Preproc|pr_psg_preproc,PRANA KDT PreProc|pr_kdt_preproc,UWM Preproc|uwm_preproc,BIDS Preproc|bids_preproc,QEEG|qeeg_proc,GCP|gcp,GCP Valid Until|gcp_expired,Venepuncture|venep,Venepuncture Valid Until|venep_expired,Scoring|scoring,Head Model Building|hm_build";
+		m.fields = "_Form," + fields + ",Submit_date,Submitted_by,_Delete";
 		//-------------------------------------
 		m.query ={ "Data.position": "Researcher"}
 		m.cell_render = function (records, I, field, td) {
 			switch (field) {
-				case 'Colour':
+				/*case 'Colour':
 					td.html("<span style='color:" + records[I].Data[field] + "'><i class='far fa-circle'></i></span>");
 					td.css('text-align', 'center');
 					break;
-			}
+				case 'assisted_setup':
+					if(records[I].Data[field]=="0"){
+						td.css('background-color', #ffffff);
+						td.css('color', $vm.whire_or_black_color(records[I].Data.Colour));
+					}
+						
+						break;
+*/			}
 		};
 		//-------------------------------------
 		//m.sort={'I1':-1};
