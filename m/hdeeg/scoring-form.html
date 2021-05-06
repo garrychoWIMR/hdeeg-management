@@ -32,9 +32,7 @@
 										<div class="col-lg-12 col-sm-12">
 											<div class="input-group-sm ">
 												<label><span class="">Research Project</span></label>
-														<select class="form-control" name=research_project id=research_project__ID>
-														
-														</select>
+													<input type=text class="form-control" name=research_project id=research_project__ID />
 												</div>
 											</div>
 										</div>
@@ -82,7 +80,7 @@
 										<div class="col-lg-12 col-sm-12">
 											<div class="input-group-sm ">
 												<label><span class="">Medicared</span></label>
-												<input type="checkbox" name=medicare id=medicare__ID value = "yes">
+												<input type="checkbox" name=medicare id=medicare__ID value = Yes>
 											</div>
 										</div>
 									</div>
@@ -98,13 +96,7 @@
 										<div class="col-lg-12 col-sm-12">
 											<div class="input-group-sm ">
 												<label><span class="">Scorer</span></label>
-												<select class="form-control" name=scorer id=scorer__ID>
-													<option><b>Please Select...</b></option>
-													<option>Fraser Lowrie</option>
-													<option>Michelle Balenzuela</option>
-													<option>Andrea Ricardello</option>
-													<option></option>
-												</select>
+												<input type=text class="form-control" name=scorer id=scorer__ID />
 											</div>
 										</div>
 									</div>
@@ -120,7 +112,7 @@
 											<div class="col-lg-12 col-sm-12">
 												<div class="input-group-sm ">
 													<label><span class="">Scored</span></label>
-													<input type="checkbox" name=scored id=scored__ID value="yes">
+													<input type="checkbox" name=scored id=scored__ID value=yes>
 													<input type="time" name="timestamp" step="1" readonly>
 												</div>
 											</div>
@@ -149,7 +141,45 @@
 			//-------------------------------------
 			VmInclude: __COMPONENT__/f/form.01.js
 			//-------------------------------------
-			var autocomplete_req3 = { cmd: "find", field: '.Data.Research_study', table: m.lookup3, options: {}, skip: 0, limit: 10 }
+			/*
+			old_load = m.load;
+			m.load = function () {
+				old_load();
+				
+				alert(1)
+
+
+				//$vm.autocomplete($('#F__ID input[name=research_project'), autocomplete_req3, autocomplete_list3, autocomplete_callback3);
+
+
+			}
+			*/
+
+
+			var autocomplete_req2 = {cmd: "find", field: '.Data.s_name', table: 'people-setup',query:{"Data.position":"Scorer"}, options: {}, skip: 0, limit: 10 }
+			var autocomplete_callback2 = function (item) {
+				$('input[name=scorer]').val(item.label);
+			}	
+			var autocomplete_list2 = function (records) {
+				var items = [];
+				for (var i = 0; i < records.length; i++) {
+					var obj = {};
+					obj.label = records[i].Data["s_name"];
+					items.push(obj);
+				}
+				return items;
+			}
+			var wait2 = function () {
+				$vm.autocomplete($('#F__ID input[name=scorer]'), autocomplete_req2, autocomplete_list2, autocomplete_callback2);
+			}
+			var I2 = 0; var loop_2 = setInterval(function () {
+				if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop_2); wait2(); }
+				I2++; if (I2 > 50) { clearInterval(loop_2); alert("jquery-ui.min.js is not installed."); }
+			}, 100);
+		
+			//---------------------------------------------------------------
+			
+			var autocomplete_req3 = { cmd: "find", field: '.Data.Research_study', table: 'researchstudies-setup', options: {}, skip: 0, limit: 10 }
 			var autocomplete_callback3 = function (item) {
 				$('input[name=research_project]').val(item.label);
 			}
@@ -160,7 +190,7 @@
 					obj.label = records[i].Data["Research_study"];
 					items.push(obj);
 				}
-				return items;
+				return items;s
 			}
 			var wait3 = function () {
 				$vm.autocomplete($('#F__ID input[name=research_project]'), autocomplete_req3, autocomplete_list3, autocomplete_callback3);
@@ -172,6 +202,8 @@
 
 		}
 		//-------------------------------
+
+
 
 	</script>
 	<style>

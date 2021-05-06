@@ -18,24 +18,14 @@
 												<div class="col-lg-6 col-sm-12">
 													<div><label><span class="">Research Studies</span></label></div>
 													<div class="input-group-sm ">
-														<select class="form-control" name=Research_study id=Research_study__ID >
-															<option> <b>Dropdown of Research Studies Registered?</b></option>
-															<option >Study 1</option>
-															<option >Study 2</option>
-														</select>
+														<input type= "text" class="form-control" name=Research_study id=Research_study__ID >
 													</div>
 												</div>
 
 												<div class="col-lg-6 col-sm-12">
 													<div><label><span class="">Study Coordinators</span></label></div>
 													<div class="input-group-sm ">
-														<select class="form-control" id=Coordinators__ID name=Coordinators >
-															<option>"dropdown of staff?"</option>
-															<option>Staff 1</option>
-															<option>Staff 2</option>
-															<option>Staff 3</option>
-															<option>Staff 4</option>
-														</select>
+														<input type = "text" class="form-control" id=Coordinators__ID name=Coordinators placeholder="Search">
 													</div>
 												</div>
 											
@@ -51,18 +41,13 @@
 													<div class="col-lg-6 col-sm-12">
 														<div><label><span class="">Principle Investigator</span></label></div>
 														<div class="input-group-sm ">
-															<select class="form-control" name=principle_inv id=principle_inv__ID>
-																<option> <b>Dropdown of Principle Investigators</b></option>
-																<option>PI 1</option>
-																<option>PI 2</option>
-															</select>
+															<input type="text" class="form-control" name=principle_inv id=principle_inv__ID placeholder="Search">
 														</div>
 													</div>
 													<div class="col-lg-6 col-sm-12">
 														<div><label><span class="">Status</span></label></div>
 														<div class="input-group-sm ">
-															<select class="form-control" name=Status id=Status__ID>
-																<option><b>Please Select...</b></option>
+															<select class="form-control" name=Status id=Status__ID placeholder="Please Select...">
 																<option>Planning</option>
 																<option>Recruiting/Data Collecting</option>
 																<option>Analysis</option>
@@ -114,9 +99,9 @@
 															<div class="row">
 																<div class="col-lg-12 col-sm-12">
 																	<div class="input-group-sm ">
-																		<label><span class=""><u style='cursor:pointer;margin-bottom:3px;display:inline-block' id=add_comment__ID>
-																		<textarea class="form-control" id=Add_Comment__ID placeholder="enter new comments here.."></textarea>
-																		<i class="fa fa-plus"></i> Click here to add comment</u></span></label>
+													<label><span class=""><u style='cursor:pointer;margin-bottom:3px;display:inline-block' id=add_comment__ID><i
+																	class="fa fa-plus">Click here to add comment</u></i></span></label>
+													<textarea class="form-control" id=Add_Comment__ID placeholder="enter new comments here.."></textarea>
 																	</div>
 																</div>
 															</div>
@@ -165,22 +150,65 @@
             VmInclude:__COMPONENT__/f/form.01.js
 			//-------------------------------------
 
-					$('#add_comment__ID').on('click', function () {
-					var now_time = new Date();
-					now_time = now_time.toString().split(" ");
-					now_time = now_time[4];
-					var now_date = $vm.date_to_string_dmy(new Date());
-					var new_comments = $('#Add_Comment__ID').val();
-					if (new_comments != "") {
-						var old_comments = $('#F__ID textarea[name=Comments]').val()
-						if ($('#F__ID textarea[name=Comments]').val() == undefined) old_comments = "";
-						var comments = now_time + ' ' + now_date + " - " + $vm.user_name + "\n" + new_comments + "\n\n" + old_comments
-						$('#F__ID textarea[name=Comments]').val(comments)
-						$('#Add_Comment__ID').val("");
+			$('#add_comment__ID').on('click', function () {
+				var now_time = new Date();
+				now_time = now_time.toString().split(" ");
+				now_time = now_time[4];
+				var now_date = $vm.date_to_string_dmy(new Date());
+				var new_comments = $('#Add_Comment__ID').val();
+				if (new_comments != "") {
+					var old_comments = $('#F__ID textarea[name=Comments]').val()
+					if ($('#F__ID textarea[name=Comments]').val() == undefined) old_comments = "";
+					var comments = now_time + ' ' + now_date + " - " + $vm.user_name + "\n" + new_comments + "\n\n" + old_comments
+					$('#F__ID textarea[name=Comments]').val(comments)
+					$('#Add_Comment__ID').val("");
+				}
+				else $vm.alert("Please enter a comment")
+			})
+			//-------------------------------------
+				var autocomplete_req = { cmd: "find", field: '.Data.s_name', table: 'people-setup', query: { "Data.position": "Researcher" }, options: {}, skip: 0, limit: 10 }
+				var autocomplete_callback = function (item) {
+					$('input[name=Coordinators]').val(item.label);
+				}
+				var autocomplete_list = function (records) {
+					var items = [];
+					for (var i = 0; i < records.length; i++) {
+						var obj = {};
+						obj.label = records[i].Data["s_name"];
+						items.push(obj);
 					}
-					else $vm.alert("Please enter a comment")
-				})
-   		}
+					return items;
+				}
+				var wait = function () {
+					$vm.autocomplete($('#F__ID input[name=Coordinators]'), autocomplete_req, autocomplete_list, autocomplete_callback);
+				}
+				var I1 = 0; var loop = setInterval(function () {
+					if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop); wait(); }
+					I1++; if (I1 > 50) { clearInterval(loop); alert("jquery-ui.min.js is not installed."); }
+				}, 100);
+			//-------------------------------------	
+				var autocomplete_req2 = { cmd: "find", field: '.Data.s_name', table: 'people-setup', query: { "Data.position": "Researcher" }, options: {}, skip: 0, limit: 10 }
+				var autocomplete_callback2 = function (item) {
+					$('input[name=principle_inv]').val(item.label);
+				}
+				var autocomplete_list2 = function (records) {
+					var items = [];
+					for (var i = 0; i < records.length; i++) {
+						var obj = {};
+						obj.label = records[i].Data["s_name"];
+						items.push(obj);
+					}
+					return items;
+				}
+				var wait2 = function () {
+					$vm.autocomplete($('#F__ID input[name=principle_inv]'), autocomplete_req2, autocomplete_list2, autocomplete_callback2);
+				}
+				var I2 = 0; var loop_2 = setInterval(function () {
+					if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop_2); wait2(); }
+					I2++; if (I2 > 50) { clearInterval(loop_2); alert("jquery-ui.min.js is not installed."); }
+				}, 100);
+			//-------------------------------------
+		}
 		//-------------------------------
 
     </script>

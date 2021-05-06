@@ -3,8 +3,10 @@
     var modules = {
     
     //Setup
+        "people-data":              { url: "$H/m/hdeeg/people-data.html", Table: "people-setup", form_module: "people-form"},
+        "people-form":              { url: "$H/m/hdeeg/people-form.html", Table: "people-setup" },
         "sleepstudies_data":        { url: "$H/m/hdeeg/research_studies_data.html", Table: "sleepstudies-setup"},
-        "research_studies_data":    { url: "$H/m/hdeeg/research_studies_data.html", Table: "researchstudies-setup", form_module:"research_studies_form" },
+        "research_studies":    { url: "$H/m/hdeeg/research_studies_data.html", Table: "researchstudies-setup", form_module:"research_studies_form" },
         "research_studies_form":    { url: "$H/m/hdeeg/research_studies_form.html", Table: "researchstudies-setup" },
         "equipment_data":           { url: "$H/m/hdeeg/equipment-data.html", Table: "equipment-setup", task_name: "demo-hdeeg-tracking" },
         "equipment_form":           { url: "$H/m/hdeeg/equipment-form.html", Table: "equipment", task_name: "demo-hdeeg-tracking" },
@@ -17,6 +19,10 @@
         "finanacereports_data":     { url: "$H/m/hdeeg/hdeeg-po-data.html", Table: "demo-hdeeg-tracking1", task_name: "demo-hdeeg-tracking" },
         "ticket_data":              { url: "$H/m/hdeeg/ticket-data.html", Table: "ticket-setup", form_module: "ticket_form" },
         "ticket_form":              { url: "$H/m/hdeeg/ticket-form.html", Table: "ticket-setup" },
+        "training_data_r":          { url: "$H/m/hdeeg/training-data.html", Table: "training-setup", form_module: "training_form" },
+        "training_form":            { url: "$H/m/hdeeg/training-form.html", Table: "training-setup" },
+				"training_data_st": 				{ url: "$H/m/hdeeg/training-st-data.html", Table: "training-setup", form_module: "trainingst_form" },
+				"trainingst_form": 						{ url: "$H/m/hdeeg/training-st-form.html", Table: "training-setup" },
 
 
     //Research Study Admin
