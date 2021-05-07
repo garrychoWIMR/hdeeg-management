@@ -12,10 +12,16 @@
 		m.query ={ "Data.position": "Researcher"}
 		m.cell_render = function (records, I, field, td) {
 			switch (field) {
-				/*case 'Colour':
-					td.html("<span style='color:" + records[I].Data[field] + "'><i class='far fa-circle'></i></span>");
-					td.css('text-align', 'center');
+				case 'assisted_setup':
+					var c="#fff";
+					switch(records[I].Data[field]){
+						case "0": c="#f00"; break;
+						case "1": c="#0f0"; break;
+						case "2": c="#00ff00"; break;
+					}
+					td.css('background-color', c);
 					break;
+					/*
 				case 'assisted_setup':
 					if(records[I].Data[field]=="0"){
 						td.css('background-color', #ffffff);
@@ -23,7 +29,8 @@
 					}
 						
 						break;
-*/			}
+						*/
+			}
 		};
 		//-------------------------------------
 		//m.sort={'I1':-1};
