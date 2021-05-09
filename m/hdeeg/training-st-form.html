@@ -43,6 +43,22 @@
 						<!--section start-->
 						<div class="form-group ">
 							<div class="questiongroup ">
+								<fieldset class="subquestions">
+									<div class="row">
+										<div class="col-lg-12 col-sm-12">
+											<div class="input-group-sm ">
+												<label><span class="">Active Staff Member?</span></label>
+												<input type=text class="form-control" name=a_staff id=a_staff__ID readonly />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<!--section end-->
+						<!--section start-->
+						<div class="form-group ">
+							<div class="questiongroup ">
 								<div class="row">
 									<div class="col-lg-12 col-sm-12">
 										<div class="input-group-sm ">
@@ -759,11 +775,11 @@
 			*/
 
 
-			var autocomplete_req2 = {cmd: "find", field: '.Data.s_name', table: 'people-setup',query:{"Data.position":"Sleep Technician"}, options: {}, skip: 0, limit: 10 }
+			var autocomplete_req2 = {cmd: "find", field: '.Data.s_name', table: 'people-setup',query:{$and:[{"Data.position":"Sleep Technician"},{"Data.a_staff":"Yes"}]}, options: {}, skip: 0, limit: 10 }
 			var autocomplete_callback2 = function (item) {
 				$('input[name=staff]').val(item.label);
 				$('input[name=position]').val(item.position);
-
+				$('input[name=a_staff]').val(item.activestaff);
 			}	
 			var autocomplete_list2 = function (records) {
 				var items = [];
@@ -771,6 +787,7 @@
 					var obj = {};
 					obj.label = records[i].Data["s_name"];
 					obj.position = records[i].Data["position"]
+					obj.activestaff = records[i].Data["a_staff"];
 					items.push(obj);
 				}
 				return items;
