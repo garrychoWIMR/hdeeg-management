@@ -128,6 +128,7 @@
 								<li>Governance</li>
 								<li>Ethics Approval Letter Upload</li>
 								<li>Tracking Amendments</li>
+								<li>Staffing for studies </li>
 								</center>
 								<button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
 								<button id=delete__ID type="button" class="btn btn-primary btn-lg">Delete</button>
@@ -206,6 +207,27 @@
 				var I2 = 0; var loop_2 = setInterval(function () {
 					if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop_2); wait2(); }
 					I2++; if (I2 > 50) { clearInterval(loop_2); alert("jquery-ui.min.js is not installed."); }
+				}, 100);
+			//-------------------------------------
+				var autocomplete_req3 = { cmd: "find", field: '.Data.study1', table: 'people-setup', query: {}, options: {}, skip: 0, limit: 10 }
+				var autocomplete_callback3 = function (item) {
+					$('input[name=Staff]').val(item.label);
+				}
+				var autocomplete_list3 = function (records) {
+					var items = [];
+					for (var i = 0; i < records.length; i++) {
+						var obj = {};
+						obj.label = records[i].Data["study_1"];
+						items.push(obj);
+					}
+					return items;
+				}
+				var wait3 = function () {
+					$vm.autocomplete($('#F__ID input[name=Staff]'), autocomplete_req3, autocomplete_list3, autocomplete_callback3);
+				}
+				var I3 = 0; var loop_3 = setInterval(function () {
+					if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop_3); wait3(); }
+					I3++; if (I3 > 50) { clearInterval(loop_3); alert("jquery-ui.min.js is not installed."); }
 				}, 100);
 			//-------------------------------------
 		}

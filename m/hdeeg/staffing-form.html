@@ -1,0 +1,189 @@
+<div id=D__ID>
+	<!--third html start -->
+	<div class="container mt-95 mb-3">
+		<div class="row">
+			<!-- form container start -->
+			<div class="col-12 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+				<div class="row">
+					<div class="col-12">
+						<!-- form start -->
+						<form id="F__ID">
+							<h3>Research study staffing</span></h3>
+						<div>
+							<!--section start-->
+							<div class="form-group ">
+								<div class="questiongroup ">
+									<fieldset class="subquestions">
+										<div class="row">
+											<div class="col-lg-12 col-sm-12">
+												<div class="input-group-sm ">
+													<label><span class="">Research Project</span></label>
+													<input type=text class="form-control" name=research_project id=research_project__ID />
+												</div>
+											</div>
+										</div>
+									</fieldset>
+								</div>
+							</div>
+							<!--section end-->
+						<!--section start-->
+						<div class="form-group ">
+							<div class="questiongroup ">
+								<fieldset class="subquestions">
+									<div class="row">
+										<div class="col-lg-12 col-sm-12">
+											<div class="input-group-sm ">
+												<label><span class="">Research Coordinator</span></label>
+												<input type=text class="form-control" name=coordinator id=coordinator__ID />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<!--section end-->
+						<!--section start-->
+						<div class="form-group ">
+							<div class="questiongroup ">
+								<fieldset class="subquestions">
+									<div class="row">
+										<div class="col-lg-12 col-sm-12">
+											<div class="input-group-sm ">
+												<label><span class="">Status</span></label>
+													<input class="form-control" type=text name=status id =status__ID>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<!--section end-->
+						<!--section start-->
+						<div class="form-group ">
+							<div class="questiongroup ">
+								<fieldset class="subquestions">
+									<div class="row">
+										<div class="col-lg-12 col-sm-12">
+											<div class="input-group-sm ">
+												<label><span class="">File Location</span></label>
+												<input class="form-control" name=location id=location__ID>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<!--section end-->
+						<!--section start-->
+						<div class="form-group ">
+							<div class="questiongroup ">
+								<fieldset class="subquestions">
+									<div class="row">
+										<div class="col-lg-12 col-sm-12">
+											<div class="input-group-sm ">
+												<label><span class="">Medicared</span></label>
+												<input type="checkbox" name=medicare id=medicare__ID value = Yes>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<!--section end-->
+						<!--section start-->
+						<div class="form-group ">
+							<div class="questiongroup ">
+								<fieldset class="subquestions">
+									<div class="row">
+										<div class="col-lg-12 col-sm-12">
+											<div class="input-group-sm ">
+												<label><span class="">Scorer</span></label>
+												<input type=text class="form-control" name=scorer id=scorer__ID />
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<!--section end-->
+							<!--section start-->
+							<div class="form-group ">
+								<div class="questiongroup ">
+									<fieldset class="subquestions">
+										<div class="row">
+											<div class="col-lg-12 col-sm-12">
+												<div class="input-group-sm ">
+													<label><span class="">Scored</span></label>
+													<input type="checkbox" name=scored id=scored__ID value=yes>
+													<input type="time" name="timestamp" step="1" readonly>
+												</div>
+											</div>
+										</div>
+									</fieldset>
+								</div>
+							</div>
+							<!--section end-->
+								<button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+								<button id=delete__ID type="button" class="btn btn-primary btn-lg">Delete</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		function textAreaAdjust__ID(o) {
+			//console.log(o)
+			o.style.height = "1px";
+			o.style.height = (25 + o.scrollHeight) + "px";
+		}
+		//-------------------------------------
+		function F__ID() {
+			//-------------------------------------
+			VmInclude: __COMPONENT__/f/form.01.js
+			//-------------------------------------
+			//---------------------------------------------------------------
+			
+			var autocomplete_req = { cmd: "find", field: '.Data.Research_study', table: 'researchstudies-setup', options: {}, skip: 0, limit: 10 }
+			var autocomplete_callback = function (item) {
+				$('input[name=coordinator]').val(item.coord);
+				$('input[name=research_project]').val(item.label);
+				$('input[name=status]').val(item.status);
+			}
+			var autocomplete_list = function (records) {
+				var items = [];
+				for (var i = 0; i < records.length; i++) {
+					var obj = {};
+					obj.label = records[i].Data["Research_study"];
+					obj.status = records[i].Data["Status"];
+					obj.coord = records[i].Data["Coordinators"];
+					items.push(obj);
+				}
+				return items;
+			}
+			var wait = function () {
+				$vm.autocomplete($('#F__ID input[name=research_project]'), autocomplete_req, autocomplete_list, autocomplete_callback);
+				$vm.autocomplete($('#F__ID input[name=status]'), autocomplete_req, autocomplete_list, autocomplete_callback);
+				$vm.autocomplete($('#F__ID input[name=coordinator]'), autocomplete_req, autocomplete_list, autocomplete_callback);
+
+			}
+			var I = 0; var loop = setInterval(function () {
+				if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop); wait(); }
+				I++; if (I> 50) { clearInterval(loop); alert("jquery-ui.min.js is not installed."); }
+			}, 100);
+
+		}
+		//-------------------------------
+
+
+
+	</script>
+	<style>
+		#form_container__ID {
+			max-width: 800px;
+		}
+
+		VmInclude:__CURRENT_PATH__/wappsystem-form.css
+	</style>
+</div>

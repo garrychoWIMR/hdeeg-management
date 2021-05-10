@@ -40,6 +40,7 @@
 									</fieldset>
 								</div>
 							</div>
+							<!--Section Start-->
 							<div class="form-group ">
 								<div class="questiongroup ">
 									<fieldset class="subquestions">
@@ -53,7 +54,107 @@
 									</div>
 								</fieldset>
 							</div>
-						</div>				
+						</div>
+						<!--Section End-->
+						<!--Section Start-->
+						<div class="form-group ">
+							<div class="questiongroup ">
+								<fieldset class="subquestions">
+									<div class="row">
+										<div class="col-lg-3 col-sm-12">
+											<div><label><span class="">Study 1 </span></label></div>
+											<div class="input-group-sm ">
+												<input type="text" class="form-control" id=study1__ID name=study1 placeholder="Search">	
+											</div>
+										</div>
+								</fieldset>
+							</div>
+						</div>
+						<!--Section End-->
+						<!--Section Start-->
+						<div class="form-group ">
+							<div class="questiongroup ">
+								<fieldset class="subquestions">
+									<div class="row">
+										<div class="col-lg-3 col-sm-12">
+											<div><label><span class="">Am or PM?</span></label></div>
+											<div class="input-group-sm ">
+											<select class=form-control name=ampm_1 id=ampm_1__ID required>
+												<option>AM</option>
+												<option>PM</option>
+											</select>
+											</div>
+										</div>
+								</fieldset>
+							</div>
+						</div>
+						<!--Section End-->
+						<!--Section Start-->
+						<div class="form-group ">
+							<div class="questiongroup ">
+								<fieldset class="subquestions">
+									<div class="row">
+										<div class="col-lg-3 col-sm-12">
+											<div><label><span class="">Study 2 </span></label></div>
+											<div class="input-group-sm ">
+												<input type="text" class="form-control" id=study2__ID name=study2 placeholder="Search">
+											</div>
+										</div>
+								</fieldset>
+							</div>
+						</div>
+						<!--Section End-->
+						<!--Section Start-->
+						<div class="form-group ">
+							<div class="questiongroup ">
+								<fieldset class="subquestions">
+									<div class="row">
+										<div class="col-lg-3 col-sm-12">
+											<div><label><span class="">Am or PM?</span></label></div>
+											<div class="input-group-sm ">
+												<select class=form-control name=ampm_2 id=ampm_2__ID required>
+													<option>AM</option>
+													<option>PM</option>
+												</select>
+											</div>
+										</div>
+								</fieldset>
+							</div>
+						</div>
+						<!--Section End-->
+						<!--Section Start-->
+						<div class="form-group ">
+							<div class="questiongroup ">
+								<fieldset class="subquestions">
+									<div class="row">
+										<div class="col-lg-3 col-sm-12">
+											<div><label><span class="">Study 3 </span></label></div>
+											<div class="input-group-sm ">
+												<input type="text" class="form-control" id=study3__ID name=study3 placeholder="Search">
+											</div>
+										</div>
+								</fieldset>
+							</div>
+						</div>
+						<!--Section End-->
+						<!--Section Start-->
+						<div class="form-group ">
+							<div class="questiongroup ">
+								<fieldset class="subquestions">
+									<div class="row">
+										<div class="col-lg-3 col-sm-12">
+											<div><label><span class="">Am or PM?</span></label></div>
+											<div class="input-group-sm ">
+												<select class=form-control name=ampm_3 id=ampm_3__ID required>
+													<option>AM</option>
+													<option>PM</option>
+												</select>
+											</div>
+										</div>
+								</fieldset>
+							</div>
+						</div>
+						<!--Section End-->
 						<button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
 						<button id=delete__ID type="button" class="btn btn-primary btn-lg">Delete</button>
 					</div>
@@ -71,18 +172,86 @@
 		}
 			//-------------------------------------
     	function F__ID(){
-    		//-------------------------------------
-            VmInclude:__COMPONENT__/f/form.01.js
 			//-------------------------------------
-      	m.before_submit = function (data, index) {
+            VmInclude:__COMPONENT__/f/form.01.js
+			//----------------------------------------
+			   	m.before_submit = function (data, index) {
 					data.staff_type = data.s_name + '-' + data.position;
+					data.study_1 = data.study1 + ' ' + data.ampm_1;
+					data.study_2 = data.study2 + ' ' + data.ampm_2;
+					data.study_3 = data.study3 + ' ' + data.ampm_3;
+				}			
+			//-------------------------------------
+				var autocomplete_req = { cmd: "find", field: '.Data.Research_study', table: 'researchstudies-setup', query: { $or: [{ "Data.Status": "Planning" }, { "Data.Status": "Recruiting/Data Collecting" }, { "Data.Status": "Analysis" }]}, options: {}, skip: 0, limit: 10 }
+				var autocomplete_callback = function (item) {
+					$('input[name=study1]').val(item.label);
 				}
-            }
-		//-------------------------------
+				var autocomplete_list = function (records) {
+					var items = [];
+					for (var i = 0; i < records.length; i++) {
+						var obj = {};
+						obj.label = records[i].Data["Research_study"];
+						items.push(obj);
+					}
+					return items;
+				}
+				var wait = function () {
+					$vm.autocomplete($('#F__ID input[name=study1]'), autocomplete_req, autocomplete_list, autocomplete_callback);
+				}
+				var I = 0; var loop = setInterval(function () {
+					if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop); wait(); }
+					I++; if (I > 50) { clearInterval(loop); alert("jquery-ui.min.js is not installed."); }
+				}, 100);
+			//-------------------------------	
+			//-------------------------------------
+				var autocomplete_req1 = { cmd: "find", field: '.Data.Research_study', table: 'researchstudies-setup', query: { $or: [{ "Data.Status": "Planning" }, { "Data.Status": "Recruiting/Data Collecting" }, { "Data.Status": "Analysis" }] }, options: {}, skip: 0, limit: 10 }
+				var autocomplete_callback1 = function (item) {
+					$('input[name=study2]').val(item.label);
+				}
+				var autocomplete_list1 = function (records) {
+					var items = [];
+					for (var i = 0; i < records.length; i++) {
+						var obj = {};
+						obj.label = records[i].Data["Research_study"];
+						items.push(obj);
+					}
+					return items;
+				}
+				var wait1 = function () {
+					$vm.autocomplete($('#F__ID input[name=study2]'), autocomplete_req1, autocomplete_list1, autocomplete_callback1);
+				}
+				var I1= 0; var loop_1 = setInterval(function () {
+					if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop_1); wait1(); }
+					I1++; if (I1 > 50) { clearInterval(loop_1); alert("jquery-ui.min.js is not installed."); }
+				}, 100);
+			//-------------------------------
+				var autocomplete_req2 = { cmd: "find", field: '.Data.Research_study', table: 'researchstudies-setup', query: { $or: [{ "Data.Status": "Planning" }, { "Data.Status": "Recruiting/Data Collecting" }, { "Data.Status": "Analysis" }] }, options: {}, skip: 0, limit: 10 }
+				var autocomplete_callback2 = function (item) {
+					$('input[name=study3]').val(item.label);
+				}
+				var autocomplete_list2 = function (records) {
+					var items = [];
+					for (var i = 0; i < records.length; i++) {
+						var obj = {};
+						obj.label = records[i].Data["Research_study"];
+						items.push(obj);
+					}
+					return items;
+				}
+				var wait2 = function () {
+					$vm.autocomplete($('#F__ID input[name=study3]'), autocomplete_req2, autocomplete_list2, autocomplete_callback2);
+				}
+				var I2 = 0; var loop_2 = setInterval(function () {
+					if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop_2); wait2(); }
+					I2++; if (I2 > 50) { clearInterval(loop_1); alert("jquery-ui.min.js is not installed."); }
+				}, 100);
+			}
 
-    </script>
-    <style>
-        #form_container__ID{
+			 
+			 
+			  </script>
+			<style>
+					#form_container__ID{
             max-width:800px;
         }
         VmInclude:__CURRENT_PATH__/wappsystem-form.css

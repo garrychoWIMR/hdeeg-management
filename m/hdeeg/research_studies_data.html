@@ -6,10 +6,11 @@
         //-------------------------------------
         VmInclude:__COMPONENT__/g/grid.01.js
         //-------------------------------------
-        var fields="Research_study,Coordinators,Principle Investigator|principle_inv,Status,Date of Ethics Approval|e_approval_date,Start Date|acq_start_date,End Date|acq_end_date,Comments";
+        var fields="Research_study,Coordinators,Principle Investigator|principle_inv,Status,Date of Ethics Approval|e_approval_date,Start Date|acq_start_date,End Date|acq_end_date,Comments,Staff";
         m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
         //-------------------------------------
         m.query={$or:[{"Data.Status":"Planning"},{ "Data.Status":"Recruiting/Data Collecting"},{"Data.Status":"Analysis"}]};
+			//m.query={$or:[{"Data.study_1":" "},{ "Data.study_2":" "}]};
 				m.cell_render=function(records,I,field,td){
             switch(field){
                 case 'Colour':

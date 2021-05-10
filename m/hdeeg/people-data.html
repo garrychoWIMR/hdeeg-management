@@ -6,7 +6,7 @@
         //-------------------------------------
         VmInclude:__COMPONENT__/g/grid.01.js
         //-------------------------------------
-        var fields="Name|s_name,Position|position,Active Staff?|a_staff";
+        var fields="Name|s_name,Position|position,Active Staff?|a_staff,Study 1|study_1,Study 2|study_2,Study 3|study_3";
         m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
         //-------------------------------------
       	m.query={$or:[{"Data.a_staff":"Yes"},{"Data.a_staff":null}]};

@@ -1,0 +1,28 @@
+<section>
+	VmInclude:__COMPONENT__/g/grid.01.html
+</section>
+<script>
+	function F__ID() {
+		//-------------------------------------
+		VmInclude: __COMPONENT__/g/grid.01.js
+		//-------------------------------------
+		var fields = "research_project,coordinator,status,Staff";
+		m.fields = "_Form," + fields + ",Submit_date,Submitted_by,_Delete";
+		//-------------------------------------
+		m.cell_render = function (records, I, field, td) {
+			switch (field) {
+				/*case 'a_staff':
+				if "Data.Status" = "Planning"|| "Recruiting/Data Collecting" || "Analysis"}:
+					return "yes"
+				else: 
+					return case = "no"
+				break;*/
+			}
+		};
+		//-------------------------------------
+		//m.sort={'I1':-1};
+	}
+</script>
+<style>
+	VmInclude:__COMPONENT__/g/grid.01.css
+</style>

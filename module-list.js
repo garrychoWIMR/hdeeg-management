@@ -9,8 +9,7 @@
         "research_studies":    { url: "$H/m/hdeeg/research_studies_data.html", Table: "researchstudies-setup", form_module:"research_studies_form" },
         "research_studies_form":    { url: "$H/m/hdeeg/research_studies_form.html", Table: "researchstudies-setup" },
         "equipment_data":           { url: "$H/m/hdeeg/equipment-data.html", Table: "equipment-setup", task_name: "demo-hdeeg-tracking" },
-        "equipment_form":           { url: "$H/m/hdeeg/equipment-form.html", Table: "equipment-setup", task_name: "demo-hdeeg-tracking" },
-				"ia-people-data": 					{ url: "$H/m/hdeeg/ia-people-data.html", Table: "people-setup", form_module: "people-form"},
+
 				"ia-research_studies": 				{ url: "$H/m/hdeeg/ia-research_studies_data.html", Table: "researchstudies-setup", form_module: "research_studies_form" },
 
     
@@ -24,7 +23,9 @@
         "training_data_r":          { url: "$H/m/hdeeg/training-data.html", Table: "training-setup", form_module: "training_form" },
         "training_form":            { url: "$H/m/hdeeg/training-form.html", Table: "training-setup" },
 				"training_data_st": 				{ url: "$H/m/hdeeg/training-st-data.html", Table: "training-setup", form_module: "trainingst_form" },
-				"trainingst_form": 						{ url: "$H/m/hdeeg/training-st-form.html", Table: "training-setup" },
+				"trainingst_form": 					{ url: "$H/m/hdeeg/training-st-form.html", Table: "training-setup" },
+				"staffing-data": 						{ url: "$H/m/hdeeg/staffing-data.html", Table: "staffing-setup", form_module: "staffing-form" },
+				"staffing-form": 						{ url: "$H/m/hdeeg/staffing-form.html", Table: "staffing-setup" },
 
 
     //Research Study Admin
