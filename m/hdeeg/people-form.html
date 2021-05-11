@@ -65,6 +65,7 @@
 											<div><label><span class="">Study 1 </span></label></div>
 											<div class="input-group-sm ">
 												<input type="text" class="form-control" id=study1__ID name=study1 placeholder="Search">	
+												<input type="text" name=study1_uid style='_display:none' />	
 											</div>
 										</div>
 								</fieldset>
@@ -98,6 +99,7 @@
 											<div><label><span class="">Study 2 </span></label></div>
 											<div class="input-group-sm ">
 												<input type="text" class="form-control" id=study2__ID name=study2 placeholder="Search">
+												<input type="text" name=study2_uid style='_display:none' />	
 											</div>
 										</div>
 								</fieldset>
@@ -131,6 +133,7 @@
 											<div><label><span class="">Study 3 </span></label></div>
 											<div class="input-group-sm ">
 												<input type="text" class="form-control" id=study3__ID name=study3 placeholder="Search">
+												<input type="text" name=study3_uid style='_display:none' />	
 											</div>
 										</div>
 								</fieldset>
@@ -185,12 +188,15 @@
 				var autocomplete_req = { cmd: "find", field: '.Data.Research_study', table: 'researchstudies-setup', query: { $or: [{ "Data.Status": "Planning" }, { "Data.Status": "Recruiting/Data Collecting" }, { "Data.Status": "Analysis" }]}, options: {}, skip: 0, limit: 10 }
 				var autocomplete_callback = function (item) {
 					$('input[name=study1]').val(item.label);
+					$('input[name=study1_uid]').val(item.uid);
+
 				}
 				var autocomplete_list = function (records) {
 					var items = [];
 					for (var i = 0; i < records.length; i++) {
 						var obj = {};
 						obj.label = records[i].Data["Research_study"];
+						obj.uid = records[i].UID;
 						items.push(obj);
 					}
 					return items;
@@ -207,12 +213,14 @@
 				var autocomplete_req1 = { cmd: "find", field: '.Data.Research_study', table: 'researchstudies-setup', query: { $or: [{ "Data.Status": "Planning" }, { "Data.Status": "Recruiting/Data Collecting" }, { "Data.Status": "Analysis" }] }, options: {}, skip: 0, limit: 10 }
 				var autocomplete_callback1 = function (item) {
 					$('input[name=study2]').val(item.label);
+					$('input[name=study2_uid]').val(item.uid);
 				}
 				var autocomplete_list1 = function (records) {
 					var items = [];
 					for (var i = 0; i < records.length; i++) {
 						var obj = {};
 						obj.label = records[i].Data["Research_study"];
+						obj.uid = records[i].UID;
 						items.push(obj);
 					}
 					return items;
@@ -228,12 +236,14 @@
 				var autocomplete_req2 = { cmd: "find", field: '.Data.Research_study', table: 'researchstudies-setup', query: { $or: [{ "Data.Status": "Planning" }, { "Data.Status": "Recruiting/Data Collecting" }, { "Data.Status": "Analysis" }] }, options: {}, skip: 0, limit: 10 }
 				var autocomplete_callback2 = function (item) {
 					$('input[name=study3]').val(item.label);
+					$('input[name=study3_uid]').val(item.uid);
 				}
 				var autocomplete_list2 = function (records) {
 					var items = [];
 					for (var i = 0; i < records.length; i++) {
 						var obj = {};
 						obj.label = records[i].Data["Research_study"];
+						obj.uid = records[i].UID;
 						items.push(obj);
 					}
 					return items;

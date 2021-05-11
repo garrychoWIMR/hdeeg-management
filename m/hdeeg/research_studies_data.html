@@ -21,6 +21,43 @@
         };
         //-------------------------------------
         //m.sort={'I1':-1};
+        //-------------------------------------
+        var g_I=0;
+        var g_N=0;
+        var get_people=function(research_record){
+            console.log(research_record);
+            var uid=research_record.UID.toString();
+            //if(uid=="3"){
+                var req={cmd:'find',table:'people-setup', query:{ $or:[{"Data.study1_uid": uid},{"Data.study2_uid": uid},{"Data.study3_uid": uid}]}}
+                $vm.request(req,function(res){
+
+                    console.log(res);
+                    var rs=res.result;
+                    for(var j=0;j<rs.length;j++){
+                        var txt=research_record.Data.Staff;
+                        if(txt!="") txt+=",";
+                        txt+=rs[j].Data.s_name;
+                        research_record.Data.Staff=txt;
+                    }
+
+                    g_I++;
+                    if(g_I==g_N){
+                        m.render();
+                        console.log(m.records)
+                    }
+                });
+            //}
+
+        }
+        //-------------------------------------
+        m.data_process=function(){
+            g_N=m.records.length;
+            g_I=0;
+            for(var i=0;i<m.records.length;i++){
+                get_people(m.records[i]);
+            }            
+        }
+        //-------------------------------------
     }
 </script>
 <style>
