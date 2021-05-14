@@ -35,9 +35,12 @@
                     var rs=res.result;
                     for(var j=0;j<rs.length;j++){
                         var txt=research_record.Data.Staff;
-                        if(txt!="") txt+=",";
-                        txt+=rs[j].Data.s_name;
-                        research_record.Data.Staff=txt;
+                        if(txt==undefined) txt="";
+                        if(rs[j].Data.s_name!=undefined){
+                            if(txt!="") txt+=",";
+                            txt+=rs[j].Data.s_name;
+                            research_record.Data.Staff=txt;
+                        }
                     }
 
                     g_I++;
