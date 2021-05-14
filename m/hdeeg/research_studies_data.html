@@ -35,13 +35,16 @@
                     var rs=res.result;
                     for(var j=0;j<rs.length;j++){
                         var txt=research_record.Data.Staff;
+												var h=0;h<rs.length;h++;
                         if(txt==undefined) txt="";
-                        if(rs[j].Data.s_name!=undefined){
-                            if(txt!="") txt+=",";
-                            txt+=rs[j].Data.s_name;
-                            research_record.Data.Staff=txt;
-                        }
-                    }
+                        if(rs[j].Data.s_name!=undefined)
+												if(rs[j].Data.ampm_[h]!=undefined){
+												alert(Data.ampm_[h])
+												if(txt!="") txt+="\n";
+												txt+=rs[j].Data.s_name + " " + Data.ampm_[h];														
+												research_record.Data.Staff=txt;
+										}
+									}
 
                     g_I++;
                     if(g_I==g_N){
