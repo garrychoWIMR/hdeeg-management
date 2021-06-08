@@ -6,7 +6,7 @@
         "people-data":              { url: "$H/m/hdeeg/people-data.html", Table: "people-setup", form_module: "people-form"},
         "people-form":              { url: "$H/m/hdeeg/people-form.html", Table: "people-setup" },
         "sleepstudies_data":        { url: "$H/m/hdeeg/research_studies_data.html", Table: "sleepstudies-setup"},
-        "research_studies":    { url: "$H/m/hdeeg/research_studies_data.html", Table: "researchstudies-setup", form_module:"research_studies_form",router:1 },
+        "research_studies":    { url: "$H/m/hdeeg/research_studies_data.html", Table: "researchstudies-setup", form_module:"research_studies_form"},
         "research_studies_form":    { url: "$H/m/hdeeg/research_studies_form.html", Table: "researchstudies-setup" },
         "equipment_data":           { url: "$H/m/hdeeg/equipment-data.html", Table: "equipment-setup", task_name: "demo-hdeeg-tracking" },
 

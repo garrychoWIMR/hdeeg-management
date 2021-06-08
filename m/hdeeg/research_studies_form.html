@@ -14,14 +14,12 @@
 									<div class="questiongroup ">
 										<fieldset class="subquestions">
 											<div class="row">
-
 												<div class="col-lg-6 col-sm-12">
 													<div><label><span class="">Research Studies</span></label></div>
 													<div class="input-group-sm ">
 														<input type= "text" class="form-control" name=Research_study id=Research_study__ID >
 													</div>
 												</div>
-
 												<div class="col-lg-6 col-sm-12">
 													<div><label><span class="">Study Coordinators</span></label></div>
 													<div class="input-group-sm ">
@@ -209,26 +207,7 @@
 					I2++; if (I2 > 50) { clearInterval(loop_2); alert("jquery-ui.min.js is not installed."); }
 				}, 100);
 			//-------------------------------------
-				var autocomplete_req3 = { cmd: "find", field: '.Data.study1', table: 'people-setup', query: {}, options: {}, skip: 0, limit: 10 }
-				var autocomplete_callback3 = function (item) {
-					$('input[name=Staff]').val(item.label);
-				}
-				var autocomplete_list3 = function (records) {
-					var items = [];
-					for (var i = 0; i < records.length; i++) {
-						var obj = {};
-						obj.label = records[i].Data["study_1"];
-						items.push(obj);
-					}
-					return items;
-				}
-				var wait3 = function () {
-					$vm.autocomplete($('#F__ID input[name=Staff]'), autocomplete_req3, autocomplete_list3, autocomplete_callback3);
-				}
-				var I3 = 0; var loop_3 = setInterval(function () {
-					if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop_3); wait3(); }
-					I3++; if (I3 > 50) { clearInterval(loop_3); alert("jquery-ui.min.js is not installed."); }
-				}, 100);
+
 			//-------------------------------------
 		}
 		//-------------------------------

@@ -10,7 +10,6 @@
         m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
         //-------------------------------------
         m.query={$or:[{"Data.Status":"Planning"},{ "Data.Status":"Recruiting/Data Collecting"},{"Data.Status":"Analysis"}]};
-			//m.query={$or:[{"Data.study_1":" "},{ "Data.study_2":" "}]};
 				m.cell_render=function(records,I,field,td){
             switch(field){
                 case 'Colour':
@@ -43,21 +42,7 @@
                         research_record.Data.Staff=txt;
                     }
                     
-                    /*
-                    //for(var h=0;h<4;h++)
-                    
-                        if(txt==undefined) txt="";
-                        if(rs[j].Data.s_name!=undefined){
-                            //if(rs[j].Data.ampm_[h]!=undefined){
-                               // alert(Data.ampm_[h])
-                                if(txt!="") txt+="\n";
-                                txt+=rs[j].Data.s_name 
-                                //+ " " + rs[j].Data.ampm_[h];														
-                                research_record.Data.Staff=txt;
-                            }
-                        //}
-                    //}
-                    */
+            
                 }
 
                 g_I++;

@@ -34,7 +34,7 @@
 										<div class="col-lg-12 col-sm-12">
 											<div class="input-group-sm ">
 												<label><span class="">Research Coordinator</span></label>
-												<input type=text class="form-control" name=coordinator id=coordinator__ID />
+												<input type=text class="form-control" name=coordinator id=coordinator__ID  readonly/>
 											</div>
 										</div>
 									</div>
@@ -50,7 +50,7 @@
 										<div class="col-lg-12 col-sm-12">
 											<div class="input-group-sm ">
 												<label><span class="">Status</span></label>
-													<input class="form-control" type=text name=status id =status__ID>
+													<input class="form-control" type=text name=status id =status__ID readonly />
 											</div>
 										</div>
 									</div>
@@ -65,8 +65,8 @@
 									<div class="row">
 										<div class="col-lg-12 col-sm-12">
 											<div class="input-group-sm ">
-												<label><span class="">File Location</span></label>
-												<input class="form-control" name=location id=location__ID>
+												<label><span class="">Staff</span></label>
+												<input class="form-control" type=text name=Staff id=Staff__ID>
 											</div>
 										</div>
 									</div>
@@ -145,11 +145,13 @@
 			//-------------------------------------
 			//---------------------------------------------------------------
 			
-			var autocomplete_req = { cmd: "find", field: '.Data.Research_study', table: 'researchstudies-setup', options: {}, skip: 0, limit: 10 }
+			var autocomplete_req = { cmd: "find", field: '.Data.Research_study', table: 'researchstudies-setup',query:{}, options: {}, skip: 0, limit: 10 }
 			var autocomplete_callback = function (item) {
 				$('input[name=coordinator]').val(item.coord);
 				$('input[name=research_project]').val(item.label);
 				$('input[name=status]').val(item.status);
+				$('input[name=Staff]').val(item.staff);
+
 			}
 			var autocomplete_list = function (records) {
 				var items = [];
@@ -158,24 +160,48 @@
 					obj.label = records[i].Data["Research_study"];
 					obj.status = records[i].Data["Status"];
 					obj.coord = records[i].Data["Coordinators"];
+					obj.staff = records[i].Data["s_name"];
 					items.push(obj);
 				}
 				return items;
 			}
 			var wait = function () {
 				$vm.autocomplete($('#F__ID input[name=research_project]'), autocomplete_req, autocomplete_list, autocomplete_callback);
-				$vm.autocomplete($('#F__ID input[name=status]'), autocomplete_req, autocomplete_list, autocomplete_callback);
-				$vm.autocomplete($('#F__ID input[name=coordinator]'), autocomplete_req, autocomplete_list, autocomplete_callback);
-
+			//	$vm.autocomplete($('#F__ID input[name=status]'), autocomplete_req, autocomplete_list, autocomplete_callback);
+			//	$vm.autocomplete($('#F__ID input[name=coordinator]'), autocomplete_req, autocomplete_list, autocomplete_callback);
+			//	$vm.autocomplete($('#F__ID input[name=s_name]'), autocomplete_req, autocomplete_list, autocomplete_callback);
 			}
 			var I = 0; var loop = setInterval(function () {
 				if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop); wait(); }
 				I++; if (I> 50) { clearInterval(loop); alert("jquery-ui.min.js is not installed."); }
 			}, 100);
+		//-------------------------------
+			var autocomplete_req1 = { cmd: "find", field: '.Data.s_name', table: 'people-setup', query: {}, options: {}, skip: 0, limit: 10 }
+			var autocomplete_callback1 = function (item) {
+				$('input[name=Staff]').val(item.staff);
+			}
+			var autocomplete_list1 = function (records) {
+				var items = [];
+				for (var i = 0; i < records.length; i++) {
+					var obj = {};
+					obj.staff = records[i].Data["s_name"];
+					//obj.study2 = records[i].Data["study2"];
+					//obj.study3 = records[i].Data["study3"];
+					items.push(obj);
+				}
+				return items;
+			}
+			var wait1 = function () {
+				$vm.autocomplete($('#F__ID input[name=Staff]'), autocomplete_req1, autocomplete_list1, autocomplete_callback1);
 
-		}
+			}
+			var I1 = 0; var loop_1 = setInterval(function () {
+				if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop_1); wait1(); }
+				I1++; if (I1 > 50) { clearInterval(loop_1); alert("jquery-ui.min.js is not installed."); }
+			}, 100);
 		//-------------------------------
 
+		}
 
 
 	</script>
