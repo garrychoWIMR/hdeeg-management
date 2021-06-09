@@ -6,8 +6,8 @@
 		//-------------------------------------
 		VmInclude: __COMPONENT__/g/grid.01.js
 		//-------------------------------------
-		var fields = "Date of Study|date,Research Project|research_project,Study_ID|study_id,File Location|location,Medicare|medicare,Scorer|scorer,Scored|scored";
-		m.fields = "" + fields + ",Submit_date,Submitted_by,_Delete";
+		var fields = "Date of Study|date,Research Project|research_project,Study_ID|study_id,File Location|location,Medicare|medicare,Scorer|scorer,Scored|scored,Scored on|timestamp";
+		m.fields = "_Form," + fields + ",Submit_date,Submitted_by,_Delete";
 		//-------------------------------------
 		m.cell_render = function (records, I, field, td) {
 			switch (field) {

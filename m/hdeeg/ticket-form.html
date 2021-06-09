@@ -171,16 +171,16 @@
 				}
 			}
 		//-------------------------------
-					var autocomplete_req = { cmd: "find", field: '.Data.equipment_name', table: 'equipment-setup', query: {}, options: {}, skip: 0, limit: 10 }
+					var autocomplete_req = { cmd: "find", field: '.Data.equipment_name', table: 'equipment-setup', options: {}, skip: 0, limit: 10 }
 					var autocomplete_callback = function (item) {
-						$('input[name=Equipment]').val(item.equipment);
+						$('input[name=Equipment]').val(item.label);
 						$('input[name=serial_number]').val(item.s_num);
 					}
 					var autocomplete_list = function (records) {
 						var items = [];
 						for (var i = 0; i < records.length; i++) {
 							var obj = {};
-							obj.equipment = records[i].Data["equipment_name"];
+							obj.label=records[i].Data["equipment_name"];
 							obj.s_num = records[i].Data["serial_number"];
 							items.push(obj);
 						}
@@ -188,15 +188,13 @@
 					}
 					var wait = function () {
 						$vm.autocomplete($('#F__ID input[name=Equipment]'), autocomplete_req, autocomplete_list, autocomplete_callback);
-						$vm.autocomplete($('#F__ID input[name=serial_number]'), autocomplete_req, autocomplete_list, autocomplete_callback);
+		//				$vm.autocomplete($('#F__ID input[name=serial_number]'), autocomplete_req, autocomplete_list, autocomplete_callback);
 					}
 					var I1 = 0; var loop = setInterval(function () {
 						if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop); wait(); }
 						I1++; if (I1 > 50) { clearInterval(loop); alert("jquery-ui.min.js is not installed."); }
 					}, 100);
 //----------------------------------------
-
-
 
 
     </script>
