@@ -9,7 +9,7 @@
         "research_studies":    { url: "$H/m/hdeeg/research_studies_data.html", Table: "researchstudies-setup", form_module:"research_studies_form"},
         "research_studies_form":    { url: "$H/m/hdeeg/research_studies_form.html", Table: "researchstudies-setup" },
         "equipment_data":           { url: "$H/m/hdeeg/equipment-data.html", Table: "equipment-setup", task_name: "demo-hdeeg-tracking" },
-
+				"ia-people-data": 					{ url: "$H/m/hdeeg/ia-people-data.html", Table: "people-setup" },
 				"ia-research_studies": 				{ url: "$H/m/hdeeg/ia-research_studies_data.html", Table: "researchstudies-setup", form_module: "research_studies_form" },
 
     

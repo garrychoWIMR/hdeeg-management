@@ -16,9 +16,21 @@
 					td.css('text-align', 'center');
 					break;
 			}
-		};
+		//-------------------------------------
+		m.cell_render = function (records, I, field, td) {	
+				switch (field) {
+				case 'medicare':
+					var c = "#fff";
+					switch (records[I].Data[field]) {
+						case "Yes": c = "#f00"; break;
+					}
+		td.css('background-color', c);
+						break;
+			};
 		//-------------------------------------
 		//m.sort={'I1':-1};
+	}
+		}
 	}
 </script>
 <style>
