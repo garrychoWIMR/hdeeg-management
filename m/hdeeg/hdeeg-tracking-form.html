@@ -28,7 +28,7 @@ to do list for this form:
 														<div class="col-lg-3 col-sm-12">
 															<div><label><span class="">Subject ID</span></label></div>
 															<div class="input-group-sm ">
-													  <input type="text" id=Arrival_Time__ID name=Arrival_Time readonly>
+													  <input type="text" id=subjectid__id name=subjectid>
 														</div>
 													</div>
 													<div class="col-lg-3 col-sm-12">
@@ -39,14 +39,14 @@ to do list for this form:
 													</div>
 														<div class="col-lg-3 col-sm-12">
 															<div><label><span class="">Visit</span></label></div>
-															 <input type="text" id=Arrival_Time__ID name=Arrival_Time readonly>
+															 <input type="text" id=visit__ID name=visit>
 															<div class="input-group-sm ">
 														</div>
 													</div>
 														<div class="col-lg-3 col-sm-12">
 															<div><label><span class="">Type of Study</span></label></div>
 															<div class="input-group-sm ">
-															<select class="form-control" name=Status id=Status__ID placeholder="Please Select...">
+															<select class="form-control" name=study_type id=study_type__ID placeholder="Please Select...">
 																<option>PSG</option>
 																<option>KDT</option>
 																<option>MWT</option>
@@ -71,7 +71,7 @@ to do list for this form:
 														</div>
 														<div class="col-lg-9 col-sm-12">
 															<div><label><span class="">Comments about the Acquisition</span></label></div>
-															<textarea style='font-size:12px' class="form-control" name=Notes id=Notes__ID placeholder="Make it more 'ticket' like?"></textarea>
+															<textarea style='font-size:12px' class="form-control" name=acq_comments id=acq_comments__ID placeholder="Make it more 'ticket' like?"></textarea>
 															<div class="input-group-sm ">
 															</div>
 														</div>
@@ -88,13 +88,14 @@ to do list for this form:
 														<div class="col-lg-3 col-sm-12">
 															<div><label><span class="">Done?</span></label></div>
 															<div class="input-group-sm ">
-																<input type="checkbox" id=Arrival_Time__ID name=Arrival_Time readonly>
-																<input type="text" placeholder="timestamp" id=Arrival_Time__ID name=Arrival_Time readonly>
+																<input type="checkbox" id=ns_preproc__ID name=ns_preproc value=yes readonly>
+																<input hidden name=ns_preproc_by id= />
+																<input class=timestamp id=ns_preproc_t__ID name=ns_preproc_t readonly>
 															</div>
 														</div>
 														<div class="col-lg-9 col-sm-12">
 															<div><label><span class="">Comments about the Acquisition</span></label></div>
-															<textarea style='font-size:12px' class="form-control" name=Notes id=Notes__ID
+															<textarea style='font-size:12px' class="form-control" name=ns_preproc_comments id=ns_preproc_comments__ID
 																placeholder="Write Comments here about the data"></textarea>
 															<div class="input-group-sm ">
 															</div>
@@ -111,13 +112,14 @@ to do list for this form:
 															<div class="col-lg-3 col-sm-12">
 																<div><label><span class="">Done?</span></label></div>
 																<div class="input-group-sm ">
-																	<input type="checkbox" id=Arrival_Time__ID name=Arrival_Time readonly>
-																	<input type="text" placeholder="timestamp" id=Arrival_Time__ID name=Arrival_Time readonly>
+																	<input type="checkbox" id=pranaproc__ID name=pranaproc value=yes readonly>
+																	<input class=timestamp id=pranaproc_t__ID name=pranaproc_t readonly>
+																	<input hidden name=pra_preproc_by>
 																</div>
 															</div>
 															<div class="col-lg-9 col-sm-12">
 																<div><label><span class="">Comments about the Acquisition</span></label></div>
-																<textarea style='font-size:12px' class="form-control" name=Notes id=Notes__ID
+																<textarea style='font-size:12px' class="form-control" name=pr_preproc_comments id=pr_preproc_comments__ID
 																	placeholder="Write Comments here about the data"></textarea>
 																<div class="input-group-sm ">
 																</div>
@@ -132,26 +134,27 @@ to do list for this form:
 														<div><label><span class=""><h4><u>UWM PreProcessing:</u></h4></span></label></div>
 														<div class="row">
 															<div class="col-lg-3 col-sm-12">
+																<div><label><span class="">Done?</span></label></div>
+																<div class="input-group-sm ">
+																	<input type="checkbox" id=uwm_proc__ID name=uwm_proc value=yes readonly>
+																	<input class=timestamp  id=uwm_proc_t__ID name=uwm_proc_t readonly>
+																	<input hidden name=uwm_preproc_by>
+																</div>
+															</div>
+															<div class="col-lg-3 col-sm-12">
 																<div><label><span class="">Version?</span></label></div>
 																<div class="input-group-sm ">
-																	<select class="form-control" name=hardware id=hardware__ID>
-																		<option> <b>Select UWM Version</b></option>
+																	<select class="form-control" name=uwm_ver id=uwm_ver__ID>
+																		<option  disabled selected>Select UWM Version</option>
 																		<option>Version 1</option>
 																		<option>Version 2</option>
 																		<option>BIDS Processor</option>
 																	</select>
 																</div>
 															</div>
-															<div class="col-lg-3 col-sm-12">
-																<div><label><span class="">Done?</span></label></div>
-																<div class="input-group-sm ">
-																	<input type="checkbox" id=Arrival_Time__ID name=Arrival_Time readonly>
-																	<input type="text" placeholder="timestamp" id=Arrival_Time__ID name=Arrival_Time readonly>
-																</div>
-															</div>
 															<div class="col-lg-6 col-sm-12">
 																<div><label><span class="">Comments about the Acquisition</span></label></div>
-																<textarea style='font-size:12px' class="form-control" name=Notes id=Notes__ID
+																<textarea style='font-size:12px' class="form-control" name=uwm_preproc_comments id=uwm_preproc_comments__ID
 																	placeholder="Write Comments here about the data"></textarea>
 																<div class="input-group-sm ">
 																</div>
@@ -219,10 +222,66 @@ to do list for this form:
 					if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop); wait(); }
 					I++; if (I > 50) { clearInterval(loop); alert("jquery-ui.min.js is not installed."); }
 				}, 100);
+		//-------------------------------
+		
+
+		//-------------------------------
+			
+				$('#ns_preproc__ID').on('click', function () {
+					var now_time = new Date();
+					now_time = now_time.toString().split(" ");
+					now_time = now_time[4];
+					var now_date = $vm.date_to_string_dmy(new Date());
+					var timestamp = ($('#F__ID input[name=ns_preproc_t]')).val();
+					var timestamp = now_date + ' ' + now_time; 
+					var user = ($('#F__ID input[name=ns_preproc_by]')).val($vm.user_name); 
+					($('#F__ID input[name=ns_preproc_t]')).val(timestamp);
+				})
+
+				
+		//-------------------------------
+				
+				$('#pranaproc__ID').on('click', function () {
+					var now_time = new Date();
+					now_time = now_time.toString().split(" ");
+					now_time = now_time[4];
+					var now_date = $vm.date_to_string_dmy(new Date());
+					var timestamp = ($('#F__ID input[name=pranaproc_t]')).val();
+					var timestamp = now_date + ' ' + now_time ;
+					var user =($('#F__ID input[name=pra_preproc_by]')).val($vm.user_name);
+					($('#F__ID input[name=pranaproc_t]')).val(timestamp);
+				})
+			
+		//-------------------------------
+				
+				$('#uwm_proc__ID').on('click', function () {
+					var now_time = new Date();
+					now_time = now_time.toString().split(" ");
+					now_time = now_time[4];
+					var now_date = $vm.date_to_string_dmy(new Date());
+					var timestamp = ($('#F__ID input[name=uwm_proc_t]')).val();
+					var timestamp = now_date + ' ' + now_time ;
+					($('#F__ID input[name=uwm_proc_t]')).val(timestamp);
+					var user = ($('#F__ID input[name=uwm_preproc_by]')).val($vm.user_name);
+				})
+			//-----------------------------
+				/*function myFunction() {
+					// Get the checkbox
+					var pra_proc_cb = document.getElementById(pranaproc__ID);
+					alert(document.getElementById(pranaproc__ID));
+					if (pra_proc_cb !== "Yes") {
+						($('#F__ID input[name=pranaproc]')).val("No");
+					}
+				}
+					else {
+						($('#F__ID input[name=ns_preproc]')).val(' ');
+					}*/
+
+			//-----------------------------
+
 
 			}
 
-		//-------------------------------
 
     </script>
     <style>
@@ -230,5 +289,10 @@ to do list for this form:
             max-width:800px;
         }
         VmInclude:__CURRENT_PATH__/wappsystem-form.css
+				.timestamp{
+					border:none;
+					font-size:10px;
+					background-color:none;
+				}
     </style>
 </div>

@@ -114,7 +114,8 @@
 													<label><span class="">Scored</span></label>
 													<input type="checkbox" name=scored id=scored_time__ID value=yes>
 												</div>
-													<input type="textarea" class=timestamp id=timestamp__ID name=timestamp readonly>
+													<input class=timestamp id=timestamp__ID name=timestamp readonly>
+													<input hidden name=scored_by >
 											</div>
 										</div>
 									</fieldset>
@@ -142,21 +143,6 @@
 			VmInclude: __COMPONENT__/f/form.01.js
 			//-------------------------------------
 		
-			/*
-			old_load = m.load;
-			m.load = function () {
-				old_load();
-				
-				alert(1)
-
-
-				//$vm.autocomplete($('#F__ID input[name=research_project'), autocomplete_req3, autocomplete_list3, autocomplete_callback3);
-
-
-			}
-			*/
-
-
 			var autocomplete_req2 = {cmd: "find", field: '.Data.s_name', table: 'people-setup',query:{"Data.position":"Scorer"}, options: {}, skip: 0, limit: 10 }
 			var autocomplete_callback2 = function (item) {
 				$('input[name=scorer]').val(item.label);
@@ -209,9 +195,10 @@
 				now_time = now_time[4];
 				var now_date = $vm.date_to_string_dmy(new Date());
 				var timestamp = ($('#F__ID input[name=timestamp]')).val();
-				var timestamp = now_date + ' ' + now_time +  " - " + $vm.user_name;
+				var timestamp = now_date + ' ' + now_time;
 				($('#F__ID input[name=timestamp]')).val(timestamp);
-			})
+				($('#F__ID input[name=scored_by]')).val($vm.user_name);
+				})
 				$('#submit__ID').on('click', function () {
 				var r_proj = ($('#F__ID input[name=research_project]')).val()
 				if  (r_proj != undefined){
@@ -224,6 +211,14 @@
 				document.getElementById('research_project__ID').readOnly = true;
 		}
 
+
+		//-------------------------------
+		/*	var mc = ($('#F__ID input[name=medicare]')).val();
+				if 	mc == ($('#F__ID input[name=medicare]')).val(off){
+					mc = ($('#F__ID input[name=medicare]')).val("");
+					alert(mc)
+		}
+*/
 		//-------------------------------
 		}
 

@@ -15,7 +15,7 @@
         //-------------------------------------
         VmInclude:__COMPONENT__/g/grid.01.js
         //-------------------------------------
-        var fields="Patient_ID,Research_Study,Study_Type,Visit,Acquisition_date,Acquisition Comments|acq_comments,Netstation Preprocessing|ns_preproc,Done By|ns_preproc_by,Netstation Preprocessing Comments|ns_preproc_comments,PRANA Preprocessing|pra_preproc,Done By|pra_preproc_by,PRANA Preprocessing Comments|pr_preproc_comments,UWM Version|uwm_ver,UWM Preprocessing|uwm_preproc, Done by|uwm_preproc_by,UWM Preprocessing Comments|uwm_preproc_comments";
+        var fields="Subject_ID|subjectid,Research_Study,Visit|visit,Study_Type,Acquisition_date,Acquisition Comments|acq_comments,Netstation Preprocessing|ns_preproc,NS Preproc time|ns_preproc_t,Done By|ns_preproc_by,Netstation Preprocessing Comments|ns_preproc_comments,PRANA Preprocessing|pranaproc,PRANA Preproc time|pranaproc_t,Done By|pra_preproc_by,PRANA Preprocessing Comments|pr_preproc_comments,UWM Version|uwm_ver,UWM Preprocessing|uwm_proc,UWM Preproc time|uwm_proc_t, Done by|uwm_preproc_by,UWM Preprocessing Comments|uwm_preproc_comments";
         m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
         //-------------------------------------
         m.cell_render=function(records,I,field,td){

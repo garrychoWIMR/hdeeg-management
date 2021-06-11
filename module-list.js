@@ -27,6 +27,7 @@
 				"trainingst_form": 					{ url: "$H/m/hdeeg/training-st-form.html", Table: "training-setup" },
 				//"staffing-data": 						{ url: "$H/m/hdeeg/staffing-data.html", Table: "staffing-setup", form_module: "staffing-form" },
 				//"staffing-form": 						{ url: "$H/m/hdeeg/staffing-form.html", Table: "staffing-setup" },
+				"troubleshoot_data": 				{ url: "$H/m/hdeeg/troubleshoot-data.html", Table: "ticket-setup"},
 
 
     //Research Study Admin
