@@ -7,7 +7,7 @@
         VmInclude:__COMPONENT__/g/grid.01.js
         //-------------------------------------
 				var fields = "Case Number|case_no,Equipment,other_equipment,serial_number,warranty,resolved,troubleshoot|tbshoot,Comments";
-        m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
+        m.fields=""+fields+",Submit_date,Submitted_by,_Delete";
         //-------------------------------------
 				m.query={"Data.tbshoot":"yes"};
         m.cell_render=function(records,I,field,td){
