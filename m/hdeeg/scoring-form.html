@@ -177,7 +177,7 @@
 					obj.label = records[i].Data["Research_study"];
 					items.push(obj);
 				}
-				return items;s
+				return items;
 			}
 			var wait3 = function () {
 				$vm.autocomplete($('#F__ID input[name=research_project]'), autocomplete_req3, autocomplete_list3, autocomplete_callback3);
@@ -195,44 +195,24 @@
 				var now_date = $vm.date_to_string_dmy(new Date());
 				var timestamp = ($('#F__ID input[name=timestamp]')).val();
 				var timestamp = now_date + ' ' + now_time;
-				($('#F__ID input[name=timestamp]')).val(timestamp);
-				($('#F__ID input[name=scored_by]')).val($vm.user_name);
-				($('#F__ID input[name=scored]')).val("Yes");
-			}))			
 
-			$(function(){
-			($('#scored_time__ID').on('click',function(){
 			if ($('#scored_time__ID').is(':checked')){
 				($('#F__ID input[name=timestamp]')).val(timestamp);
 				($('#F__ID input[name=scored_by]')).val($vm.user_name);
-				($('#F__ID input[name=scored]')).val("Yes")};
-			//alert("Checked Boxed")
-			//($('#scored_time__ID').on('click',function(){
-			if ($('#scored_time__ID').not(':checked')){
+				($('#F__ID input[name=scored]')).val("Yes");
+				}
+			else{ 
 				($('#F__ID input[name=timestamp]')).val("");
 				($('#F__ID input[name=scored_by]')).val("");
-				($('#F__ID input[name=scored]')).val("No")};
-				//alert("Checked UBoxed")
-			}))
-			});
-
-/*
-				$('#submit__ID').on('click', function () {
-				var r_proj = ($('#F__ID input[name=research_project]')).val()
-				if  (r_proj != undefined){
-					document.getElementById('research_project__ID').readOnly = true;
+				($('#F__ID input[name=scored]')).val("No");
 				}
-			})
-			});
-*/
-
-		//-------------------------------
-		/*	var mc = ($('#F__ID input[name=medicare]')).val();
-				if 	mc == ($('#F__ID input[name=medicare]')).val(off){
-					mc = ($('#F__ID input[name=medicare]')).val("");
-					alert(mc)
-		}
-*/
+				console.log($('#scored_time__ID').val())
+					}
+				)
+			);
+			//-------------------------------------
+		
+		
 		}
 	</script>
 	<style>

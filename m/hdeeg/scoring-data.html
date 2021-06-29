@@ -9,32 +9,50 @@
 		var fields = "Date of Study|date,Research Project|research_project,Study_ID|study_id,File Location|location,Medicare|medicare,Scorer|scorer,Scored|scored,Scored on|timestamp,Scored by|scored_by";
 		m.fields = "_Form," + fields + ",Submit_date,Submitted_by,_Delete";
 		//-------------------------------------
-		m.cell_render = function (records, I, field, td) {
+	/*	m.cell_render = function (records, I, field, td) {
+					console.log(field)
 			switch (field) {
+				
 				case 'Colour':
 					td.html("<span style='color:" + records[I].Data[field] + "'><i class='far fa-circle'></i></span>");
 					td.css('text-align', 'center');
 					break;
-			}
+			}*/
+		//-------------------------------------
+	//-------------------------------------
+
 		//-------------------------------------
 		m.cell_render = function (records, I, field, td) {	
 				switch (field) {
+					case 'scored':
+						if (records[I].Data[field] == 'Yes') {
+							td.html("<i class='fas fa-check'></i>");
+							td.css('text-align', 'center');
+						}
+						else {
+							td.html('');
+						}
+						break;
 				case 'medicare':
 					var c = "#fff";
 					switch (records[I].Data[field]) {
-						case "Yes": c = "#f00"; break;
+						case "Yes": td.html("Yes");
+						c = "#f00";
+						td.css('text-align','center');
+						break;
+						case "off": td.html("");
+						break;
 					}
 		td.css('background-color', c);
 						break;
-			};
+				}
 	
-		//-------------------------------------
+	
 		
 		
 		//m.sort={'I1':-1};
 	}
 		}
-	}
 </script>
 <style>
 	VmInclude:__COMPONENT__/g/grid.01.css
