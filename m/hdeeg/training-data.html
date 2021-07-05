@@ -10,6 +10,8 @@
 		m.fields = "_Form," + fields + ",Submit_date,Submitted_by,_Delete";
 		//-------------------------------------
 		m.query ={ "Data.position": "Researcher"}
+		
+		
 		m.cell_render = function (records, I, field, td) {
 			switch (field) {
 				case 'assisted_setup':

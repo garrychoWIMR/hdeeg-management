@@ -84,7 +84,8 @@
 										<div class="col-lg-3 col-sm-12">
 											<div><label><span class="">File Upload (Downloadable)</span></label></div>
 											<div class="input-group-sm ">
-												<input type=text class=text name=version id=version__ID required>
+												<u style='cursor:pointer' id=link_file__ID></u>
+												<input type="file" name=file>
 											</div>
 										</div>
 								</fieldset>
@@ -103,6 +104,7 @@
 			</div>
 		</div>
 	</div>
+	    VmInclude:__COMPONENT__/m/model.01.html
 	<script>
 		function textAreaAdjust__ID(o) {
 			//console.log(o)
@@ -114,8 +116,15 @@
 			//-------------------------------------
 			VmInclude: __COMPONENT__/f/form.01.js
 			//-------------------------------------
+			var load5 = m.load;
+			m.load = function () {
+				load5();
+				m.set_file_link("file");
+			}
+			//-------------------------------------
+
 			m.before_submit = function (data, index) {
-				data.staff_type = data.s_name + '-' + data.position;
+				data.file_link = data.file_link;
 			}
 		}
 		//-------------------------------
