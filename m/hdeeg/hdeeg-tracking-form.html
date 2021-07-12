@@ -90,7 +90,7 @@ to do list for this form:
 															<div class="input-group-sm ">
 																<input type="checkbox" id=ns_preproc__ID name=ns_preproc value=yes readonly>
 																<input hidden name=ns_preproc_by id= />
-																<input class=timestamp id=ns_preproc_t__ID name=ns_preproc_t readonly>
+																<input class=timestamp id=ns_preproc_time__ID name=ns_preproc_time readonly>
 															</div>
 														</div>
 														<div class="col-lg-9 col-sm-12">
@@ -113,7 +113,7 @@ to do list for this form:
 																<div><label><span class="">Done?</span></label></div>
 																<div class="input-group-sm ">
 																	<input type="checkbox" id=pranaproc__ID name=pranaproc value=yes readonly>
-																	<input class=timestamp id=pranaproc_t__ID name=pranaproc_t readonly>
+																	<input class=timestamp id=pranaproc_time__ID name=pranaproc_time readonly>
 																	<input hidden name=pra_preproc_by>
 																</div>
 															</div>
@@ -137,7 +137,7 @@ to do list for this form:
 																<div><label><span class="">Done?</span></label></div>
 																<div class="input-group-sm ">
 																	<input type="checkbox" id=uwm_proc__ID name=uwm_proc value=yes readonly>
-																	<input class=timestamp  id=uwm_proc_t__ID name=uwm_proc_t readonly>
+																	<input class=timestamp  id=uwm_proc_time__ID name=uwm_proc_time readonly>
 																	<input hidden name=uwm_preproc_by>
 																</div>
 															</div>
@@ -232,10 +232,10 @@ to do list for this form:
 					now_time = now_time.toString().split(" ");
 					now_time = now_time[4];
 					var now_date = $vm.date_to_string_dmy(new Date());
-					var timestamp = ($('#F__ID input[name=ns_preproc_t]')).val();
+					var timestamp = ($('#F__ID input[name=ns_preproc_time]')).val();
 					var timestamp = now_date + ' ' + now_time; 
 					var user = ($('#F__ID input[name=ns_preproc_by]')).val($vm.user_name); 
-					($('#F__ID input[name=ns_preproc_t]')).val(timestamp);
+					($('#F__ID input[name=ns_preproc_time]')).val(timestamp);
 				})
 
 				
@@ -246,10 +246,10 @@ to do list for this form:
 					now_time = now_time.toString().split(" ");
 					now_time = now_time[4];
 					var now_date = $vm.date_to_string_dmy(new Date());
-					var timestamp = ($('#F__ID input[name=pranaproc_t]')).val();
+					var timestamp = ($('#F__ID input[name=pranaproc_time]')).val();
 					var timestamp = now_date + ' ' + now_time ;
 					var user =($('#F__ID input[name=pra_preproc_by]')).val($vm.user_name);
-					($('#F__ID input[name=pranaproc_t]')).val(timestamp);
+					($('#F__ID input[name=pranaproc_time]')).val(timestamp);
 				})
 			
 		//-------------------------------
@@ -259,9 +259,9 @@ to do list for this form:
 					now_time = now_time.toString().split(" ");
 					now_time = now_time[4];
 					var now_date = $vm.date_to_string_dmy(new Date());
-					var timestamp = ($('#F__ID input[name=uwm_proc_t]')).val();
+					var timestamp = ($('#F__ID input[name=uwm_proc_time]')).val();
 					var timestamp = now_date + ' ' + now_time ;
-					($('#F__ID input[name=uwm_proc_t]')).val(timestamp);
+					($('#F__ID input[name=uwm_proc_time]')).val(timestamp);
 					var user = ($('#F__ID input[name=uwm_preproc_by]')).val($vm.user_name);
 				})
 			//-----------------------------

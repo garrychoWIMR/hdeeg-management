@@ -22,11 +22,13 @@
 
 								td.find('u').on('click', function () {
 									var f_name = $(this).html();
-									var rid = records[I].ID;
+									var rid = records[I]._id;
+									var mtable=m.Table;
 									if (rid !== undefined) {
-										//$vm.open_link({ rid: rid, filename: f_name });
-										var url=m.Table+"/"+records[I].UID+"-"+field+"-"+f_name;
-										$vm.open_s3_url(records[I]._id, m.Table, f_name, url);
+										var url=mtable+"/"+records[I].UID+"-"+field+"-"+f_name;
+										var to = rid, mtable, f_name, url;
+										$vm.open_s3_url(rid,mtable, f_name, url);
+										//window.open(to, '_blank');
 									}
 									else alert("No file was found on server.")
 								});

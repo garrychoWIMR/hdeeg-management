@@ -24,7 +24,7 @@ var autocomplete_list1 = function (records) {
 var wait1 = function () {
 	//	$vm.autocomplete($('#F__ID input[name=re_search]'), autocomplete_req, autocomplete_list, autocomplete_callback);
 	$vm.autocomplete($('#filter__ID'), autocomplete_req1, autocomplete_list1, autocomplete_callback1);
-}
+}	
 var I1 = 0; var loop_1 = setInterval(function () {
 	if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop_1); wait1(); }
 	I1++; if (I1 > 50) { clearInterval(loop_1); alert("jquery-ui.min.js is not installed."); }
@@ -35,6 +35,14 @@ m.set_req=function(){
 		 "Data.Research_Study": $('#filter__ID').val()
 	}
 };
+if ($('#filter__ID').val()==""){
+
+	};
+
+
+
+
+	//-------------------------------------
 
 
 //-------------------------------------
