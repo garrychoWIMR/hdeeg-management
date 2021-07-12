@@ -36,7 +36,7 @@ m.set_req=function(){
 	}
 };
 if ($('#filter__ID').val()==""){
-
+	($('#filter__ID').val()) == ($('#filter__ID2').val());
 	};
 
 
