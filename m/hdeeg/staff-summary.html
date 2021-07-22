@@ -157,7 +157,23 @@
 				</div>
 			</div>
 		</div>
+	
+	
+	
+		<div id=table__ID>
+		</div>
+		<style>
+			#table__ID{
+				margin:30px;
+			}
+		</style>
+	
+	
 	</div>
+
+	
+
+
     <script>
 		function textAreaAdjust__ID(o) {
 			//console.log(o)
@@ -198,6 +214,32 @@
 			
 
 		//----------------------
+				$('#D__ID').on('load',function(){
+
+
+					var parent=m.input.record;
+
+					var name=parent.Data.s_name;
+					$vm.request({api:undefined,cmd:'find',table:'training-setup',query:{"Data.staff":name} },function(res){
+						var records=res.result;
+						
+						var txt="<table style='width:100%'>"
+						txt+="<tr>"
+							txt+="<th>h1</th><th>h2</th>"
+						txt+="</tr>"
+						
+						for(var i=0;i<records.length;i++){
+							var c1=records[i].Data["obs"];
+							var c2=records[i].Data["assisted_setup"];
+							txt+="<tr>"
+								txt+="<td>"+c1+"</td><td>"+c2+"</td>"
+							txt+="</tr>"
+						}
+						
+						txt+="</table>"
+						$('#table__ID').html(txt);
+					})
+				})
 			
         
 		}
@@ -229,3 +271,4 @@
 
 		
 		</style>
+</div>		
