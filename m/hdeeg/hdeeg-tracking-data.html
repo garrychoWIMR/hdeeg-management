@@ -14,11 +14,13 @@
     function F__ID(){
         //-------------------------------------
         VmInclude: \0\grid.02.js
+
         //-------------------------------------
         var fields="Subject_ID|subjectid,Research_Study,Visit|visit,Study_Type,Acquisition_date,Acquisition Comments|acq_comments,Netstation Preprocessing|ns_preproc,NS Preproc time|ns_preproc_time,Done By|ns_preproc_by,Netstation Preprocessing Comments|ns_preproc_comments,PRANA Preprocessing|pranaproc,PRANA Preproc time|pranaproc_time,Done By|pra_preproc_by,PRANA Preprocessing Comments|pr_preproc_comments,UWM Version|uwm_ver,UWM Preprocessing|uwm_proc,UWM Preproc time|uwm_proc_time, Done by|uwm_preproc_by,UWM Preprocessing Comments|uwm_preproc_comments";
         m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
-        m.fields_e="Subject_ID|subjectid,Research_Study,Visit|visit,Study_Type,Acquisition_date,Acquisition Comments|acq_comments,Netstation Preprocessing|ns_preproc,NS Preproc time|ns_preproc_time,Done By|ns_preproc_by,Netstation Preprocessing Comments|ns_preproc_comments,PRANA Preprocessing|pranaproc,PRANA Preproc time|pranaproc_time,Done By|pra_preproc_by,PRANA Preprocessing Comments|pr_preproc_comments,UWM Version|uwm_ver,UWM Preprocessing|uwm_proc,UWM Preproc time|uwm_proc_time, Done by|uwm_preproc_by,UWM Preprocessing Comments|uwm_preproc_comments";
-        //-------------------------------------
+        //m.fields_e="Subject_ID|subjectid,Research_Study,Visit|visit,Study_Type,Acquisition_date,Acquisition Comments|acq_comments,Netstation Preprocessing|ns_preproc,NS Preproc time|ns_preproc_time,Done By|ns_preproc_by,Netstation Preprocessing Comments|ns_preproc_comments,PRANA Preprocessing|pranaproc,PRANA Preproc time|pranaproc_time,Done By|pra_preproc_by,PRANA Preprocessing Comments|pr_preproc_comments,UWM Version|uwm_ver,UWM Preprocessing|uwm_proc,UWM Preproc time|uwm_proc_time, Done by|uwm_preproc_by,UWM Preprocessing Comments|uwm_preproc_comments";
+       m.fields_e="subjectid";
+				//-------------------------------------
         m.cell_render=function(records,I,field,td){
             switch(field){
                 case 'Colour':

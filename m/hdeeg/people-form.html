@@ -8,7 +8,7 @@
 					<div class="col-12">
 						<!-- form start -->
 						<form id="F__ID">
-							<h3>Staff Members</span></h3>
+							<h3>New Staff Form</span></h3>
 							<div>
 								<div class="form-group ">
 									<div class="questiongroup ">
@@ -183,6 +183,7 @@
 					data.study_1 = data.study1 + ' ' + data.ampm_1;
 					data.study_2 = data.study2 + ' ' + data.ampm_2;
 					data.study_3 = data.study3 + ' ' + data.ampm_3;
+					data.allstudy = data.study_1 +","+"\n" + data.study_2 +","+"\n"+ data.study_3;
 				}			
 			//-------------------------------------
 				var autocomplete_req = { cmd: "find", field: '.Data.Research_study', table: 'researchstudies-setup', query: { $or: [{ "Data.Status": "Planning" }, { "Data.Status": "Recruiting/Data Collecting" }, { "Data.Status": "Analysis" }]}, options: {}, skip: 0, limit: 10 }

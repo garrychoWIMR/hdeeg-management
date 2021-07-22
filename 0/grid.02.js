@@ -32,14 +32,11 @@ var I1 = 0; var loop_1 = setInterval(function () {
 //-------------------------------------
 m.set_req=function(){
 	m.query = {
-		 "Data.Research_Study": $('#filter__ID').val()
+		"Data.Research_Study": $('#filter__ID').val()
 	}
+	if ($('#filter__ID').val()=="")
+		m.query = {}
 };
-if ($('#filter__ID').val()==""){
-	($('#filter__ID').val()) == ($('#filter__ID2').val());
-	};
-
-
 
 
 	//-------------------------------------
@@ -47,6 +44,7 @@ if ($('#filter__ID').val()==""){
 
 //-------------------------------------
 m.set_req_export=function(i1,i2){
+	m.fields_e=m.form_fields;
     var sql="with tb as (select Information,DateTime,Author,RowNum=row_number() over (order by ID DESC) from [TABLE-"+m.db_pid+"-@S1] )";
     sql+="select Information,DateTime,Author from tb where RowNum between @I1 and @I2";
 	m.req={cmd:'read',qid:m.qid,sql:sql,i1:i1,i2:i2};
@@ -293,6 +291,8 @@ m.export_records=function(){
         }
     });
 }
+//---------------------------------------------
+
 //---------------------------------------------
 m.import_records=function(){
     $('#Import_f__ID').val('');

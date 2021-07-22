@@ -7,7 +7,7 @@
         VmInclude:__COMPONENT__/g/grid.01.js
         //-------------------------------------
         var fields="Name|s_name,Position|position,Active Staff?|a_staff,Study 1|study_1,Study 2|study_2,Study 3|study_3";
-        m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
+        m.fields="_Form,Summary,"+fields+",Submit_date,Submitted_by,_Delete";
         //-------------------------------------
       	m.query={$or:[{"Data.a_staff":"Yes"},{"Data.a_staff":null}]};
 				m.cell_render=function(records,I,field,td){
@@ -17,6 +17,27 @@
                     td.css('text-align','center');
                     break;
             }
+						switch(field){
+							case'Summary':
+							var a =
+							td.html("<u style='cursor:pointer;'color:#000><i class='far fa-circle'></i></u>");
+							td.css('text-align', 'center');
+							td.find('u').on('click', function () {
+							$vm.load_module(m.prefix + 'staffsum-form', '', { record: records[I] });
+							});
+							//td.html("Training for "+records[I].Data.s_name);
+							break;
+						}
+
+						// case '_Summary':
+						// 				td.html("<u style='cursor:pointer'>Summary Info Sheet</u>");
+						// 				td.find('u').on('click', function () {
+						// 					$vm.load_module(m.prefix + 's-information-summary-data', '', { record: records[I] });
+						// 				});
+		// 				// 				break;
+		// 	}
+		// }
+
         };
         //-------------------------------------
         //m.sort={'I1':-1};
