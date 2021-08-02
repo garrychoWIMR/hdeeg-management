@@ -8,7 +8,7 @@
 					<div class="col-12">
 						<!-- form start -->
 						<form id="F__ID">
-							<h3><span class="" name=s_name id=s_name__ID disabled>Summary</span></h3>
+							<h3>Summary of <input type="text" name=s_name id=s_name__ID style="background:transparent;color:#fff;border-style:none;" disabled></h3>
 								<div>
 								<div class="form-group ">
 									<div class="questiongroup ">
@@ -57,100 +57,9 @@
 								<!---end-->
 							
 								<!---Start-->
-								<div class="form-group ">
-									<div class="questiongroup ">
-										<fieldset class="subquestions">
-											<div class="row">
-												<div class="col-lg-12 col-sm-12">
-													<div><label><span class="">Training</span></label></div>
-													<div class="input-group-lg ">	
-														<input type="text"  value="Gridview with colours" disabled>
-													</div>
-												</div>
-											</div>
-										</fieldset>
-									</div>
-								</div>
-								<div>
+				<div id=table__ID>
+				</div>
 									<!---end-->
-								<!-- start -->
-								<div class="form-group ">
-									<div class="questiongroup ">
-										<fieldset class="subquestions">
-											<div class="row">
-												<div class="col-lg-12 col-sm-3">
-													<div><label><span class="">Training</span></label></div>
-													<table id="researcher">
-														<tr>
-															<th data-header="obseeee">No. of observations</th>
-															<th data-header="assisted_setup">Assisted Setups</th>
-															<th data-header="amp_setup">Amplifier Setup</th>
-															<th data-header="lastname">Net Setup</th>
-															<th data-header="lastname">PSG Setup</th>
-															<th data-header="lastname">Net Removal</th>
-															<th data-header="lastname">Geoscan</th>
-															<th data-header="lastname">Netstation Acquisition</th>
-															<th data-header="lastname">KDT Administration</th>
-															<th data-header="lastname">Neurocognitive Tasks Administration</th>
-															<th data-header="lastname">MSLT</th>
-														<th data-header="lastname">Backup Process</th>
-														<th data-header="lastname">Backup Process</th>
-														</tr>
-														<tr>
-													<td><input type="text" class="form-control" name=obs id=obs__ID readonly /></td>
-													<td><input type="text" class="form-control" name=assisted_setup id=assisted_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>													 </tr>
-														<tr>
-														<th data-header="lastname">MWT</th>
-														<th data-header="lastname">Event Related Potentials</th>
-														
-														<th data-header="lastname">Backup Process</th>
-														<th data-header="lastname">Backup Process</th>
-														<th data-header="lastname">Backup Process</th>
-														<th data-header="lastname">Backup Process</th>
-														<th data-header="lastname">Backup Process</th>
-														<th data-header="lastname">Backup Process</th>
-														<th data-header="lastname">Backup Process</th>
-														<th data-header="lastname">Backup Process</th>
-														<th data-header="lastname">Backup Process</th>
-														<th data-header="lastname">Backup Process</th>
-														<th data-header="lastname">Backup Process</th>
-														</tr>
-														<tr>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-													<td><input type="text" class="form-control" name=amp_setup id=amp_setup__ID disabled /></td>
-														</tr>
-													</table>
-													</div>
-												</div>
-											</div>
-										</fieldset>
-									</div>
-								</div>
-								<div>
-							
-								<!-- end -->
 								</div>
 						</form>
 					</div>
@@ -160,13 +69,6 @@
 	
 	
 	
-		<div id=table__ID>
-		</div>
-		<style>
-			#table__ID{
-				margin:30px;
-			}
-		</style>
 	
 	
 	</div>
@@ -185,67 +87,217 @@
 			//-------------------------------------
 			VmInclude:__COMPONENT__/f/form.01.js
 			//-------------------------------------
-				var autocomplete_req2 = { cmd: "find", field: '.Data.staff', table: 'training-setup', query: {".Data.staff":".Data.s_name"}, options: {}, skip: 0, limit: 10 }
-				var autocomplete_callback2 = function (item) {
-					$('input[name=obs]').val(item.obs);
-					$('input[name=assisted_setup]').val(item.assisted_setup);
-					// $('input[name=a_staff]').val(item.activestaff);
-				}
-				var autocomplete_list2 = function (records) {
-					var items = [];
-					for (var i = 0; i < records.length; i++) {
-						var obj = {};
-						obj.obs = records[i].Data["obs"];
-						obj.position = records[i].Data["assisted_setup"];
-						// obj.activestaff = records[i].Data["a_staff"];
-						items.push(obj);
-					}
-					return items;
-				}
-				var wait2 = function () {
-					$vm.autocomplete($('#F__ID input[name=obs]'), autocomplete_req2, autocomplete_list2, autocomplete_callback2);
-					$vm.autocomplete($('#F__ID input[name=assisted_setup]'), autocomplete_req2, autocomplete_list2, autocomplete_callback2);
-
-				}
-				var I2 = 0; var loop_2 = setInterval(function () {
-					if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop_2); wait2(); }
-					I2++; if (I2 > 50) { clearInterval(loop_2); alert("jquery-ui.min.js is not installed."); }
-				}, 100);
-			
-
 		//----------------------
 				$('#D__ID').on('load',function(){
 
-
+				if ($('#position__ID').val()=="Researcher"){
 					var parent=m.input.record;
-
 					var name=parent.Data.s_name;
 					$vm.request({api:undefined,cmd:'find',table:'training-setup',query:{"Data.staff":name} },function(res){
 						var records=res.result;
 						
-						var txt="<table style='width:100%'>"
+						var txt="<table style='width:800px;margin:30px;'>"
 						txt+="<tr>"
-							txt+="<th>h1</th><th>h2</th>"
+							txt+="<th>No. of observations</th><th>Assisted Setups</th><th>Amplifier Setup</th><th>Net Setup</th><th>PSG Setup</th><th>Net Removal</th><th>Geoscan</th><th>Netstation Acquisition</th><th>KDT Administration</th><th>Neurocognitive Tasks Administration</th><th>MSLT</th><th>MWT</th><th>Event Related Potentials</th><th>Back Up Process</th><th>Netstation PSG Pre-Processing</th>"
 						txt+="</tr>"
 						
 						for(var i=0;i<records.length;i++){
-							var c1=records[i].Data["obs"];
-							var c2=records[i].Data["assisted_setup"];
+							var c1 = records[i].Data["obs"];
+							var c2 = records[i].Data["assisted_setup"];
+							var c3 = records[i].Data["amp_setup"];
+							var c4 = records[i].Data["net_setup"];
+							var c5 = records[i].Data["psg_setup"];
+							var c6 = records[i].Data["net_remove"];
+							var c7 = records[i].Data["geoscan"];
+							var c8 = records[i].Data["netstat_acq"];
+							var c9 = records[i].Data["kdt"];
+							var c10 = records[i].Data["neurocog"];
+							var c11 = records[i].Data["mslt"];
+							var c12 = records[i].Data["mwt"];
+							var c13 = records[i].Data["erp"];
+							var c14 = records[i].Data["backup"];
+							var c15 = records[i].Data["ns_psg_preproc"];
+							var c16 = records[i].Data["ns_kdt_preproc"];
+							var c17 = records[i].Data["pr_psg_preproc"];
+							var c18 = records[i].Data["pr_kdt_preproc"];
+							var c19 = records[i].Data["uwm_preproc"];
+							var c20 = records[i].Data["bids_preproc"];
+							var c21 = records[i].Data["qeeg_proc"];
+							var c22 = records[i].Data["gcp"];
+							var c23 = records[i].Data["venep"];
+							var c24 = records[i].Data["scoring"];
+							var c25 = records[i].Data["hm_build"];
+						}				
 							txt+="<tr>"
-								txt+="<td>"+c1+"</td><td>"+c2+"</td>"
-							txt+="</tr>"
-						}
+							txt+="<td id='c1'>"+c1+"</td><td id='c2'>"+c2+"</td><td id='c3'>"+c3+"</td><td id='c4'>"+c4;
+							txt+="</td><td id='c5'>"+c5+"</td><td id='c6'>"+c6+"</td><td id='c7'>"+c7;
+							txt+="</td><td id='c8'>"+c8+"</td><td id='c9'>"+c9+"</td><td id='c10'>"+c10;
+							txt+="</td><td id='c11'>"+c11+"</td><td id='c12'>"+c12+"</td><td id='c13'>"+c13;
+							txt+="</td><td id='c14'>"+c14+"</td><td id='c15'>"+c15+"</td></tr>"
+							
+							
+							txt+="<tr><th>Netstation KDT Pre-processing</th><th>PSG PRANA Processing </th><th>KDT PRANA Processing </th><th>UWM  Preprocessing</th><th>BIDS Processing</th><th>QEEG Processing</th><th>GCP</th><th>Venepuncture</th><th>Scoring</th><th>Head Model Building</th></tr>"
+							
+							
+							txt+="<tr><td id='c16'>"+c16+"</td><td id='c17'>"+c17+"</td><td id='c18'>"+c18+"</td><td id='c19'>"+c19+"</td><td id='c20'>"+c20+"</td><td id='c21'>"+c21+"</td><td id='c22'>"+c22+"</td><td id='c23'>"+c23+"</td><td id='c24'>"+c24+"</td><td id='c25'>"+c25+"</td>"
+						
+							txt+="</tr>"						
 						
 						txt+="</table>"
-						$('#table__ID').html(txt);
-					})
-				})
-			
-        
-		}
-		//-------------------------------
+								$('#table__ID').html(txt);
 
-    </script>
+	//-------------------------------------------
+				for (var d = 2; d < 26; d++) {
+					console.log([d])
+						var cd =eval("c"+[d])
+						// console.log(cd)
+						var ccd =String("#c"+[d])
+						// console.log(ccd)
+						// console.log(typeof(ccd))
+
+					// alert("C"+[d]+" is a " + typeof(cd))
+					if (cd == "1") {
+					$(ccd).css("background-color", "#ffc299")
+					console.log("c" + [d] + " equals 1")
+					}
+					else
+					if (cd == "2") {
+					$(ccd).css("background-color", "#ff8533")
+					console.log("c" + [d] + " equals  2")
+					}
+					else
+					if (cd == "3") {
+					$(ccd).css("background-color", "#ffff99")
+					console.log("c" + [d] + " equals 3")
+					}
+					else
+					if (cd == "4") {
+					$(ccd).css("background-color", "#ffff33")
+					console.log("c" + [d] + " equals 4")
+					}
+					else
+					if (cd == "5") {
+					$(ccd).css("background-color", "#00cc00")
+					console.log("c" + [d] + " equals 5")
+							}
+			else{
+				$(ccd).css("background-color", "#ff0000")
+				console.log("c"+[d]+ " equals nothing")
+			}
+		}
+//---------------------------------------
+							})
+					}
+//---------------------------------------
+
+				else{
+					var parent=m.input.record;
+					var name=parent.Data.s_name;
+					$vm.request({api:undefined,cmd:'find',table:'training-setup',query:{"Data.staff":name} },function(res){
+						var records=res.result;
+						
+						var txt="<table style='width:800px;margin:30px;'>"
+						txt+="<tr>"
+							txt+="<th>SLEEEPTECHSSS ONEEEEENo. of observations</th><th>Assisted Setups</th><th>Amplifier Setup</th><th>Net Setup</th><th>PSG Setup</th><th>Net Removal</th><th>Geoscan</th><th>Netstation Acquisition</th><th>KDT Administration</th><th>Neurocognitive Tasks Administration</th><th>MSLT</th><th>MWT</th><th>Event Related Potentials</th><th>Back Up Process</th><th>Netstation PSG Pre-Processing</th>"
+						txt+="</tr>"
+						
+						for(var i=0;i<records.length;i++){
+							var c1 = records[i].Data["obs"];
+							var c2 = records[i].Data["assisted_setup"];
+							var c3 = records[i].Data["amp_setup"];
+							var c4 = records[i].Data["net_setup"];
+							var c5 = records[i].Data["psg_setup"];
+							var c6 = records[i].Data["net_remove"];
+							var c7 = records[i].Data["geoscan"];
+							var c8 = records[i].Data["netstat_acq"];
+							var c9 = records[i].Data["kdt"];
+							var c10 = records[i].Data["neurocog"];
+							var c11 = records[i].Data["mslt"];
+							var c12 = records[i].Data["mwt"];
+							var c13 = records[i].Data["erp"];
+							var c14 = records[i].Data["backup"];
+							var c15 = records[i].Data["ns_psg_preproc"];
+							var c16 = records[i].Data["ns_kdt_preproc"];
+							var c17 = records[i].Data["pr_psg_preproc"];
+							var c18 = records[i].Data["pr_kdt_preproc"];
+							var c19 = records[i].Data["uwm_preproc"];
+							var c20 = records[i].Data["bids_preproc"];
+							var c21 = records[i].Data["qeeg_proc"];
+							var c22 = records[i].Data["gcp"];
+							var c23 = records[i].Data["venep"];
+							var c24 = records[i].Data["scoring"];
+							var c25 = records[i].Data["hm_build"];
+								}
+						
+
+
+							txt+="<tr>"
+							txt+="<td id='c1'>"+c1+"</td><td id='c2'>"+c2+"</td><td id='c3'>"+c3+"</td><td id='c4'>"+c4;
+							txt+="</td><td id='c5'>"+c5+"</td><td id='c6'>"+c6+"</td><td id='c7'>"+c7;
+							txt+="</td><td id='c8'>"+c8+"</td><td id='c9'>"+c9+"</td><td id='c10'>"+c10;
+							txt+="</td><td id='c11'>"+c11+"</td><td id='c12'>"+c12+"</td><td id='c13'>"+c13;
+							txt+="</td><td id='c14'>"+c14+"</td><td id='c15'>"+c15+"</td></tr>"
+							txt+="<tr><th>Netstation KDT Pre-processing</th><th>PSG PRANA Processing </th><th>KDT PRANA Processing </th><th>UWM  Preprocessing</th><th>BIDS Processing</th><th>QEEG Processing</th><th>GCP</th><th>Venepuncture</th><th>Scoring</th><th>Head Model Building</th></tr>"
+							txt+="<tr><td id='c16'>"+c16+"</td><td id='c17'>"+c17+"</td><td id='c18'>"+c18+"</td><td id='c19'>"+c19+"</td><td id='c20'>"+c20+"</td><td id='c21'>"+c21+"</td><td id='c22'>"+c22+"</td><td id='c23'>"+c23+"</td><td id='c24'>"+c24+"</td><td id='c25'>"+c25+"</td>"
+						
+						txt+="</tr>"						
+						txt+="</table>"
+						$('#table__ID').html(txt);
+		
+			
+		//-------------------------------
+			for (var d = 2; d < 26; d++) {
+							console.log([d])
+							var cd = eval("c" + [d])
+							// console.log(cd)
+							var ccd = String("#c" + [d])
+							// console.log(ccd)
+							// console.log(typeof(ccd))
+
+							// alert("C"+[d]+" is a " + typeof(cd))
+							if (cd == "1") {
+								$(ccd).css("background-color", "#ffc299")
+								console.log("c" + [d] + " equals 1")
+							}
+							else
+								if (cd == "2") {
+									$(ccd).css("background-color", "#ff8533")
+									console.log("c" + [d] + " equals  2")
+								}
+								else
+									if (cd == "3") {
+										$(ccd).css("background-color", "#ffff99")
+										console.log("c" + [d] + " equals 3")
+									}
+									else
+										if (cd == "4") {
+											$(ccd).css("background-color", "#ffff33")
+											console.log("c" + [d] + " equals 4")
+										}
+										else
+											if (cd == "5") {
+												$(ccd).css("background-color", "#00cc00")
+												console.log("c" + [d] + " equals 5")
+											}
+											else {
+												$(ccd).css("background-color", "#ff0000")
+												console.log("c" + [d] + " equals nothing")
+											}
+						}
+
+
+
+//----------------------------------
+					})
+				}
+
+
+
+//--------------------------------
+    })
+	}
+		
+		</script>
     <style>
         VmInclude:__CURRENT_PATH__/wappsystem-form.css
         #form_container__ID{
@@ -261,11 +313,12 @@
 		td{
 			text-align:center;
 			border-color:#000;
-		border-style:solid;
+			border-style:solid;
 			border-width:1px;
-			max-width:800px;
+			width:10px;
 			font-size:10px;
 			background-color:#fff;
+		
 		}
 
 

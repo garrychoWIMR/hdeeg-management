@@ -13,14 +13,14 @@
 				m.cell_render=function(records,I,field,td){
             switch(field){
                 case 'Colour':
-                    td.html("<span style='color:"+records[I].Data[field]+"'><i class='far fa-circle'></i></span>");
-                    td.css('text-align','center');
+                    td.html("<span style=''"+records[I].Data[field]+"'><i style='color:#000' class='far fa-circle'></i></span>");
+                    td.css('text-align','center','padding','none');
                     break;
             }
 						switch(field){
 							case'Summary':
 							var a =
-							td.html("<u style='cursor:pointer;'color:#000><i class='far fa-circle'></i></u>");
+							td.html("<u style='cursor:pointer;'color:#000;padding:none><i class='far fa-address-card'></i></i></u>");
 							td.css('text-align', 'center');
 							td.find('u').on('click', function () {
 							$vm.load_module(m.prefix + 'staffsum-form', '', { record: records[I] });
