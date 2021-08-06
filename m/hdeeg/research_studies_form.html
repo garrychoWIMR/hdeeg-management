@@ -91,7 +91,7 @@
 														</fieldset>
 													</div>
 												</div>
-												<div class="form-group ">
+												<!-- <div class="form-group ">
 													<div class="questiongroup ">
 														<fieldset class="subquestions">
 															<div class="row">
@@ -105,7 +105,7 @@
 															</div>
 														</fieldset>
 													</div>
-												</div>
+												</div> -->
 										<div class="form-group ">
 											<div class="questiongroup ">
 												<fieldset class="subquestions">
@@ -113,7 +113,7 @@
 														<div class="col-lg-12 col-sm-12">
 															<div><label><span class="">Notes</span></label></div>
 															<div class="input-group-sm">
-																<textarea style='font-size:12px' class="form-control" name=Comments id=Comments__ID placeholder="Anything else?" readonly></textarea>
+																<textarea style='font-size:12px' class="form-control" name=staff id=staff__ID readonly></textarea>
 															</div>
 														</div>
 													</div>
@@ -199,7 +199,28 @@
 					I2++; if (I2 > 50) { clearInterval(loop_2); alert("jquery-ui.min.js is not installed."); }
 				}, 100);
 			//-------------------------------------
+				// $('#D__ID').on('load', function () {
+				// 	var parent = m.input.record;
+				// 	var name = parent.Data.equipment_name;
+				// 	$vm.request({ api: undefined, cmd: 'find', table: 'ticket-setup', query: { "Data.Equipment": name } }, function (res) {
+				// 		var records = res.result;
 
+
+				// 		var end = [];
+				// 		for (var i = 0; i < records.length; i++) {
+				// 			comments = records[i].Data["Comments"];
+				// 			if (records[i].Data["Comments"] == "") {
+				// 				comments = "";
+				// 			}
+				// 			ticket_no = records[i].Data["case_no"];
+				// 			var combined = "\n" + "-------" + '[Case No.' + ticket_no + "]---------" + "\n\n" + comments + "\n" + "==================================";
+				// 			end += combined;
+				// 		}
+
+				// 		$('#F__ID textarea[name=tickets]').val(end)
+
+
+				// 	})
 			//-------------------------------------
 		}
 		//-------------------------------

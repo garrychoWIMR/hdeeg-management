@@ -148,16 +148,13 @@ $('#D__ID').on('load',function(){
 				if (records[i].Data["Comments"]==""){
 					comments ="";
 				}
-				// alert("comments is " + comments)
 				ticket_no=records[i].Data["case_no"];
 				var combined="\n"+"-------"+'[Case No.' + ticket_no + "]---------"+"\n\n"+ comments +"\n" +"==================================";
 				end+=combined;
 				}
-				// var ends=$vm.text(end)
-				// ends=ends.replace(/\n/g,'<br>');
+			
 				$('#F__ID textarea[name=tickets]').val(end)
 
-				// $('#tickets__ID').html(ends);
 			
 })
 
