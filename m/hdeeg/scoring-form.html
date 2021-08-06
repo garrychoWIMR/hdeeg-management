@@ -112,7 +112,7 @@
 											<div class="col-lg-6 col-sm-12">
 												<div class="input-group-sm ">
 													<label><span class="">Scored</span></label>
-													<input type="checkbox" name=scored id=scored_time__ID >
+													<input type="checkbox" name=scored id=scored__ID >
 												</div>
 													<input class=timestamp id=timestamp__ID name=timestamp readonly>
 													<input hidden name=scored_by >
@@ -188,7 +188,7 @@
 			}, 100);	
 			
 		//-------------------------------
-			 ($('#scored_time__ID').on('click',function(){
+			 ($('#scored__ID').on('click',function(){
 				var now_time = new Date();
 				now_time = now_time.toString().split(" ");
 				now_time = now_time[4];
@@ -196,7 +196,7 @@
 				var timestamp = ($('#F__ID input[name=timestamp]')).val();
 				var timestamp = now_date + ' ' + now_time;
 
-			if ($('#scored_time__ID').is(':checked')){
+			if ($('#scored__ID').is(':checked')){
 				($('#F__ID input[name=timestamp]')).val(timestamp);
 				($('#F__ID input[name=scored_by]')).val($vm.user_name);
 				($('#F__ID input[name=scored]')).val("Yes");
@@ -206,7 +206,7 @@
 				($('#F__ID input[name=scored_by]')).val("");
 				($('#F__ID input[name=scored]')).val("No");
 				}
-				console.log($('#scored_time__ID').val())
+				console.log($('#scored__ID').val())
 					}
 				)
 			);

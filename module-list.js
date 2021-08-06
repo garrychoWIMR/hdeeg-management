@@ -16,10 +16,10 @@
 
     
     //Operations Admin (POs,Equipment Tracking,Research Studies, Staffing, No. of studies)
-        "management":               { url: "$H/m/hdeeg/mgmt_panel.html",Table:"management-panel" },
+        // "management":               { url: "$H/m/hdeeg/mgmt_panel.html",Table:"management-panel" },
         "purchase_data":            { url: "$H/m/hdeeg/purchase-data.html", Table: "purchase-order-setup", form_module: "purchase_form" },
         "purchase_form":            { url: "$H/m/hdeeg/purchase-form.html", Table: "purchase-order-setup" },
-        "finanacereports_data":     { url: "$H/m/hdeeg/hdeeg-po-data.html", Table: "demo-hdeeg-tracking1", task_name: "demo-hdeeg-tracking" },
+        "finanacereports_data":     { url: "$H/m/hdeeg/hdeeg-po-data.html", Table: "demo-hdeeg-tracking1"},
         "ticket_data":              { url: "$H/m/hdeeg/ticket-data.html", Table: "ticket-setup", form_module: "ticket_form" },
         "ticket_form":              { url: "$H/m/hdeeg/ticket-form.html", Table: "ticket-setup" },
         "training_data_r":          { url: "$H/m/hdeeg/training-data.html", Table: "training-setup", form_module: "training_form" },
@@ -29,7 +29,8 @@
 				//"staffing-data": 						{ url: "$H/m/hdeeg/staffing-data.html", Table: "staffing-setup", form_module: "staffing-form" },
 				//"staffing-form": 						{ url: "$H/m/hdeeg/staffing-form.html", Table: "staffing-setup" },
 				"troubleshoot_data": 				{ url: "$H/m/hdeeg/troubleshoot-data.html", Table: "ticket-setup"},
-
+				"stock_data":      					{ url: "$H/m/hdeeg/inventory-data.html", Table: "stock-setup",form_module:"stock_form"},
+				"stock_form": 							{ url: "$H/m/hdeeg/inventory-form.html", Table: "stock-setup"},
 
     //Research Study Admin
         "tracking_data":            { url: "$H/m/hdeeg/hdeeg-tracking-data.html", Table: "hdeeg-tracking", form_module: "tracking_form" },
@@ -42,10 +43,6 @@
         
         
         
-    //  "calendar-sleepstudy-scoring-week": { url: "$H/m/calendar-sleepstudy-scoring-week.html", Table: "demo-wapp-booking", Table2: "demo-wapp-scoring", lookup: "demo-wapp-appointment" },
-    //  "calendar-sleepstudy-week": { url: "$H/m/calendar-sleepstudy-week.html", Table: "demo-wapp-booking", Table2: "demo-wapp-roster", "booking": "booking-form", lookup: "demo-wapp-appointment" },
-    //  "calendar-sleepstudy-scoring-week": { url: "$H/m/calendar-sleepstudy-scoring-week.html", Table: "demo-wapp-booking", Table2: "demo-wapp-scoring", lookup: "demo-wapp-appointment" },
-    //  "hdeeg-tracking-data:":{url:"$H/m/hdeeg-tracking-data,table", Table: "demo-hdeeg-tracking", task_name:"demo-hdeeg-tracking" },
 
     
     }

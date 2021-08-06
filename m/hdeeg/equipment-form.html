@@ -17,8 +17,8 @@
 												<div class="col-lg-12 col-sm-12">
 													<div><label><span class="">Name of Equipment</span></label></div>
 													<div class="input-group-sm">
-													<textarea style='font-size:12px' class="form-control" name=equipment_name id=equipment_name__ID 
-													placeholder="e.g Acquisition Computer 1 "></textarea>
+													<input type="text" style='font-size:12px' class="form-control" name=equipment_name id=equipment_name__ID 
+													placeholder="e.g Acquisition Computer 1 "></input>
 													</div>
 												</div>
 											</div>
@@ -100,26 +100,6 @@
 											</fieldset>
 										</div>
 									</div>
-									<!--div class="form-group ">
-										<div class="questiongroup ">
-											<fieldset class="subquestions">
-												<div class="row">
-													<div class="col-lg-6 col-sm-12">
-														<div class="input-group-sm">
-															<label><span class="">Acquisition Start Date </span></label>
-															<input type="date" name=s_approval_date id=s_approval__ID>
-														</div>
-													</div>
-													<div class="col-lg-6 col-sm-12">
-														<div class="input-group-sm">
-															<label><span class="">Estimated End Date</span></label>
-															<input type="date" name=end_approval_date id=end_approval__ID>
-														</div>
-													</div>
-												</div>
-											</fieldset>
-										</div>
-									</div--->
 									<div class="form-group ">
 										<div class="questiongroup ">
 											<fieldset class="subquestions">
@@ -127,8 +107,8 @@
 													<div class="col-lg-12 col-sm-12">
 														<div><label><span class="">Notes</span></label></div>
 														<div class="input-group-sm">
-															<textarea style='font-size:12px' class="form-control" name=tickets id=tickets__ID
-																placeholder="Listing tickets and maintenance?"></textarea>
+															<textarea style='font-size:14px' class="form-control" name=tickets id=tickets__ID
+																placeholder="Listing tickets and maintenance?" rows=30 disabled style="background-color:transparent"></textarea>
 														</div>
 													</div>
 												</div>
@@ -155,13 +135,37 @@
     		//-------------------------------------
             VmInclude:__COMPONENT__/f/form.01.js
 			//-------------------------------------
+$('#D__ID').on('load',function(){
+				var parent=m.input.record;
+				var name=parent.Data.equipment_name;
+				$vm.request({api:undefined,cmd:'find',table:'ticket-setup',query:{"Data.Equipment":	name }},function(res){
+				var records=res.result;
 
-			//-------------------------------------
+				
+				var end=[];
+				for(var i=0;i<records.length;i++){
+				comments=records[i].Data["Comments"];
+				if (records[i].Data["Comments"]==""){
+					comments ="";
+				}
+				// alert("comments is " + comments)
+				ticket_no=records[i].Data["case_no"];
+				var combined="\n"+"-------"+'[Case No.' + ticket_no + "]---------"+"\n\n"+ comments +"\n" +"==================================";
+				end+=combined;
+				}
+				// var ends=$vm.text(end)
+				// ends=ends.replace(/\n/g,'<br>');
+				$('#F__ID textarea[name=tickets]').val(end)
+
+				// $('#tickets__ID').html(ends);
+			
+})
+
 			
         
-		}
+		})
 		//-------------------------------
-
+			}
     </script>
     <style>
         #form_container__ID{

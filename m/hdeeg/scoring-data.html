@@ -5,8 +5,7 @@
 	<option value="off" name=scored>To be scored</option>
 	<option value="Yes"name=scored>Scored</option>
 </select>
-<!--input type=text name=scorer id=filter2__ID >
-</input-->
+
 	
 </section>
 	VmInclude:__COMPONENT__/g/grid.01.html
@@ -19,8 +18,6 @@
 		var fields = "Date of Study|date,Research Project|research_project,Study_ID|study_id,File Location|location,Medicare|medicare,Scorer|scorer,Scored|scored,Scored on|timestamp,Scored by|scored_by";
 		m.fields = "_Form," + fields + ",Submit_date,Submitted_by,_Delete";
 		//-------------------------------------
-		//m.query={		}
-
 	//-------------------------------------
 		 ($('#filter1__ID').on('click',function(){
 			 var sc = $('#filter1__ID').val() 
@@ -37,38 +34,6 @@
 			{m.set_req(); m.request_data();}
 			 }))
 	//-------------------------------------
-/* Autocomplete for Scorers -- But can search scorers name in search bar		
-
-
-var autocomplete_req = { cmd: "find", field: '.Data.s_name', table: 'people-setup', query: {"Data.position": "Scorer"}, options: {}, skip: 0, limit: 10 }
-		var autocomplete_callback = function (item) {
-			$('#filter2__ID').val(item.label);
-		}
-		var autocomplete_list = function (records) {
-			var items = [];
-			for (var i = 0; i < records.length; i++) {
-				var obj = {};
-				obj.label = records[i].Data["s_name"];
-				items.push(obj);
-			}
-			return items;
-		}
-		var wait = function () {
-			$vm.autocomplete($('#filter2__ID'), autocomplete_req, autocomplete_list, autocomplete_callback);
-		}
-		var I = 0; var loop = setInterval(function () {
-			if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop); wait(); }
-			I++; if (I > 50) { clearInterval(loop); alert("jquery-ui.min.js is not installed."); }
-		}, 100);
-		
-		m.query = {
-			"Data.scorer": $('#filter2__ID').val()
-		}
-		if ($('#filter2__ID').val()==""){
-				m.query = {
-					 $or: [{"Data.scored":"Yes"},{"Data.scored":"on"},{"Data.scored":"off"},{"Data.scored":""}]
-						}
-				}*/
 	//-------------------------------------
 		m.cell_render = function (records, I, field, td) {	
 				switch (field) {
@@ -94,14 +59,10 @@ var autocomplete_req = { cmd: "find", field: '.Data.s_name', table: 'people-setu
 		td.css('background-color', c);
 						break;
 				}
-	
-	
-		
-		
-		//m.sort={'I1':-1};
 	}
 		}
 </script>
+
 <style>
 	VmInclude:__COMPONENT__/g/grid.01.css
 

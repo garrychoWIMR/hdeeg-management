@@ -6,7 +6,7 @@
         //-------------------------------------
         VmInclude:__COMPONENT__/g/grid.01.js
         //-------------------------------------
-        var fields="Case Number|case_no,Equipment,other_equipment,serial_number,warranty,resolved,troubleshoot|tbshoot,Comments";
+        var fields="Case Number|case_no,Equipment,other_equipment,serial_number,warranty,resolved,Comments";
         m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
         //-------------------------------------
         m.cell_render=function(records,I,field,td){
@@ -15,6 +15,22 @@
                     td.html("<span style='color:"+records[I].Data[field]+"'><i class='far fa-circle'></i></span>");
                     td.css('text-align','center');
                     break;
+
+						case 'warranty':
+						case 'resolved':
+							if (records[I].Data[field]=="on") {
+							td.html("Yes");
+								// td.css('text-align', 'center');
+							}
+							if (records[I].Data[field]=="off"){
+								td.html("No");
+							}
+							// else {
+							// 	td.html("");
+							// }
+							break;
+
+
             }
         };
         //-------------------------------------

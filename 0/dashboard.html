@@ -1,0 +1,134 @@
+<div id=D__ID>
+	<!-- <div id=dashboard__ID class=home_page_1> -->
+		<div class="container-fluid" style='max-width:900px'>
+		<!-- First row start  -->
+				<div class="firstrow">
+						asdgaiugduias
+						<div class="firstwidget">
+							<div class=entry_1>
+							Number of Studies Scored
+									<input type="text" class=outputfields id=scored_studies__ID  >
+							</div>
+						</div>
+						<div class="secondwidget" style='color:#fff'>
+							<div class=entry_1>
+							To be scored: 
+									<input type="text" class=outputfields id=tb_scored__ID>
+							</div>	
+						</div>
+						<div class="thirdwidget" style='color:#fff'>
+							<div class=entry_1>
+									Active Studies
+								<input type="text" class=outputfields id=r_studies__ID>
+						 </div>
+						</div>
+					</div> 
+				<!-- </div> -->
+			<!-- Second row start  -->
+			<div class="container-fluid" style='max-width:960px;'>
+					<div class="secondrow">
+						asdgoiashdois
+						<div class="firstwidget">
+								<div class=entry_1 >
+									Tickets Opened
+									<input type="text" class=outputfields id=tickets__ID >
+								</div>
+							</div>
+						<div class="secondwidget" style='color:#fff'>
+								<div class=entry_1 >
+								Inventory Low on Stock 
+									<input type="text" class=outputfields id=inventory__ID>
+								</div>
+						</div>
+						<div class="thirdwidget" style='color:#fff'>
+								<div class=entry_1>
+									Second row 3
+									<input type="text" class=outputfields id=333>
+								</div>
+							</div>
+				</div>
+
+			<!-- D__ID end  -->
+			<!-- </div> -->
+<!-- </div> -->
+<script> 
+
+function F__ID(){
+$('#D__ID').on('load',function(){
+
+$vm.request({cmd: 'find', table: 'demo-hdeeg-scoring', query: { "Data.scored": "Yes" } }, function (res) {
+var records = res.result;
+$('#scored_studies__ID').val(records.length)
+	})
+
+$vm.request({cmd: 'find', table: 'researchstudies-setup', query: {$or: [{ "Data.Status": "Planning" }, { "Data.Status": "Recruiting/Data Collecting" }, { "Data.Status": "Analysis" }]} }, function (res1) {
+var records1 = res1.result;
+
+$('#r_studies__ID').val(records1.length)
+})
+
+$vm.request({ cmd: 'find', table: 'demo-hdeeg-scoring', query: {$or: [{"Data.scored":"off"},{"Data.scored":""}]}}, function (res2) {
+	var records2 = res2.result;
+	$('#tb_scored__ID').val(records2.length)
+})
+
+$vm.request({ cmd: 'find', table: 'ticket-setup', query: {"Data.resolved":"off"}}, function (res3) {
+	var records3 = res3.result;
+	$('#tickets__ID').val(records3.length)
+})
+
+
+
+
+
+
+
+//---------------
+})
+}
+</script> 
+<style>
+
+.firstrow{
+	margin-top:20px;
+}
+.secondrow{
+	margin-top:30%;
+}
+.firstwidget, .secondwidget, .thirdwidget{
+	height: 200px;
+  width: 200px;
+  border-radius: 50%;
+	border-style:solid;
+	border-color:black;
+	position:absolute;
+	}
+
+.firstwidget{
+
+
+}
+.secondwidget{
+left:50%;
+}
+.thirdwidget{
+left:70%;
+}
+
+.entry_1{
+	margin-top:30%;
+	font-size:15px;
+	color:#fff;
+	text-align:center;
+}
+
+.outputfields{
+	background-color:transparent;
+	border-style:none;
+	color:#fff;
+	text-align:center;
+
+}
+</style>
+
+

@@ -1,19 +1,10 @@
 <section>
-    VmInclude: \0\grid.02.html
+    VmInclude: __CURRENT_PATH__/grid.02.html
 </section>
-
-<container style='color:#fff; font-size:20px; text-align: center'>
-<br>
-<p>Purpose of this Page:</p>
-<p>To replace spreadsheets of tracking sheets</p>
-<p>Requires the importing of study dataset sturcture in .csv format (Importing the first few columns - Identifiers, types of studies, the research project, visits etc. )</p>
-<p>Following the importing of a file, the first few columns should populate and thus be ready to be started from "netstation pre-processed"</p>
-
-</container>
 <script>
     function F__ID(){
         //-------------------------------------
-        VmInclude: \0\grid.02.js
+        VmInclude: __CURRENT_PATH__/grid.02.js
 
         //-------------------------------------
         var fields="Subject_ID|subjectid,Research_Study,Visit|visit,Study_Type,Acquisition_date,Acquisition Comments|acq_comments,Netstation Preprocessing|ns_preproc,NS Preproc time|ns_preproc_time,Done By|ns_preproc_by,Netstation Preprocessing Comments|ns_preproc_comments,PRANA Preprocessing|pranaproc,PRANA Preproc time|pranaproc_time,Done By|pra_preproc_by,PRANA Preprocessing Comments|pr_preproc_comments,UWM Version|uwm_ver,UWM Preprocessing|uwm_proc,UWM Preproc time|uwm_proc_time, Done by|uwm_preproc_by,UWM Preprocessing Comments|uwm_preproc_comments";
@@ -28,14 +19,12 @@
                     td.css('text-align','center');
                     break;
             }
+	
         }
 		}
         //-------------------------------------
 </script>
 <style>
     VmInclude:__COMPONENT__/g/grid.01.css
-    #D__ID{
-        background-color:rgb(255,255,255,0);
-    }
    
 </style>

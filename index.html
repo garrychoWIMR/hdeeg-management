@@ -31,6 +31,7 @@
                 "app":	        {url:"$H/0/app.html"},
                 "header":	    {url:"$H/0/header.html"},
                 "footer":	    {url:"$H/0/footer.html"},
+								"dashboard":  {url:"$H/0/dashboard.html"},
             };
             for(p in $vm.module_list) $vm.module_list[p].url=$vm.module_list[p].url.replace('$H',$vm.hosting_path);
             //------------------------------------
