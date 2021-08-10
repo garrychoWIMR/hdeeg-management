@@ -1,4 +1,12 @@
 <section>
+	<section style="background-color:#cccccc">
+		<select id=filter1__ID>
+			<option value="" name=resolved>All</option>
+			<option value="off" name=resolved>Open</option>
+			<option value="on" name=resolved>Closed</option>
+		</select>
+	
+	</section>
     VmInclude:__COMPONENT__/g/grid.01.html
 </section>
 <script>
@@ -20,10 +28,10 @@
 						case 'resolved':
 							if (records[I].Data[field]=="on") {
 							td.html("Yes");
-								// td.css('text-align', 'center');
+								td.css('text-align', 'center');
 							}
 							if (records[I].Data[field]=="off"){
-								td.html("No");
+								td.html(" ");
 							}
 							// else {
 							// 	td.html("");
@@ -33,10 +41,34 @@
 
             }
         };
+				// --------------------------------
+			($('#filter1__ID').on('click', function () {
+				var sc = $('#filter1__ID').val()
+				var scd = ($('#F__ID input[name=resolved]')).val()
+				scd = sc
+				m.query = {
+					"Data.resolved": scd
+				}
+				if ($('#filter1__ID').val() == "") {
+					m.query = {
+						$or: [{ "Data.resolved": "Yes" }, { "Data.resolved": "on" }, { "Data.resolved": "No" }, { "Data.resolved": "off" }]
+					}
+				}
+				{ m.set_req(); m.request_data(); }
+			}))
+
         //-------------------------------------
         //m.sort={'I1':-1};
     }
 </script>
 <style>
     VmInclude:__COMPONENT__/g/grid.01.css
+
+		#filter1__ID{
+		display:inline-block;
+		margin-left:60px;
+		height:30px;
+		width:150px;
+		border-radius:5px;
+	}
 </style>

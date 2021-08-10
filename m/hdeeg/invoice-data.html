@@ -1,0 +1,44 @@
+<section>
+    VmInclude:__COMPONENT__/g/grid.01.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/g/grid.01.js
+        //-------------------------------------
+				var fields="Name|d_name,Subtopic|subtopic,Written by|author,Reviewed by|review,Version|version,Last Review|l_review,Document|file";
+        m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
+        //-------------------------------------
+				m.cell_render=function(records,I,field,td){
+            switch(field){
+                case 'file':
+								//var link =
+								//alert (link)
+							//	td.html("<u style='cursor:pointer'"+ records[I].Data.link_file__ID+">"+records[I].Data.d_name+"</u>");
+							//td.html("<u>"+"<a href="+String(records[I].Data.file)+" target="+"_blank"+">"+String(records[I].Data.d_name)+" v "+String(records[I].Data.version)+"</a></u>")
+                var html="<u style='cursor:pointer'>"+ String(records[I].Data.file)+"</u>";
+								td.html(html);
+								td.css('text-align','center');
+
+								td.find('u').on('click', function () {
+									var f_name = $(this).html();
+									var rid = records[I]._id;
+									var mtable=m.Table;
+									if (rid !== undefined) {
+										var url=mtable+"/"+records[I].UID+"-"+field+"-"+f_name;
+										var to = rid, mtable, f_name, url;
+										$vm.open_s3_url(rid,mtable, f_name, url);
+										//window.open(to, '_blank');
+									}
+									else alert("No file was found on server.")
+								});
+								break;
+						};
+				}
+		}
+        //-------------------------------------
+        //m.sort={'I1':-1};
+</script>
+<style>
+    VmInclude:__COMPONENT__/g/grid.01.css
+</style>
