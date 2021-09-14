@@ -14,121 +14,404 @@
 									<div class="questiongroup ">
 										<fieldset class="subquestions">
 											<div class="row">
-												<div class="col-lg-3 col-sm-12">
-													<div><label><span class="">Case No. (Provided by Vendor)</span></label></div>
-													<div class="input-group-sm">
-														<input type="text" name=case_no id=case_no__ID>
-												</div>
-											</div>
-										</fieldset>
-									</div>
-								</div>
-								<div>
-								<div class="form-group ">
-										<div class="questiongroup ">
-											<fieldset class="subquestions">
-												<div class="row">
-													<div class="col-lg-3 col-sm-12">
-													<div><label><span class="">Equipment</span></label></div>
-												<div class="input-group-sm ">
-												<input type="text" name=Equipment id=Equipment__ID>
-												</div>
-											</div>
 												<div class="col-lg-6 col-sm-12">
-														<div><label><span class="">Others:</span></label></div>
-														<div class="input-group-sm ">
-														<input type="text" name=other_equipment id=other_equipment__ID placeholder="If Others, please specify" size=45%>
-														</div>
-													</div>	
+													<div><label><span class="">Select a Type of Ticket you would like to submit </span></label></div>
+													<div class="input-group-sm">
+													<select id=ticket_type__ID name=ticket_type style="border-style:black">
+													<option value="none">Please Select...</option>
+													<option value="Equipment">Equipment</option>
+													<option value="Software">Software</option>
+													<option value="Pipelines">Pre/Post Processing</option>
+													</select> 
 												</div>
 											</div>
 										</fieldset>
 									</div>
 								</div>
-							<div>
-								<div class="form-group ">
-									<div class="questiongroup ">
-										<fieldset class="subquestions">
-											<div class="row">
-													<div class="col-lg-4 col-sm-12">
-														<div><label><span class="">Serial Number</span></label></div>
-														<div class="input-group-sm ">
-															<input type="text" name=serial_number id=serial_number__ID>
-														</div>
-													</div>
-										</fieldset>
-									</div>
-								</div>
-									<div class="form-group ">
-										<div class="questiongroup ">
-											<fieldset class="subquestions">
-												<div class="row">
-													<div class="col-lg-6 col-sm-12">
-														<div class="input-group-sm ">
-															<label><span class="">Is this covered by Warranty? </span></label>
-															<input type="checkbox" name=warranty id=warranty__ID />
-														</div>
-													</div>							
-												</div>
-											</fieldset>
-										</div>
-									</div>
-										<div class="form-group ">
-											<div class="questiongroup ">
-												<fieldset class="subquestions">
-													<div class="row">
-														<div class="col-lg-12 col-sm-12">
-															<div class="input-group-sm ">
-														<textarea class="form-control" id=Add_Comment__ID placeholder="enter new comments here.."></textarea>
-														<label><span class=""><u style='cursor:pointer;margin-bottom:3px;display:inline-block' id=add_comment__ID>
-														<i class="fa fa-plus"></i> Click here to add issues/comments/correspondence</u></span></label>
-														</div>
-														</div>
-													</div>
-												</fieldset>
-											</div>
-										</div>
-										<div class="form-group ">
-											<div class="questiongroup "> 
-												<fieldset class="subquestions">
-													<div class="row">
-														<div class="col-lg-12 col-sm-12">
-															<div><label><span class="">Notes & Comments</span></label></div>
-															<div class="input-group-sm">
-																<textarea style='font-size:12px' rows=5 class="form-control" name=Comments id=Comments__ID
-																	placeholder="Anything else?" readonly></textarea>
-															</div>
-														</div>
-													</div>
-												</fieldset>
-												</div>
-											</div>										
-									</div>
-										<div class="form-group ">
-											<div class="questiongroup ">
-												<fieldset class="subquestions">
-													<div class="row">
-														<div class="col-lg-6 col-sm-12">
-															<div class="input-group-sm ">
-																<label><span class="">Resolved?</span></label>
-																<input type="checkbox" name=resolved id=resolved__ID>
-															</div>
-																<label><span class="">Add to Error Log?</span></label>
-																<input type="checkbox" name=tbshoot id=tbshoot__ID>
-														</div>
-													</div>
-												</fieldset>
-											</div>
-										</div>
-									<button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
-									<button id=delete__ID type="button" class="btn btn-primary btn-lg">Delete</button>
-								</div>
-						</form>
+
+<!--  -->
+<!-- <div id=equipment_ticket__ID class=equipment_ticket> -->
+<div id=equipment_ticket__ID class=equipment_ticket>
+	<div class="form-group ">
+		<div class="questiongroup ">
+			<fieldset class="subquestions">
+				<div class="row">
+					<div class="col-lg-3 col-sm-12">
+						<div><label><span class="">Case No. (Provided by Vendor) - Equipment </span></label></div>
+						<div class="input-group-sm">
+							<input type="text" name=case_no id=case_no__ID>
+						</div>
 					</div>
+			</fieldset>
+		</div>
+	</div>
+	<div>
+		<div class="form-group ">
+			<div class="questiongroup ">
+				<fieldset class="subquestions">
+					<div class="row">
+						<div class="col-lg-3 col-sm-12">
+							<div><label><span class="">Equipment</span></label></div>
+							<div class="input-group-sm ">
+								<input type="text" name=Equipment id=Equipment__ID>
+							</div>
+						</div>
+						<div class="col-lg-6 col-sm-12">
+							<div><label><span class="">Others:</span></label></div>
+							<div class="input-group-sm ">
+								<input type="text" name=other_equipment id=other_equipment__ID
+									placeholder="If Others, please specify" size=45%>
+							</div>
+						</div>
+					</div>
+			</div>
+			</fieldset>
+		</div>
+	</div>
+	<div>
+		<div class="form-group ">
+			<div class="questiongroup ">
+				<fieldset class="subquestions">
+					<div class="row">
+						<div class="col-lg-4 col-sm-12">
+							<div><label><span class="">Serial Number</span></label></div>
+							<div class="input-group-sm ">
+								<input type="text" name=serial_number id=serial_number__ID>
+							</div>
+						</div>
+				</fieldset>
+			</div>
+		</div>
+		<div class="form-group ">
+			<div class="questiongroup ">
+				<fieldset class="subquestions">
+					<div class="row">
+						<div class="col-lg-6 col-sm-12">
+							<div class="input-group-sm ">
+								<label><span class="">Is this covered by Warranty? </span></label>
+								<input type="checkbox" name=warranty id=warranty__ID />
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+		<div class="form-group ">
+			<div class="questiongroup ">
+				<fieldset class="subquestions">
+					<div class="row">
+						<div class="col-lg-12 col-sm-12">
+							<div class="input-group-sm ">
+								<textarea class="form-control" id=Add_Comment__ID
+									placeholder="enter new comments here.."></textarea>
+								<label><span class=""><u style='cursor:pointer;margin-bottom:3px;display:inline-block'
+											id=add_comment__ID>
+											<i class="fa fa-plus"></i> Click here to add
+											issues/comments/correspondence</u></span></label>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+		<div class="form-group ">
+			<div class="questiongroup ">
+				<fieldset class="subquestions">
+					<div class="row">
+						<div class="col-lg-12 col-sm-12">
+							<div><label><span class="">Notes & Comments</span></label></div>
+							<div class="input-group-sm">
+								<textarea style='font-size:12px' rows=5 class="form-control" name=Comments
+									id=Comments__ID placeholder="Anything else?" readonly></textarea>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+	<div class="form-group ">
+		<div class="questiongroup ">
+			<fieldset class="subquestions">
+				<div class="row">
+					<div class="col-lg-6 col-sm-12">
+						<div class="input-group-sm ">
+							<label><span class="">Resolved?</span></label>
+							<input type="checkbox" name=resolved id=resolved__ID>
+						</div>
+						<label><span class="">Add to Error Log?</span></label>
+						<input type="checkbox" name=tbshoot id=tbshoot__ID>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+</div>
+<!--  Software -->
+<div id=software_ticket__ID class=software_ticket>
+	<div class="form-group ">
+		<div class="questiongroup ">
+			<fieldset class="subquestions">
+				<div class="row">
+					<div class="col-lg-6 col-sm-12">
+					<div><label>SOFTWARE: MATLAB</label></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-3 col-sm-12">
+						<div><label><span class="">Case No. (Provided by Vendor) - Software </span></label></div>
+						<div class="input-group-sm">
+							<input type="text" name=case_no id=case_no__ID>
+						</div>
+					</div>
+			</fieldset>
+		</div>
+	</div>
+	<div>
+		<div class="form-group ">
+			<div class="questiongroup ">
+				<fieldset class="subquestions">
+					<div class="row">
+						<div class="col-lg-3 col-sm-12">
+							<div><label><span class="">Equipment</span></label></div>
+							<div class="input-group-sm ">
+								<input type="text" name=Equipment id=Equipment__ID>
+							</div>
+						</div>
+						<div class="col-lg-6 col-sm-12">
+							<div><label><span class="">Others:</span></label></div>
+							<div class="input-group-sm ">
+								<input type="text" name=other_equipment id=other_equipment__ID
+									placeholder="If Others, please specify" size=45%>
+							</div>
+						</div>
+					</div>
+			</div>
+			</fieldset>
+		</div>
+	</div>
+	<div>
+		<div class="form-group ">
+			<div class="questiongroup ">
+				<fieldset class="subquestions">
+					<div class="row">
+						<div class="col-lg-4 col-sm-12">
+							<div><label><span class="">Serial Number</span></label></div>
+							<div class="input-group-sm ">
+								<input type="text" name=serial_number id=serial_number__ID>
+							</div>
+						</div>
+				</fieldset>
+			</div>
+		</div>
+		<div class="form-group ">
+			<div class="questiongroup ">
+				<fieldset class="subquestions">
+					<div class="row">
+						<div class="col-lg-6 col-sm-12">
+							<div class="input-group-sm ">
+								<label><span class="">Is this covered by Warranty? </span></label>
+								<input type="checkbox" name=warranty id=warranty__ID />
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+		<div class="form-group ">
+			<div class="questiongroup ">
+				<fieldset class="subquestions">
+					<div class="row">
+						<div class="col-lg-12 col-sm-12">
+							<div class="input-group-sm ">
+								<textarea class="form-control" id=Add_Comment__ID
+									placeholder="enter new comments here.."></textarea>
+								<label><span class=""><u style='cursor:pointer;margin-bottom:3px;display:inline-block'
+											id=add_comment__ID>
+											<i class="fa fa-plus"></i> Click here to add
+											issues/comments/correspondence</u></span></label>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+		<div class="form-group ">
+			<div class="questiongroup ">
+				<fieldset class="subquestions">
+					<div class="row">
+						<div class="col-lg-12 col-sm-12">
+							<div><label><span class="">Notes & Comments</span></label></div>
+							<div class="input-group-sm">
+								<textarea style='font-size:12px' rows=5 class="form-control" name=Comments
+									id=Comments__ID placeholder="Anything else?" readonly></textarea>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+	<div class="form-group ">
+		<div class="questiongroup ">
+			<fieldset class="subquestions">
+				<div class="row">
+					<div class="col-lg-6 col-sm-12">
+						<div class="input-group-sm ">
+							<label><span class="">Resolved?</span></label>
+							<input type="checkbox" name=resolved id=resolved__ID>
+						</div>
+						<label><span class="">Add to Error Log?</span></label>
+						<input type="checkbox" name=tbshoot id=tbshoot__ID>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+</div>
+
+<div id=pipelines_ticket__ID class=pipelines_ticket>
+	<div class="form-group ">
+		<div class="questiongroup ">
+			<fieldset class="subquestions">
+				<div class="row">
+					<div class="col-lg-6 col-sm-12">
+						<div><label>SOFTWARE: MATLAB</label></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-3 col-sm-12">
+						<div><label><span class="">Case No. (Provided by Vendor) - Software </span></label></div>
+						<div class="input-group-sm">
+							<input type="text" name=case_no id=case_no__ID>
+						</div>
+					</div>
+			</fieldset>
+		</div>
+	</div>
+	<div>
+		<div class="form-group ">
+			<div class="questiongroup ">
+				<fieldset class="subquestions">
+					<div class="row">
+						<div class="col-lg-3 col-sm-12">
+							<div><label><span class="">Equipment</span></label></div>
+							<div class="input-group-sm ">
+								<input type="text" name=Equipment id=Equipment__ID>
+							</div>
+						</div>
+						<div class="col-lg-6 col-sm-12">
+							<div><label><span class="">Others:</span></label></div>
+							<div class="input-group-sm ">
+								<input type="text" name=other_equipment id=other_equipment__ID
+									placeholder="If Others, please specify" size=45%>
+							</div>
+						</div>
+					</div>
+			</div>
+			</fieldset>
+		</div>
+	</div>
+	<div>
+		<div class="form-group ">
+			<div class="questiongroup ">
+				<fieldset class="subquestions">
+					<div class="row">
+						<div class="col-lg-4 col-sm-12">
+							<div><label><span class="">Serial Number</span></label></div>
+							<div class="input-group-sm ">
+								<input type="text" name=serial_number id=serial_number__ID>
+							</div>
+						</div>
+				</fieldset>
+			</div>
+		</div>
+		<div class="form-group ">
+			<div class="questiongroup ">
+				<fieldset class="subquestions">
+					<div class="row">
+						<div class="col-lg-6 col-sm-12">
+							<div class="input-group-sm ">
+								<label><span class="">Is this covered by Warranty? </span></label>
+								<input type="checkbox" name=warranty id=warranty__ID />
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+		<div class="form-group ">
+			<div class="questiongroup ">
+				<fieldset class="subquestions">
+					<div class="row">
+						<div class="col-lg-12 col-sm-12">
+							<div class="input-group-sm ">
+								<textarea class="form-control" id=Add_Comment__ID
+									placeholder="enter new comments here.."></textarea>
+								<label><span class=""><u style='cursor:pointer;margin-bottom:3px;display:inline-block'
+											id=add_comment__ID>
+											<i class="fa fa-plus"></i> Click here to add
+											issues/comments/correspondence</u></span></label>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+		<div class="form-group ">
+			<div class="questiongroup ">
+				<fieldset class="subquestions">
+					<div class="row">
+						<div class="col-lg-12 col-sm-12">
+							<div><label><span class="">Notes & Comments</span></label></div>
+							<div class="input-group-sm">
+								<textarea style='font-size:12px' rows=5 class="form-control" name=Comments
+									id=Comments__ID placeholder="Anything else?" readonly></textarea>
+							</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+	<div class="form-group ">
+		<div class="questiongroup ">
+			<fieldset class="subquestions">
+				<div class="row">
+					<div class="col-lg-6 col-sm-12">
+						<div class="input-group-sm ">
+							<label><span class="">Resolved?</span></label>
+							<input type="checkbox" name=resolved id=resolved__ID>
+						</div>
+						<label><span class="">Add to Error Log?</span></label>
+						<input type="checkbox" name=tbshoot id=tbshoot__ID>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+<!--  -->
+		<button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+		<button id=delete__ID type="button" class="btn btn-primary btn-lg">Delete</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+<!-- <div> -->
+
+
+
+
     <script>
 		function textAreaAdjust__ID(o) {
 			//console.log(o)
@@ -136,7 +419,12 @@
 			o.style.height = (25+o.scrollHeight)+"px";
 		}
 			//-------------------------------------
-    	function F__ID(){
+    	function F__ID(){				
+			$("#equipment_ticket__ID").hide();
+			$("#software_ticket__ID").hide();
+			$("#pipelines_ticket__ID").hide();
+
+
     		//-------------------------------------
             VmInclude:__COMPONENT__/f/form.01.js
 			//-------------------------------------
@@ -159,45 +447,68 @@
 					else $vm.alert("Please enter a comment")
 				})
 			}
-		// function myFunction() {
-		// 		// Get the checkbox
-		// 		var checkBox = document.getElementById("myCheck");
-		// 		// Get the output text
-		// 		var text = document.getElementById("text");
 
-		// 		// If the checkbox is checked, display the output text
-		// 		if (checkBox.checked == true) {
-		// 			text.style.display = "block";
-		// 		} else {
-		// 			text.style.display = "none";
-		// 		}
-		// 	}
 		//-------------------------------
-					var autocomplete_req = { cmd: "find", field: '.Data.equipment_name', table: 'equipment-setup', options: {}, skip: 0, limit: 10 }
-					var autocomplete_callback = function (item) {
-						$('input[name=Equipment]').val(item.label);
-						$('input[name=serial_number]').val(item.s_num);
+				var autocomplete_req = { cmd: "find", field: '.Data.equipment_name', table: 'equipment-setup', options: {}, skip: 0, limit: 10 }
+				var autocomplete_callback = function (item) {
+					$('input[name=Equipment]').val(item.label);
+					$('input[name=serial_number]').val(item.s_num);
+				}
+				var autocomplete_list = function (records) {
+					var items = [];
+					for (var i = 0; i < records.length; i++) {
+						var obj = {};
+						obj.label=records[i].Data["equipment_name"];
+						obj.s_num = records[i].Data["serial_number"];
+						items.push(obj);
 					}
-					var autocomplete_list = function (records) {
-						var items = [];
-						for (var i = 0; i < records.length; i++) {
-							var obj = {};
-							obj.label=records[i].Data["equipment_name"];
-							obj.s_num = records[i].Data["serial_number"];
-							items.push(obj);
-						}
-						return items;
-					}
-					var wait = function () {
-						$vm.autocomplete($('#F__ID input[name=Equipment]'), autocomplete_req, autocomplete_list, autocomplete_callback);
-		//				$vm.autocomplete($('#F__ID input[name=serial_number]'), autocomplete_req, autocomplete_list, autocomplete_callback);
-					}
-					var I1 = 0; var loop = setInterval(function () {
-						if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop); wait(); }
-						I1++; if (I1 > 50) { clearInterval(loop); alert("jquery-ui.min.js is not installed."); }
-					}, 100);
+					return items;
+				}
+				var wait = function () {
+					$vm.autocomplete($('#F__ID input[name=Equipment]'), autocomplete_req, autocomplete_list, autocomplete_callback);
+	//				$vm.autocomplete($('#F__ID input[name=serial_number]'), autocomplete_req, autocomplete_list, autocomplete_callback);
+				}
+				var I1 = 0; var loop = setInterval(function () {
+					if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop); wait(); }
+					I1++; if (I1 > 50) { clearInterval(loop); alert("jquery-ui.min.js is not installed."); }
+				}, 100);
 //----------------------------------------
+				// Ticket Types
 
+
+				$('#ticket_type__ID').on('click', function () {
+				var ticket_type= $('#ticket_type__ID')
+				// $("#software_ticket__ID").on('load', hide());
+				
+				if (ticket_type.val() == "none") {
+				$("#equipment_ticket__ID").hide();
+				$("#software_ticket__ID").hide();
+				$("#pipelines_ticket__ID").hide();
+
+				}
+
+				if (ticket_type.val() == "Equipment") {
+				$("#equipment_ticket__ID").show();
+				$("#software_ticket__ID").hide();
+				$("#pipelines_ticket__ID").hide();
+
+				}
+
+				if (ticket_type.val()== "Software"){
+				$("#software_ticket__ID").show();
+				$("#equipment_ticket__ID").hide();
+				$("#pipelines_ticket__ID").hide();
+					}
+				if (ticket_type.val() == "Pipelines") {
+				$("#software_ticket__ID").hide();
+				$("#equipment_ticket__ID").hide();
+				$("#pipelines_ticket__ID").show();
+					}
+				});
+
+
+
+//----------------------------------------
 
     </script>
     <style>

@@ -113,53 +113,22 @@
 			</div>
 			<!-- <section end>
 			<section start-->
-			<div class="form-group ">
-				<div class="questiongroup ">
-					<fieldset class="subquestions">
-						<div class="row">
-							<div class="col-lg-2 col-sm-12">
-								<div class="input-group-sm ">
-									<div><label><span class="">Item no.</span></label></div>
-									<input type="text" name=new_item id=new_item__ID >
-								</div>
-							</div>
-							<div class="col-lg-2 col-sm-12">
-								<div class="input-group-lg">
-									<div><label><span class="">Description</span></label></div>
-									<input type="text" name=new_descrip id=new_descrip__ID>
-								</div>
-							</div>
-							<div class="col-lg-2 col-sm-12">
-								<div class="input-group-sm ">
-									<div><label><span class="">Quantity</span></label></div>
-									<input type=text name=new_quantity id=new_quantity__ID />
-								</div>
-							</div>
-							<div class="col-lg-2 col-sm-12">
-								<div class="input-group-sm ">
-									<div><label><span class="">Unit Price</span></label></div>
-									<input type=text name=new_unit_p id=new_unit_p__ID />
-								</div>
-							</div>
-							<div class="col-lg-4 col-sm-12">
-								<div class="input-group-sm ">
-								<div><button name=add_item id=add_item__ID style="margin-top:7%;margin-left:45%">Add Item</button></div>
-									</div>
-							</div>
-									<div class="col-lg-2 col-sm-12"hidden>
-										<div class="input-group-sm ">
-										<div><label><span class="" >Amount:</span></label></div>
-										<input type=text name=new_amount id=new_amount__ID  />
-									</div>
-								</div>
-						</div>
-					</fieldset>
-				</div>
-			</div>
+	
 			<!-- <section end-->
 			<!--Section start-->
-			<div id=purchaseorder__ID></div>
-
+<hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
+<div>
+	<div w='100|100'>
+		<u class=c_print style='cursor:pointer;margin-bottom:3px;display:inline-block' id=item_a_add__ID><i
+				class="fa fa-plus"></i> Add an item</u>
+		<table id=grid_item_a__ID></table>
+		<div id=total__ID style='text-align: right;padding-top:6px'>
+			GST Amount: <input type=text name=GST_Amount style="width:120px;margin-bottom:1px" readonly><br>
+			Total Amount: <input type=text name=Total_Amount style="width:120px" readonly>
+		</div>
+	</div>
+</div>
+<div>
 			<!-- <section end-->
 
 
@@ -187,81 +156,133 @@
     	function F__ID(){
     		//-------------------------------------
 			VmInclude:__COMPONENT__/f/form.01.js
+			//VmInclude:__COMPONENT__/f/form-item-a.01.js
+			//VmInclude:__CURRENT_PATH__purchase-form.html.item_a_list.js
 			//-------------------------------------
 			
+			// new ResizeObserver($vm.responsive).observe(form_container__ID);
+			m.storage_type = 's0';
+			item_a_list();
+			//-------------------------------------
+			
+			var item_a_list = function () {
+				//----------------------------------
+				//item a part
+				m.item_a_fields = "Item_No,Description,Unit_Price,Quantity,GST,Amount,_Remove";
+				//----------------------------------
+				$('#item_a_add__ID').on('click', function () { m.item_a_add(); })
+				//----------------------------------
+				m.item_a_cell_render = function (records, I, field, td, set_value, source) {
+					switch (field) {
+						case "Amount":
+							td.find('div:first').removeAttr('contenteditable');
+							break;
+						case "GST":
+							var html = '<input type=checkbox />';
+							$vm.render_checkbox_field(records[I], '__ID', td, html)
+							td.find('input').on('change', function () {
+								cal();
+							})
+							break;
+					}
+				}
+				//----------------------------------
+				m.item_a_after_change = function (records, I, field, td, set_value, source) {
+					switch (field) {
+						case "Unit_Price":
+						case "Quantity":
+							/*case "GST":*/
+							cal();
+							break;
+					}
+				}
+				//----------------------------------
+				m.item_a_after_remove = function () {
+					cal();
+				}
+				$('#F__ID input[name=Delivery]').on('change', function () {
+					cal();
+				})
+				//----------------------------------
+				var cal = function () {
+					var total = 0, subtotal = 0, gst = 0;
+					for (var i = 0; i < m.item_a_records.length; i++) {
+						var p = parseFloat(m.item_a_records[i].Unit_Price);
+						var q = parseFloat(m.item_a_records[i].Quantity);
+						if (m.item_a_records[i].Unit_Price == '') p = 0;
+						if (m.item_a_records[i].Quantity == '') q = 0;
+						var a = p * q;
+						if (m.item_a_records[i].GST == '1') {
+							gst += a * 0.1;
+							a = a * 1.1;
+						}
+						m.item_a_records[i].Amount = a.toFixed(2);
+						total += a;
+					}
+					$('#F__ID input[name=GST_Amount]').val(gst.toFixed(2));
+					$('#F__ID input[name=Total_Amount]').val(total.toFixed(2));
+					m.item_a_render();
+				}
+				//----------------------------------
+			}
+			//-----------------------------------
+			var item_a_render = function () {
+				//-------item a part
+				m.item_a_records = []; if (m.input.record != undefined && m.input.record.Data.items != undefined) m.item_a_records = m.input.record.Data.items;
+				m.item_a_render();
+				//-------
+			}
+//-----------------------------------
+			
+			
+			
+			
+			var old_m_load = m.load;
+			m.load = function () {
+				old_m_load();
+				if (m.input.record != undefined && m.input.record.Data.Status == "Submit") {
+					$('#draft__ID').hide();
+					$('#submit__ID').hide();
+				}
+				item_a_render();
+			}
+			//-------------------------------------
+			m.before_submit = function (data, index) {
+				if (m.input.record == undefined) { index.A = $vm.user_name; } //only for add
+				data.items = m.item_a_get_data();
+				return true;
+			}
+			//-------------------------------------
+			m.after_insert = function (data, res) { after_submit(data, res, res.nr.UID, res.nr.Submit_date); }
+			m.after_update = function (data, res) { after_submit(data, res, res.result.UID, res.result.Submit_date); }
+			var after_submit = function (data, res, UID, s_date) {
+				var new_data = { Data: data, UID: UID, Submit_date: s_date };
+				var done = function () {
+					var ret = 0, rid = undefined; if (m.input != undefined && m.input.record != undefined) rid = m.input.record._id;
+					if (m.input.goback != undefined || rid != undefined) ret = 1;
+					$vm.refresh = 1;
+					m.change_status++;
+					if (ret == 1) window.history.go(-1);            					//from grid
+					else $vm.alert('Your data has been successfully submitted');    //standalone
+				}
+				if (data.Status == 'Submit' || data.Status == 'Draft') {
+					$vm.show_module('email-requestor-to-manager', { record: new_data });
+				}
+				else done();
+
+			}
 	
 			//----------------------------------
 	
 			}
 
-			var whole_list=[]
-			var old_amount=$('#old_amount').val("")
-			var gross_total=""
-		 $('#add_item__ID').on('click', function(){
-			var newitems= ($('input[name=new_item]').val());
-			var new_descrip= ($('input[name=new_descrip]').val());
-			var new_quantity= ($('input[name=new_quantity]').val());
-			var new_quantity=Number(new_quantity).toFixed(2);
-			var new_unit_p= ($('input[name=new_unit_p]').val());
-			var new_unit_p=Number(new_unit_p).toFixed(2);
-			var new_list= $('#purchaseorder__ID').html(list);
-			var delivery = ($('input[name=delivery]').val());
-			var new_amount= Number(new_quantity*new_unit_p).toFixed(2);
-			var total_amount= parseFloat(new_amount)+ old_amount;
-			console.log("Total Amount = " + total_amount +"old amount is " + typeof(old_amount))
-
-		 	var list="<div class='form-group'><div class='questiongroup'><fieldset class='subquestions'><div class='row'><div class='col-lg-2 col-sm-12'><div class='input-group-sm'>"
-			list+="<div><label><span class=''>Item no.</span></label></div>"
-			list+="<tr><td name=new_item id = new_item__ID >"+newitems+"</td></div ></div ><div class='col-lg-2 col-sm-12'><div class='input-group-lg'><div><label><span class=''>Description</span></label></div>"
-			list+="<td name=new_descrip id=new_descrip__ID>"+new_descrip+"</td></div></div ><div class='col-lg-2 col-sm-12'><div class='input-group-sm '><div><label><span class=''>Quantity</span></label></div><td name=new_quantity id=new_quantity__ID />"+new_quantity+"</td></div></div ><div class='col-lg-2 col-sm-12'><div class='input-group-sm '><div><label><span class=''>Unit Price</span></label></div><td name=new_unit_p id=new_unit_p__ID />"+new_unit_p+"</td>	</div></div><div class='col-lg-2 col-sm-12'><div class='input-group-sm '><div><label><span class=''>Amount:</span></label></div><td name=new_amount id=new_amount__ID readonly />"+new_amount+"</td></div></div></div ></fieldset></div ></div ></tr><br>"
-			
-			var gross_total=parseFloat(total_amount).toFixed(2);
-			alert(gross_total)
-			var gst=(gross_total*0.10);
-			var gst=gst.toFixed(2);	
-			var abs_total=Number(gross_total)+Number(delivery)+Number(gst);
-			var abs_total=abs_total.toFixed(2);
 		
-			
-			var total = "<div class='form-group'><div class='questiongroup'><fieldset class='subquestions'><div class='row'>"
-			 total += "<div class='col-sm-2 col-sm-2'><div class='input-group-sm'><div><label><span class=''>Gross Total</span></label></div>"
-			 total += "<tr><td name=new_item id = new_item__ID > $" + gross_total + "</td></div ></div>"
-			 total += "<div class='col-lg-2 col-sm-12'><div class='input-group-sm'>"
-			 total += "<div><label><span class=''>Delivery</span></label></div>"
-			 total += "<tr><td input type=text name=delivery id=delivery__ID> $"+delivery+"</td></div ></div>"
-
-			 total += "<div class='col-lg-2 col-sm-12'><div class='input-group-sm'>"
-			 total += "<div><label><span class=''>GST</span></label></div>"
-			 total += "<tr><td name=new_item id = new_item__ID > $" + gst + "</td></div ></div>"
-			 total += "<div class='col-lg-2 col-sm-12'><div class='input-group-sm'>"
-			 total += "<div><label><span class=''>New Total</span></label></div>"
-			 total += "<tr><td name=new_item id = new_item__ID > $" + abs_total + "</td></div >"
-			
-
-
-			var new_list=(list);	
-			whole_list+=new_list;	
-			var old_list=whole_list;
-			($('#purchaseorder__ID').html(whole_list + total));
-
-
-			//reset 
-			var newitems= ($('input[name=new_item]').val(""));
-			var new_descrip= ($('input[name=new_descrip]').val(""));
-			var new_quantity= ($('input[name=new_quantity]').val(""));
-			var new_unit_p= ($('input[name=new_unit_p]').val(""));
-			old_amount=parseFloat(total_amount);
-		console.log("oldamount is = "+ old_amount)
-		
-
-
-
-		})
     </script>
     <style>
         #form_container__ID{
             max-width:800px;
         }
         VmInclude:__CURRENT_PATH__/wappsystem-form.css
+		 VmInclude:__COMPONENT__/f/form-item-a.01.css
     </style>
 </div>

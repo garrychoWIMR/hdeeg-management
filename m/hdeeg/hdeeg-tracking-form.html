@@ -46,14 +46,33 @@ to do list for this form:
 														<div class="col-lg-3 col-sm-12">
 															<div><label><span class="">Type of Study</span></label></div>
 															<div class="input-group-sm ">
-															<select class="form-control" name=study_type id=study_type__ID placeholder="Please Select...">
+															<select class="form-control" style="border-color:black" name=study_type id=study_type__ID placeholder="Please Select...">
+																<option  disabled selected>Study Montage</option>
 																<option>PSG</option>
 																<option>KDT</option>
 																<option>MWT</option>
-																<option>Nap</option>
+																<!-- <option>Nap</option> -->
 																</select>
 														</div>
 														</div>
+	
+													</div>
+														<div class="row">	
+														<div class="col-lg-3 col-sm-12">
+															<div><label><span class="">High Density System</span></label></div>
+															<div class="input-group-sm ">
+														<select class="form-control" style="border-color:black" name=study_type id=study_type__ID placeholder="Please Select...">
+														<option  disabled selected>HdEEG System</option>
+														<option> Netstation</option>
+														<option> Compumedics</option>
+														</select>
+														</div>
+													</div>
+													<div class="col-lg-3 col-sm-12">
+															<div><label><span class="">Geoscan</span></label></div>
+															<input type="checkbox" id=geoscan__ID name=geoscan>
+															<div class="input-group-sm ">
+															</div>
 													</div>
 												</div>
 											</fieldset>
@@ -66,12 +85,12 @@ to do list for this form:
 														<div class="col-lg-3 col-sm-12">
 															<div><label><span class="">Acquisition Date</span></label></div>
 															<div class="input-group-sm ">
-																<input type="date" id=Acquisition_date__ID name=Acquisition_date readonly>
+																<input type="date" style="width:100%" id=Acquisition_date__ID name=Acquisition_date>
 															</div>
 														</div>
 														<div class="col-lg-9 col-sm-12">
 															<div><label><span class="">Comments about the Acquisition</span></label></div>
-															<textarea style='font-size:12px' class="form-control" name=acq_comments id=acq_comments__ID placeholder="Make it more 'ticket' like?"></textarea>
+															<textarea style='font-size:12px' class="form-control" name=acq_comments id=acq_comments__ID placeholder="Description of the task (e.g. Aused, MWT, MSLT, Any issues like: split/concatenated study"></textarea>
 															<div class="input-group-sm ">
 															</div>
 														</div>
@@ -144,7 +163,7 @@ to do list for this form:
 															<div class="col-lg-3 col-sm-12">
 																<div><label><span class="">Version?</span></label></div>
 																<div class="input-group-sm ">
-																	<select class="form-control" name=uwm_ver id=uwm_ver__ID>
+																	<select class="form-control" style="border-color:black" name=uwm_ver id=uwm_ver__ID>
 																		<option  disabled selected>Select UWM Version</option>
 																		<option>Version 1</option>
 																		<option>Version 2</option>
@@ -165,7 +184,6 @@ to do list for this form:
 											</div>
 
 								<!--Created everything above-->
-							
 								<div class="form-group ">
 									<div class="questiongroup ">
 										<fieldset class="subquestions">
@@ -227,56 +245,66 @@ to do list for this form:
 
 		//-------------------------------
 			
-				$('#ns_preproc__ID').on('click', function () {
-					var now_time = new Date();
-					now_time = now_time.toString().split(" ");
-					now_time = now_time[4];
-					var now_date = $vm.date_to_string_dmy(new Date());
-					var timestamp = ($('#F__ID input[name=ns_preproc_time]')).val();
-					var timestamp = now_date + ' ' + now_time; 
-					var user = ($('#F__ID input[name=ns_preproc_by]')).val($vm.user_name); 
-					($('#F__ID input[name=ns_preproc_time]')).val(timestamp);
-				})
+			$('#ns_preproc__ID').on('click', function () {
+				var now_time = new Date();
+				now_time = now_time.toString().split(" ");
+				now_time = now_time[4];
+				var now_date = $vm.date_to_string_dmy(new Date());
+				var timestamp = ($('#F__ID input[name=ns_preproc_time]')).val();
+				var timestamp = now_date + ' ' + now_time; 
+				var user = ($('#F__ID input[name=ns_preproc_by]')).val($vm.user_name); 
+				($('#F__ID input[name=ns_preproc_time]')).val(timestamp);
+				if ($('#ns_preproc__ID').is(':checked')) {
+							($('#F__ID input[name=ns_preproc_time]')).val(timestamp);
+						}
+						else {
+							($('#F__ID input[name=ns_preproc_time]')).val("");
 
-				
-		//-------------------------------
-				
-				$('#pranaproc__ID').on('click', function () {
-					var now_time = new Date();
-					now_time = now_time.toString().split(" ");
-					now_time = now_time[4];
-					var now_date = $vm.date_to_string_dmy(new Date());
-					var timestamp = ($('#F__ID input[name=pranaproc_time]')).val();
-					var timestamp = now_date + ' ' + now_time ;
-					var user =($('#F__ID input[name=pra_preproc_by]')).val($vm.user_name);
-					($('#F__ID input[name=pranaproc_time]')).val(timestamp);
-				})
-			
-		//-------------------------------
-				
-				$('#uwm_proc__ID').on('click', function () {
-					var now_time = new Date();
-					now_time = now_time.toString().split(" ");
-					now_time = now_time[4];
-					var now_date = $vm.date_to_string_dmy(new Date());
-					var timestamp = ($('#F__ID input[name=uwm_proc_time]')).val();
-					var timestamp = now_date + ' ' + now_time ;
-					($('#F__ID input[name=uwm_proc_time]')).val(timestamp);
-					var user = ($('#F__ID input[name=uwm_preproc_by]')).val($vm.user_name);
-				})
-			//-----------------------------
-				/*function myFunction() {
-					// Get the checkbox
-					var pra_proc_cb = document.getElementById(pranaproc__ID);
-					alert(document.getElementById(pranaproc__ID));
-					if (pra_proc_cb !== "Yes") {
-						($('#F__ID input[name=pranaproc]')).val("No");
 					}
 				}
+			);
+		//-------------------------------
+				
+			$('#pranaproc__ID').on('click', function () {
+				var now_time = new Date();
+				now_time = now_time.toString().split(" ");
+				now_time = now_time[4];
+				var now_date = $vm.date_to_string_dmy(new Date());
+				var timestamp = ($('#F__ID input[name=pranaproc_time]')).val();
+				var timestamp = now_date + ' ' + now_time ;
+				var user =($('#F__ID input[name=pra_preproc_by]')).val($vm.user_name);
+				($('#F__ID input[name=pranaproc_time]')).val(timestamp);
+					if ($('#pranaproc__ID').is(':checked')) {
+					($('#F__ID input[name=pranaproc_time]')).val(timestamp);
+					}
 					else {
-						($('#F__ID input[name=ns_preproc]')).val(' ');
-					}*/
+						($('#F__ID input[name=pranaproc_time]')).val("");
 
+				}
+			}
+			);
+		//-------------------------------
+				
+			$('#uwm_proc__ID').on('click', function () {
+				var now_time = new Date();
+				now_time = now_time.toString().split(" ");
+				now_time = now_time[4];
+				var now_date = $vm.date_to_string_dmy(new Date());
+				var timestamp = ($('#F__ID input[name=uwm_proc_time]')).val();
+				var timestamp = now_date + ' ' + now_time ;
+				($('#F__ID input[name=uwm_proc_time]')).val(timestamp);
+				var user = ($('#F__ID input[name=uwm_preproc_by]')).val($vm.user_name);
+				if ($('#uwm_proc__ID').is(':checked')) {
+					($('#F__ID input[name=uwm_proc_time]')).val(timestamp);
+					}
+				else {
+					($('#F__ID input[name=uwm_proc_time]')).val("");
+
+				}
+				}
+				);
+
+			//-----------------------------
 			//-----------------------------
 
 

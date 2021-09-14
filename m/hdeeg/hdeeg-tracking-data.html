@@ -19,9 +19,47 @@
                     td.css('text-align','center');
                     break;
             }
-	
-        }
+			switch(field){
+				case 'Acquisition_date':
+				if (records[I].Data[field] != undefined){
+				var date= records[I].Data[field].split("-")
+				var day = date[2]
+				var month = date[1]
+				var year = date[0]
+				if (day==undefined || month ==undefined || year==undefined){
+				td.html("")
+				break;
+				}
+				else{
+				td.html(day + "/" + month + "/" + year);
+				td.css('text-align', 'center');
+				break;
+			}
 		}
+	}
+		//--------------------------------------
+
+		switch (field) {
+		case 'ns_preproc':
+		case 'pranaproc':
+		case 'uwm_proc':
+			if (records[I].Data[field] == 'Yes') {
+				td.html("<i class='fas fa-check'></i>");
+				td.css('text-align', 'center');
+			}
+			else {
+				td.html('');
+			}
+		break;
+		}
+			
+		
+		//--------------------------------------
+
+			}
+			
+		//--------------------------------------
+     	   }
         //-------------------------------------
 </script>
 <style>

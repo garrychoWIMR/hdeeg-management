@@ -14,7 +14,7 @@
 		//-------------------------------------
 		VmInclude: __COMPONENT__/g/grid.01.js
 		//-------------------------------------
-		var fields = "Date of Study|date,Research Project|research_project,Study_ID|study_id,File Location|location,Medicare|medicare,Scorer|scorer,Scored|scored,Scored on|timestamp,Scored by|scored_by";
+		var fields = "Date of Study|date,Research Project|research_project,Study_ID|study_id,File Location|location,Medicare|medicare,Scorer|scorer,Scorers Comments|scorer_comment,Scored|scored,Scored on|timestamp,Scored by|scored_by";
 		m.fields = "_Form," + fields + ",Submit_date,Submitted_by,_Delete";
 		//-------------------------------------
 	//-------------------------------------
@@ -58,8 +58,36 @@
 		td.css('background-color', c);
 						break;
 				}
-	}
+
+//-------------------------------------------
+			switch(field){
+				case 'date':
+				if (records[I].Data[field] != undefined){
+				var date= records[I].Data[field].split("-")
+				var day = date[2]
+				var month = date[1]
+				var year = date[0]
+				if (day==undefined || month ==undefined || year==undefined){
+				td.html("")
+				break;
+				}
+				else{
+				td.html(day + "/" + month + "/" + year);
+				// td.css('text-align', 'center');
+				break;
+			}
 		}
+	}
+	
+	
+	
+	
+//-------------------------------------------
+		}
+	}
+
+
+
 </script>
 
 <style>
