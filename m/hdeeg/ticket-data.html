@@ -1,8 +1,8 @@
 <section>
 	<section style="background-color:#cccccc">
 		<select id=filter1__ID>
-			<option value="" name=resolved>All</option>
 			<option value="off" name=resolved>Open</option>
+			<option value="" name=resolved>All</option>
 			<option value="on" name=resolved>Closed</option>
 		</select>
 	
@@ -14,7 +14,7 @@
         //-------------------------------------
         VmInclude:__COMPONENT__/g/grid.01.js
         //-------------------------------------
-        var fields="Case Number|case_no,Equipment,other_equipment,serial_number,warranty,resolved,Comments";
+        var fields="ticket_type,Case Number|case_no,Equipment,other_equipment,serial_number,warranty,resolved,Comments";
         m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
         //-------------------------------------
         m.cell_render=function(records,I,field,td){
@@ -37,7 +37,17 @@
 					// 	td.html("");
 					// }
 					break;
-
+				case 'ticket_type':
+				if (records[I].Data[field] == "Equipment") {
+					td.html("<div class='rectangle' style='padding:5px;border-radius:99px;height:30px;background-color:#65bb34;color:white;text-align:center'>"+records[I].Data[field]+"</div>")
+				}
+				if (records[I].Data[field] == "Pipelines") {
+						td.html("<div class='rectangle' style='padding:5px;border-radius:99px;height:30px;background-color:#eb6b22;color:white;text-align:center'>" + records[I].Data[field] + "</div>")
+					}
+				if (records[I].Data[field] == "Software") {
+						td.html("<div class='rectangle' style='padding:5px;border-radius:99px;height:30px;background-color:#56a3d5;color:white;text-align:center'>" + records[I].Data[field] + "</div>")
+					}	
+				break;
 
             }
         };

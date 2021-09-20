@@ -137,7 +137,7 @@ to do list for this form:
 																</div>
 															</div>
 															<div class="col-lg-9 col-sm-12">
-																<div><label><span class="">Comments about the Acquisition</span></label></div>
+																<div><label><span class="">PRANA Comments</span></label></div>
 																<textarea style='font-size:12px' class="form-control" name=pr_preproc_comments id=pr_preproc_comments__ID
 																	placeholder="Write Comments here about the data"></textarea>
 																<div class="input-group-sm ">
@@ -172,7 +172,7 @@ to do list for this form:
 																</div>
 															</div>
 															<div class="col-lg-6 col-sm-12">
-																<div><label><span class="">Comments about the Acquisition</span></label></div>
+																<div><label><span class="">Preprocessing Comments</span></label></div>
 																<textarea style='font-size:12px' class="form-control" name=uwm_preproc_comments id=uwm_preproc_comments__ID
 																	placeholder="Write Comments here about the data"></textarea>
 																<div class="input-group-sm ">
@@ -189,7 +189,7 @@ to do list for this form:
 										<fieldset class="subquestions">
 											<div class="row">
 												<div class="col-lg-12 col-sm-12">
-													<div><label><span class="">Notes</span></label></div>
+													<div><label><span class="">Comments</span></label></div>
 													<div class="input-group-sm">
 														<textarea style='font-size:12px' class="form-control" name=Notes id=Notes__ID placeholder="Anything else?"></textarea>
 													</div>
@@ -259,6 +259,8 @@ to do list for this form:
 						}
 						else {
 							($('#F__ID input[name=ns_preproc_time]')).val("");
+							($('#F__ID input[name=ns_preproc_by]')).val("");
+
 
 					}
 				}
@@ -279,6 +281,8 @@ to do list for this form:
 					}
 					else {
 						($('#F__ID input[name=pranaproc_time]')).val("");
+						($('#F__ID input[name=pra_preproc_by]')).val("");
+
 
 				}
 			}
@@ -299,6 +303,8 @@ to do list for this form:
 					}
 				else {
 					($('#F__ID input[name=uwm_proc_time]')).val("");
+					($('#F__ID input[name=uwm_preproc_by]')).val("");
+
 
 				}
 				}
