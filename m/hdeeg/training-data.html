@@ -12,8 +12,9 @@
 	function F__ID() {
         VmInclude:__COMPONENT__/g/grid.01.js
 	
-		var sleeptech = function(){
+		//var sleeptech = function(){
 
+		//-------------------------------------
 		var fields = "Staff Member|staff,Position|position,No. of Observations|obs,Assisted Setup|assisted_setup,Amplifer Setup|amp_setup,Net Application|net_setup,PSG setup|psg_setup,Net Removal and Cleaning|net_remove,Geoscan|geoscan,Netstation Acquisition|netstat_acq,KDT Administration|kdt,Neurocog Testing|neurocog,MSLT|mslt,MWT|mwt,ERP|erp,Backup|backup,GCP|gcp,Venepuncture|venep,Scoring|scoring,GCP Valid Until|gcp_expired,Venepuncture Valid Until|venep_expired";
 		m.fields = "_Form," + fields + ",Submit_date,Submitted_by,_Delete";
 		m.query = { "Data.position": "Sleep Technician" };
@@ -68,9 +69,9 @@
 			}
 		};
 
-	}
+	//}
 	//----------------------------------------------
-	
+		/*
 		var researcher = function(){
 
 		var fields = "Staff Member|staff,Position|position,No. of Observations|obs,Assisted Setup|assisted_setup,Amplifer Setup|amp_setup,Net Application|net_setup,PSG setup|psg_setup,Net Removal and Cleaning|net_remove,Geoscan|geoscan,Netstation Acquisition|netstat_acq,KDT Administration|kdt,Neurocog Testing|neurocog,MSLT|mslt,MWT|mwt,ERP|erp,Backup|backup,NS PSG Preproc|ns_psg_preproc,NS KDT Preproc|ns_kdt_preproc,PRANA PSG Preproc|pr_psg_preproc,PRANA KDT PreProc|pr_kdt_preproc,UWM Preproc|uwm_preproc,BIDS Preproc|bids_preproc,QEEG|qeeg_proc,GCP|gcp,Venepuncture|venep,Scoring|scoring,Head Model Building|hm_build,GCP Valid Until|gcp_expired,Venepuncture Valid Until|venep_expired";
@@ -128,23 +129,34 @@
 			}
 		};
 	}
-
+	*/
 	//-------------------------------------
 	
 	//-------------------------------------
-	($('#filter3__ID').on('click', function () {
+	($('#filter3__ID').on('change', function () {
 		var sc = $('#filter3__ID').val()
-		alert(sc)
 			if (sc=="researcher") {
+				/*
 				// alert("Showing Researchers")
 				sleeptech = function(){ };
 				researcher();
+				*/
+				fields = "Staff Member|staff,Position|position,No. of Observations|obs,Assisted Setup|assisted_setup,Amplifer Setup|amp_setup,Net Application|net_setup,PSG setup|psg_setup,Net Removal and Cleaning|net_remove,Geoscan|geoscan,Netstation Acquisition|netstat_acq,KDT Administration|kdt,Neurocog Testing|neurocog,MSLT|mslt,MWT|mwt,ERP|erp,Backup|backup,GCP|gcp,Venepuncture|venep,Scoring|scoring,GCP Valid Until|gcp_expired,Venepuncture Valid Until|venep_expired";
+				m.fields = "_Form," + fields + ",Submit_date,Submitted_by,_Delete";
+				m.query = { "Data.position": "Sleep Technician" };
+
+
 				m.set_req(); m.request_data(); 
 			}
 			if (sc=="sleeptech") {
+				/*
 				// else{
 				researcher = function(){ };
 				sleeptech();
+				*/
+				fields = "Staff Member|staff,Position|position,No. of Observations|obs,Assisted Setup|assisted_setup,Amplifer Setup|amp_setup,Net Application|net_setup,PSG setup|psg_setup,Net Removal and Cleaning|net_remove,Geoscan|geoscan,Netstation Acquisition|netstat_acq,KDT Administration|kdt,Neurocog Testing|neurocog,MSLT|mslt,MWT|mwt,ERP|erp,Backup|backup,NS PSG Preproc|ns_psg_preproc,NS KDT Preproc|ns_kdt_preproc,PRANA PSG Preproc|pr_psg_preproc,PRANA KDT PreProc|pr_kdt_preproc,UWM Preproc|uwm_preproc,BIDS Preproc|bids_preproc,QEEG|qeeg_proc,GCP|gcp,Venepuncture|venep,Scoring|scoring,Head Model Building|hm_build,GCP Valid Until|gcp_expired,Venepuncture Valid Until|venep_expired";
+				m.fields = "_Form," + fields + ",Submit_date,Submitted_by,_Delete";
+				m.query = { "Data.position": "Researcher" };
 				m.set_req(); m.request_data();
 			}
 		}))
