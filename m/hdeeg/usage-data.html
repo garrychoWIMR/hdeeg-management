@@ -1,0 +1,141 @@
+<section>
+    VmInclude:__COMPONENT__/g/grid.01.html
+</section>
+<body>
+<br>
+<div class="thirdwidget" style="padding-left: 40%;" >
+<h2>Usage Counter:</h2>
+	<div class=entry_1>
+		LTM Paediatric Large (H11500) :
+		<input type="text" style="border:none;background-color:transparent" class=outputfields id=ltm_paed__ID disabled>
+	</div>
+	<div class=entry_1>
+		LTM Small (H6963) :
+		<input type="text" style="border:none;background-color:transparent" class=outputfields id=ltm_sml__ID disabled>
+	</div>
+	<div class=entry_1>
+		LTM Medium Net (H6965) :
+		<input type="text" style="border:none;background-color:transparent" class=outputfields id=ltm_med__ID disabled>
+	</div>
+	<div class=entry_1>
+		LTM Medium Net (S-000939) :
+		<input type="text" style="border:none;background-color:transparent" class=outputfields id=ltm_med_n__ID disabled>
+	</div>
+	<div class=entry_1>
+		LTM Large (H9539) :
+		<input type="text" style="border:none;background-color:transparent" class=outputfields id=ltm_lg__ID disabled>
+	</div>
+	<div class=entry_1>
+		DN Small (H10358) :
+		<input type="text" style="border:none;background-color:transparent" class=outputfields id=ltm_dn_sm__ID disabled>
+	</div>
+	<div class=entry_1>
+		DN Medium (H10357) :
+		<input type="text" style="border:none;background-color:transparent" class=outputfields id=ltm_dn_md__ID disabled>
+	</div>
+	<div class=entry_1>
+		DN Large (H10356) :
+		<input type="text" style="border:none;background-color:transparent" class=outputfields id=ltm_dn_lg__ID disabled>
+	</div>
+	<div class=entry_1>
+		DN Xlarge (H10355) :
+		<input type="text" style="border:none;background-color:transparent" class=outputfields id=ltm_dn_xl__ID disabled>
+	</div>
+	<div class=entry_1>
+		MR Small (H7106) :
+		<input type="text" style="border:none;background-color:transparent" class=outputfields id=ltm_mr_sml__ID disabled>
+	</div>
+	<div class=entry_1>
+		MR Medium (H7105) :
+		<input type="text" style="border:none;background-color:transparent" class=outputfields id=ltm_mr_md__ID disabled>
+	</div>
+	<div class=entry_1>
+		MR Large (H8570) :
+		<input type="text" style="border:none;background-color:transparent" class=outputfields id=ltm_mr_lg__ID disabled>
+	</div>
+
+
+</div>
+
+
+</body>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/g/grid.01.js
+        //-------------------------------------
+        var fields="Date|date,Research Study|research_study,staff,net_size,Equipment Failure|broken,Equipment|broken_type,Replacement|replacement,usage_comments";
+        m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
+        //-------------------------------------
+        m.cell_render=function(records,I,field,td){
+            switch(field){
+               case 'broken':
+			   case 'replacement':
+			   if (records[I].Data[field] == 'on') {
+					td.html("Yes");
+					// td.css('text-align', 'center');
+					}
+				if (records[I].Data[field] == 'off') {
+				td.html("No");
+				}
+			break	
+			}
+        };
+        //-------------------------------------
+        $vm.request({ cmd: 'find', table: 'stock-setup', query: { "Data.net_size": "LTM Paed large - H11500" } }, function (res1) {
+			var records1 = res1.result;
+			$('#ltm_paed__ID').val(records1.length)
+		})
+		$vm.request({ cmd: 'find', table: 'stock-setup', query: { "Data.net_size": "LTM small - H6963" } }, function (res2) {
+			var records2 = res2.result;
+			$('#ltm_sml__ID').val(records2.length)
+		})
+		$vm.request({ cmd: 'find', table: 'stock-setup', query: { "Data.net_size": "LTM medium - H6965" } }, function (res3) {
+			var records3 = res3.result;
+			$('#ltm_lg__ID').val(records3.length)
+		})
+		$vm.request({ cmd: 'find', table: 'stock-setup', query: { "Data.net_size": "LTM medium - S-000939" } }, function (res4) {
+			var records4 = res4.result;
+			$('#ltm_med_n__ID').val(records4.length)
+		})
+		$vm.request({ cmd: 'find', table: 'stock-setup', query: { "Data.net_size": "LTM large - H9539" } }, function (res5) {
+			var records5 = res5.result;
+			$('#ltm_lg__ID').val(records5.length)
+		})
+		$vm.request({ cmd: 'find', table: 'stock-setup', query: { "Data.net_size": "DN small - H10358" } }, function (res6) {
+			var records6 = res6.result;
+			$('#ltm_dn_sm__ID').val(records6.length)
+		})
+		$vm.request({ cmd: 'find', table: 'stock-setup', query: { "Data.net_size": "DN medium - H10357" } }, function (res7) {
+			var records7 = res7.result;
+			$('#ltm_dn_md__ID').val(records7.length)
+		})
+			$vm.request({ cmd: 'find', table: 'stock-setup', query: { "Data.net_size": "DN large - H10356" } }, function (res8) {
+			var records8 = res8.result;
+			$('#ltm_dn_lg__ID').val(records8.length)
+		})
+			$vm.request({ cmd: 'find', table: 'stock-setup', query: { "Data.net_size": "DN Xlarge - H10355" } }, function (res9) {
+			var records9 = res9.result;
+			$('#ltm_dn_xl__ID').val(records9.length)
+		})
+			$vm.request({ cmd: 'find', table: 'stock-setup', query: { "Data.net_size": "MR small - H7106" } }, function (res10) {
+			var records10 = res10.result;
+			$('#ltm_mr_sml__ID').val(records10.length)
+		})
+			$vm.request({ cmd: 'find', table: 'stock-setup', query: { "Data.net_size": "MR med - H7105" } }, function (res11) {
+			var records11 = res11.result;
+			$('#ltm_mr_md__ID').val(records11.length)
+		})
+		$vm.request({ cmd: 'find', table: 'stock-setup', query: { "Data.net_size": "MR lg - H8570" } }, function (res12) {
+			var records12 = res12.result;
+			$('#ltm_mr_lg__ID').val(records12.length)
+		})
+		
+		
+		
+		//m.sort={'I1':-1};
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/g/grid.01.css
+</style>

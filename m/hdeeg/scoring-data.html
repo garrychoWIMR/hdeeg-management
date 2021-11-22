@@ -2,7 +2,7 @@
 <section style="background-color:#cccccc">
 <select id=filter1__ID>
 	<option value="" name=scored>All</option>
-	<option value="off" name=scored>To be scored</option>
+	<option value="off" name=scored selected>To be scored</option>
 	<option value="Yes"name=scored>Scored</option>
 </select>
 
@@ -18,18 +18,29 @@
 		m.fields = "_Form," + fields + ",Submit_date,Submitted_by,_Delete";
 		//-------------------------------------
 	//-------------------------------------
-		 ($('#filter1__ID').on('click',function(){
+		
+		// Queries the default value as "To be scored"
+		var start_v = ($('#F__ID input[name=scored]')).val()
+		start_v = "off"
+		m.query = {
+			"Data.scored": start_v
+		}
+		{m.set_req(); m.request_data();}
+
+		//  On changing the the dropdown values - you can change the filters
+		 ($('#filter1__ID').on('change',function(){
 			 var sc = $('#filter1__ID').val() 
 			 var scd = ($('#F__ID input[name=scored]')).val()
 			 scd=sc
-				m.query={
-					"Data.scored":scd
-					}
+			 m.query={
+				"Data.scored":scd
+				}
 			 if ($('#filter1__ID').val()==""){
 					m.query = {
 					 $or: [{"Data.scored":"Yes"},{"Data.scored":"on"},{"Data.scored":"off"},{"Data.scored":""}]
 							}
 						}
+			
 			{m.set_req(); m.request_data();}
 			 }))
 	//-------------------------------------

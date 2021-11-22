@@ -105,7 +105,7 @@
 								<textarea class="form-control" id=Add_Comment__ID
 									placeholder="enter new comments here.."></textarea>
 								<label><span class=""><u style='cursor:pointer;margin-bottom:3px;display:inline-block'
-											id=add_comment__ID>
+											id=add_comment__ID name=add_comment>
 											<i class="fa fa-plus"></i> Click here to add
 											issues/comments/correspondence</u></span></label>
 							</div>
@@ -154,7 +154,7 @@
 			<fieldset class="subquestions">
 				<div class="row">
 					<div class="col-lg-6 col-sm-12">
-					<div><label>SOFTWARE: MATLAB</label></div>
+					<div><label>SOFTWARE: (e.g. PRANA,MATLAB,Netstation) </label></div>
 					</div>
 				</div>
 				<div class="row">
@@ -224,10 +224,9 @@
 					<div class="row">
 						<div class="col-lg-12 col-sm-12">
 							<div class="input-group-sm ">
-								<textarea class="form-control" id=Add_Comment__ID
-									placeholder="enter new comments here.."></textarea>
+								<textarea class="form-control" id=Add_Comment1__ID placeholder="enter new comments here.."></textarea>
 								<label><span class=""><u style='cursor:pointer;margin-bottom:3px;display:inline-block'
-											id=add_comment__ID>
+											id=add_comment1__ID name=add_comment>
 											<i class="fa fa-plus"></i> Click here to add
 											issues/comments/correspondence</u></span></label>
 							</div>
@@ -276,7 +275,7 @@
 			<fieldset class="subquestions">
 				<div class="row">
 					<div class="col-lg-6 col-sm-12">
-						<div><label>SOFTWARE: MATLAB</label></div>
+						<div><label>Processing Pipeline: (e.g. BIDS processor, UWM Pipeline)</label></div>
 					</div>
 				</div>
 				<div class="row">
@@ -346,12 +345,13 @@
 					<div class="row">
 						<div class="col-lg-12 col-sm-12">
 							<div class="input-group-sm ">
-								<textarea class="form-control" id=Add_Comment__ID
-									placeholder="enter new comments here.."></textarea>
-								<label><span class=""><u style='cursor:pointer;margin-bottom:3px;display:inline-block'
-											id=add_comment__ID>
-											<i class="fa fa-plus"></i> Click here to add
-											issues/comments/correspondence</u></span></label>
+								<textarea class="form-control" id=Add_Comment2__ID placeholder="enter new comments here.."></textarea>
+								<input type=button id=add_comment2__ID value='Add to log'></input>
+								<!-- <label><span class=""><u style='cursor:pointer;margin-bottom:3px;display:inline-block'
+											id=add_comment2__ID name=add_comment>
+								<i class="fa fa-plus"></i> Click here to add
+											issues/comments/correspondence</u>
+								</span></label> -->
 							</div>
 						</div>
 					</div>
@@ -419,11 +419,19 @@
 			o.style.height = (25+o.scrollHeight)+"px";
 		}
 			//-------------------------------------
-    	function F__ID(){				
-			$("#equipment_ticket__ID").hide();
-			$("#software_ticket__ID").hide();
-			$("#pipelines_ticket__ID").hide();
-
+    	function F__ID(){
+			var ticket_type = $('#ticket_type__ID')
+			if (ticket_type="Equipment")
+				$("#equipment_ticket__ID").show();
+			if (ticket_type="Software")
+				$("#software_ticket__ID").show();
+			if (ticket_type="Pipelines")
+				$("#pipelines_ticket__ID").show();
+			if (ticket_type="none")
+				$("#equipment_ticket__ID").hide();
+				$("#software_ticket__ID").hide();
+				$("#pipelines_ticket__ID").hide();
+			
 
     		//-------------------------------------
             VmInclude:__COMPONENT__/f/form.01.js
@@ -446,6 +454,37 @@
 					}
 					else $vm.alert("Please enter a comment")
 				})
+				$('#add_comment1__ID').on('click', function () {
+						var now_time = new Date();
+						now_time = now_time.toString().split(" ");
+						now_time = now_time[4];
+						var now_date = $vm.date_to_string_dmy(new Date());
+						var new_comments = $('#Add_Comment1__ID').val();
+						if (new_comments != "") {
+							var old_comments = $('#F__ID textarea[name=Comments]').val()
+							if ($('#F__ID textarea[name=Comments]').val() == undefined) old_comments = "";
+							var comments = now_time + ' ' + now_date + " - " + $vm.user_name + "\n" + new_comments + "\n\n" + old_comments
+							$('#F__ID textarea[name=Comments]').val(comments)
+							$('#Add_Comment1__ID').val("");
+						}
+						else $vm.alert("Please enter a comment")
+					})
+						$('#add_comment2__ID').on('click', function () {
+						var now_time = new Date();
+						now_time = now_time.toString().split(" ");
+						now_time = now_time[4];
+						var now_date = $vm.date_to_string_dmy(new Date());
+						var new_comments = $('#Add_Comment2__ID').val();
+						if (new_comments != "") {
+							var old_comments = $('#F__ID textarea[name=Comments]').val()
+							if ($('#F__ID textarea[name=Comments]').val() == undefined) old_comments = "";
+							var comments = now_time + ' ' + now_date + " - " + $vm.user_name + "\n" + new_comments + "\n\n" + old_comments
+							$('#F__ID textarea[name=Comments]').val(comments)
+							$('#Add_Comment2__ID').val("");
+						}
+						else $vm.alert("Please enter a comment")
+					})
+
 			}
 
 		//-------------------------------
@@ -473,10 +512,10 @@
 					I1++; if (I1 > 50) { clearInterval(loop); alert("jquery-ui.min.js is not installed."); }
 				}, 100);
 //----------------------------------------
+		
 				// Ticket Types
 
-
-				$('#ticket_type__ID').on('click', function () {
+				$('#ticket_type__ID').on('change', function () {
 				var ticket_type= $('#ticket_type__ID')
 				// $("#software_ticket__ID").on('load', hide());
 				
@@ -505,6 +544,9 @@
 				$("#pipelines_ticket__ID").show();
 					}
 				});
+
+
+
 
 
 

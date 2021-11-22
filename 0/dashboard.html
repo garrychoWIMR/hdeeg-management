@@ -1,52 +1,53 @@
 <div id=D__ID>
+<div style="background-color:gray">
 	<!-- <div id=dashboard__ID class=home_page_1> -->
-		<div class="container-fluid" style='max-width:900px'>
+		<div class="container-fluid" style='max-width:900px;'>
 		<!-- First row start  -->
 				<div class="firstrow">
 						asdgaiugduias
 						<div class="firstwidget">
 							<div class=entry_1>
 							Number of Studies Scored
-									<input type="text" class=outputfields id=scored_studies__ID  >
+								<input type="text" class=outputfields id=scored_studies__ID  >
 							</div>
 						</div>
 						<div class="secondwidget" style='color:#fff'>
 							<div class=entry_1>
 							To be scored: 
-									<input type="text" class=outputfields id=tb_scored__ID>
+							<input type="text" class=outputfields id=tb_scored__ID>
 							</div>	
 						</div>
 						<div class="thirdwidget" style='color:#fff'>
 							<div class=entry_1>
 									Active Studies
 								<input type="text" class=outputfields id=r_studies__ID>
-						 </div>
+						 	</div>
 						</div>
 					</div> 
-				<!-- </div> -->
 			<!-- Second row start  -->
-			<div class="container-fluid" style='max-width:960px;'>
+			<!-- <div class="container-fluid" style='max-width:960px;'> -->
 					<div class="secondrow">
 						asdgoiashdois
 						<div class="firstwidget">
-								<div class=entry_1 >
-									Tickets Opened
-									<input type="text" class=outputfields id=tickets__ID >
-								</div>
+							<div class=entry_1 >
+								Tickets Opened
+								<input type="text" class=outputfields id=tickets__ID >
 							</div>
+						</div>
 						<div class="secondwidget" style='color:#fff'>
 								<div class=entry_1 >
 								Inventory Low on Stock 
-									<input type="text" class=outputfields id=inventory__ID>
+								<input type="text" class=outputfields id=inventory__ID>
 								</div>
 						</div>
 						<div class="thirdwidget" style='color:#fff'>
 								<div class=entry_1>
-									Second row 3
-									<input type="text" class=outputfields id=333>
+									Medium LTM Net
+									<input type="text" class=outputfields id=ltm_med__ID>
 								</div>
 							</div>
-				</div>
+					</div>
+			</div>
 
 			<!-- D__ID end  -->
 			<!-- </div> -->
@@ -76,6 +77,12 @@ $vm.request({ cmd: 'find', table: 'ticket-setup', query: {"Data.resolved":"off"}
 	var records3 = res3.result;
 	$('#tickets__ID').val(records3.length)
 })
+$vm.request({ cmd: 'find', table: 'stock-setup', query: { "Data.net_size": "LTM medium - H6965" } }, function (res4) {
+	var records4 = res4.result;
+	$('#ltm_med__ID').val(records4.length)
+})
+
+
 
 
 
@@ -130,5 +137,5 @@ left:70%;
 
 }
 </style>
-
+</div>
 

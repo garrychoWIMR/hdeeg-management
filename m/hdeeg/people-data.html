@@ -1,4 +1,11 @@
 <section>
+<section style="background-color:#cccccc">
+	<select id=filter1__ID>
+		<option value="Yes" name=ac_staff selected>Active Staff</option>
+		<option value="No" name=ac_staff >Inactive Staff</option>
+		<!-- <option value="Yes" name=scored>Scored</option> -->
+	</select>
+</section>
     VmInclude:__COMPONENT__/g/grid.01.html
 </section>
 <script>
@@ -10,7 +17,24 @@
         m.fields="_Form,Summary,"+fields+",Submit_date,Submitted_by,_Delete";
         //-------------------------------------
       	m.query={$or:[{"Data.a_staff":"Yes"},{"Data.a_staff":null}]};
-				m.cell_render=function(records,I,field,td){
+
+		($('#filter1__ID').on('change', function () {
+		var sc = $('#filter1__ID').val()
+		var scd = ($('#F__ID input[name=ac_staff]')).val()
+		scd = sc
+		m.query = {
+			"Data.a_staff": scd
+		}
+		if ($('#filter1__ID').val() == "") {
+			m.query = {
+				$or: [{ "Data.a_staff": "Yes" }, { "Data.a_staff": "on" }, { "Data.a_staff": "off" }, { "Data.a_staff": "" }]
+			}
+		}
+
+		{ m.set_req(); m.request_data(); }
+		}))
+
+			m.cell_render=function(records,I,field,td){
             switch(field){
                 case 'Colour':
                     td.html("<span style=''"+records[I].Data[field]+"'><i style='color:#000' class='far fa-circle'></i></span>");
@@ -29,15 +53,6 @@
 							break;
 						}
 
-						// case '_Summary':
-						// 				td.html("<u style='cursor:pointer'>Summary Info Sheet</u>");
-						// 				td.find('u').on('click', function () {
-						// 					$vm.load_module(m.prefix + 's-information-summary-data', '', { record: records[I] });
-						// 				});
-		// 				// 				break;
-		// 	}
-		// }
-
         };
         //-------------------------------------
         //m.sort={'I1':-1};
@@ -45,4 +60,12 @@
 </script>
 <style>
     VmInclude:__COMPONENT__/g/grid.01.css
+
+		#filter1__ID{
+		display:inline-block;
+		margin-left:60px;
+		height:30px;
+		width:150px;
+		border-radius:5px;
+	}
 </style>

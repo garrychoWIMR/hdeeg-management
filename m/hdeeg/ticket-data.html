@@ -1,10 +1,20 @@
 <section>
 	<section style="background-color:#cccccc">
 		<select id=filter1__ID>
-			<option value="off" name=resolved>Open</option>
 			<option value="" name=resolved>All</option>
+			<option value="off" name=resolved selected>Open</option>
 			<option value="on" name=resolved>Closed</option>
 		</select>
+
+		<!-- <select id=filter2__ID>
+		<option value="" name=filter_type>Equipment</option>
+		<option value="off" name=filter_type>Software</option>
+		<option value="on" name=filter_type>Pipelines</option>
+		</select> -->
+		<!-- <input id=f2__ID type="radio" name="filter_type" value=equipment>Equipment</input>
+		<input id=f2__ID type="radio" name="filter_type" value=software>Software</input>
+		<input id=f2__ID type="radio" name="filter_type" value=pipelines>Pipelines</input> -->
+
 	
 	</section>
     VmInclude:__COMPONENT__/g/grid.01.html
@@ -16,6 +26,8 @@
         //-------------------------------------
         var fields="ticket_type,Case Number|case_no,Equipment,other_equipment,serial_number,warranty,resolved,Comments";
         m.fields="_Form,"+fields+",Submit_date,Submitted_by,_Delete";
+		m.query = { "Data.resolved": "off" };
+
         //-------------------------------------
         m.cell_render=function(records,I,field,td){
             switch(field){
@@ -46,30 +58,42 @@
 					}
 				if (records[I].Data[field] == "Software") {
 						td.html("<div class='rectangle' style='padding:5px;border-radius:99px;height:30px;background-color:#56a3d5;color:white;text-align:center'>" + records[I].Data[field] + "</div>")
-					}	
-				break;
-
-            }
-        };
-				// --------------------------------
-			($('#filter1__ID').on('click', function () {
-				var sc = $('#filter1__ID').val()
-				var scd = ($('#F__ID input[name=resolved]')).val()
-				scd = sc
-				m.query = {
-					"Data.resolved": scd
-				}
-				if ($('#filter1__ID').val() == "") {
-					m.query = {
-						$or: [{ "Data.resolved": "Yes" }, { "Data.resolved": "on" }, { "Data.resolved": "No" }, { "Data.resolved": "off" }]
 					}
+				if (records[I].Data[field] =="none"){
+				td.html('')
 				}
-				{ m.set_req(); m.request_data(); }
-			}))
-
+			break;
+				
+			case 'Comments':
+				// td.html("<b>"+records[I].Data[field]+"</b>")
+				// tr.html('height','10px','overflow-y','scroll')
+				// // td.css("style=overflow-y:scroll;height:10px;")
+			break;
+			}
+        };	
+		
+	
+		// --------------------------------
+	
+		($('#filter1__ID').on('change', function () {
+			var sc = $('#filter1__ID').val()
+			var scd = ($('#F__ID input[name=resolved]')).val()
+			scd = sc
+			m.query = {
+				"Data.resolved": scd
+			}
+			if ($('#filter1__ID').val() == "") {
+				m.query = {
+					$or: [{ "Data.resolved": "Yes" }, { "Data.resolved": "on" }, { "Data.resolved": "No" }, { "Data.resolved": "off" }]
+				}
+			}
+			{ m.set_req(); m.request_data(); }
+		}))
+			// -------------------------------------------
         //-------------------------------------
         //m.sort={'I1':-1};
     }
+	
 </script>
 <style>
     VmInclude:__COMPONENT__/g/grid.01.css
