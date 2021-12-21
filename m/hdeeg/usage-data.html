@@ -3,7 +3,7 @@
 </section>
 <body>
 <br>
-<div class="thirdwidget" style="padding-left: 40%;" >
+<div class="thirdwidget" style="padding-left: 40%;padding-bottom:30px;" >
 <h2>Usage Counter:</h2>
 	<div class=entry_1>
 		LTM Paediatric Large (H11500) :
@@ -92,7 +92,7 @@
 		})
 		$vm.request({ cmd: 'find', table: 'stock-setup', query: { "Data.net_size": "LTM medium - H6965" } }, function (res3) {
 			var records3 = res3.result;
-			$('#ltm_lg__ID').val(records3.length)
+			$('#ltm_med__ID').val(records3.length)
 		})
 		$vm.request({ cmd: 'find', table: 'stock-setup', query: { "Data.net_size": "LTM medium - S-000939" } }, function (res4) {
 			var records4 = res4.result;

@@ -8,7 +8,7 @@
 					<div class="col-12">
 						<!-- form start -->
 						<form id="F__ID">
-							<h3>Inventory</span></h3>
+							<h3>Post Study Form</span></h3>
 							<div>
 								<!-- Start -->
 									<div class="form-group ">
@@ -27,7 +27,7 @@
 													<div class="col-lg-5 col-sm-5">
 														<div class="input-group-sm ">
 															<label><span class="">Research Study</span></label>
-															<input type=text class=form-control  name=research_study id=research_study__ID required>
+															<input type=text class=form-control  name=research_study id=research_study__ID>
 														</div>
 													</div>
 												</div>
@@ -45,6 +45,106 @@
 										</div>
 									</div>
 								<!-- End -->
+								<div class="form-group ">
+									<div class="questiongroup ">
+										<fieldset class="subquestions">
+											<div><label><span >
+											<h4><u>Does this study/studies need scoring?</u></h4>
+											</span></label></div>
+											<div class="row" >
+												<div class="col-lg-2 col-sm-2">
+													<div class="input-group-sm ">
+														<input type="checkbox" name="scoring_needed" id=nd_scoring__ID>Yes</input>
+													</div>
+												</div>
+											</div>
+										
+								<!-- Start -->
+									<br>
+							<div id="scoredd__ID">
+								<fieldset class="subquestions">
+									<div><label><span>
+												<h4><u>Number of Studies that need scoring?</u></h4>
+											</span></label></div>
+
+									<div class="row">
+										<div class="col-lg-2 col-sm-2">
+											<div class="input-group-sm ">
+												<!-- <input type="radio" name="scoring_needed" id=nd_scoring__ID>No</input> -->
+												<select name="no_studies" id="no_studies__ID">
+													<option value=1>1</option>
+													<option value=2>2</option>
+													<option value=3>3</option>
+													<option value=4>4</option>
+													<option value=5>5</option>
+													<option value=6>6</option>
+													<option value=7>7</option>
+													<option value=8>8</option>
+													<option value=9>9</option>
+													<option value=10>10</option>
+												</select>
+											</div>
+										</div>
+										<!--  -->
+									</div>
+								</fieldset>
+
+							<div id="scoredd_form__ID">
+
+									<div class="row">
+										<div class="col-lg-6 col-sm-6">
+											<div class="input-group-sm ">
+												<label><span class="">Study ID </span></label><br>
+												<input type=text class=form-control name=study_id id=study_id__ID placeholder="Please put one Study ID only..." required>
+											</div>
+										</div>
+									</div>
+							
+
+									<br>
+									<fieldset class="subquestions">
+									<div><label><span class="">
+									Is this a medicared study? 
+									</span></label></div>
+									<div class="row">
+										<div class="col-lg-2 col-sm-2">
+											<div class="input-group-sm ">
+												<input type=radio name=medicared id=medicared__ID value='on' required>Yes</input>
+											</div>
+										</div>
+										<div class="col-lg-2 col-sm-2">
+											<div class="input-group-sm ">
+												<input type=radio  name=medicared id=medicared__ID value='off'>No</input>
+											</div>
+										</div>
+												<!--  -->
+										</div>
+									</fieldset>
+								<br>
+								<!-- <fieldset class="subquestions">
+									<div><label><span class="">
+									Additional studies? (e.g. MSLT, MWT, KDT)
+									</span></label></div>
+									<div class="row">
+										<div class="col-lg-2 col-sm-2">
+											<div class="input-group-sm ">
+												<input type=radio name=more_studies id=more_studies__ID value='on' required>Yes</input>
+											</div>
+										</div>
+										<div class="col-lg-2 col-sm-2">
+											<div class="input-group-sm ">
+												<input type=radio  name=more_studies id=more_studies__ID value='off'>No</input>
+											</div>
+										</div>
+											div>
+								</fieldset-->
+							</div>
+								<!--  -->
+							</div>
+							</div>
+						</div>
+
+
 								<!-- Start -->
 								<div class="form-group ">
 									<div class="questiongroup ">
@@ -163,6 +263,31 @@
 			//-------------------------------------
 			m.before_submit = function (data, index) {
 				data.staff = 'Researcher: '+ data.staff_r + '\n' + 'Sleep Technician: '+data.staff_st;
+				research_study = ($('#research_study__ID').val());
+				study_id = ($('#study_id__ID').val());
+				medicared = ($('#medicared__ID').val())
+				additional_studies = ($('#more_studies__ID').val());
+				alert("Research study is " + research_study + "\n"
+					+ "Study id  id " + study_id + "\n" +
+					"Is this Study medicared? " + medicared
+
+
+//******************************************************//
+// To find the values and then add them to the list for studies to be scored
+// Will potentially need to take a step further and add the functionality of adding several studies?
+//  Logic: 
+// 1. Are there any additional studies (?)
+// 2. type of studies (mwt, kdt, etc. )
+// 3. Number of studies 
+// 4. Add it in as a new entry?
+//
+//******************************************************
+
+
+
+
+				)
+			
 			}
 			//-------------------------------------
 			$('#D__ID').on('load',function(){
@@ -171,14 +296,74 @@
 				var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
 				var yyyy = today.getFullYear();
 
-				today = mm + '/' + dd + '/' + yyyy;
+				today = dd + '/' + mm + '/' + yyyy;
 				$('#date__ID').val(today);
 		//-------------------------------------
-			}) 
+			
+		//-------------------------------------
+			var url=window.location.href
+				url_1=url.split('&')[2];
+
+			if (url_1==undefined){
+			document.getElementById('research_study__ID').readOnly = false;
+			// console.log("hello")
+			}
+			else{
+			url_2=url_1.split('=')
+			var research_study=url_2[1].replace("%20"," ");
+			document.getElementById('research_study__ID').readOnly = true;
+			console.log('research study is ' + research_study)
+			$('#research_study__ID').val(research_study);
+			}
+			
+			//-------------------------------------
+			$("#scoredd__ID").hide();
+			$('input[name=scoring_needed]').on('change', function () {
+				var scoring_needed = ($('#nd_scoring__ID'))
+				// var scoring_needed_n = ($('#nd_scoring__ID'))
+				// $('#needs_score__ID')
+				//alert(scoring_needed.val())
+				if (scoring_needed.is(':checked')){
+					$("#scoredd__ID").show()
+					
+				
+				}
+				else {
+					$("#scoredd__ID").hide()
+					}
+
+			})
+		}) 
+	//--------------------------------------
+	// Creating new div depending on number of studies response: 
+
+			$("#no_studies__ID").on('change',function(){
+			console.log($("#no_studies__ID").val())
+			no_studies= $("#no_studies__ID").val();
+			scoring=$("#scoredd_form__ID");
+			if(no_studies>1){ 
+				for (i=0;i<no_studies-1;i++){
+					scoring.after(scoring.clone().attr("id", "scoredd_form_"+[i]+"__ID" ));
+				}	
+			}
+
 
 			
-		}
-		//-------------------------------
+			})
+	
+
+
+		
+
+
+	//--------------------------------------
+
+
+
+	//--------------------------------------
+
+	}
+	//--------------------------------------
 
     </script>
     <style>
