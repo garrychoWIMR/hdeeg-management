@@ -60,21 +60,37 @@
 											</div>
 										
 								<!-- Start -->
-									<br>
-							<div id="scoredd__ID">
-								<hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
-								<div>
-									<div w='100|100'>
-										<u class=c_print style='cursor:pointer;margin-bottom:3px;display:inline-block' id=item_a_add__ID><i class="fa fa-plus"></i> Add a study</u>
-										<table id=grid_item_a__ID></table>
-										<div id=total__ID style='text-align: right;padding-top:6px'>
+				<br>
+							<!-- <div id="scoredd__ID">
+								<fieldset class="subquestions">
+									<div><label><span>
+												<h4><u>Number of Studies that need scoring?</u></h4>
+											</span></label></div>
+
+									<div class="row">
+										<div class="col-lg-2 col-sm-2">
+											<div class="input-group-sm ">
+
+												<select name="no_studies" id="no_studies__ID">
+													<option value=1>1</option>
+													<option value=2>2</option>
+													<option value=3>3</option>
+													<option value=4>4</option>
+													<option value=5>5</option>
+													<option value=6>6</option>
+													<option value=7>7</option>
+													<option value=8>8</option>
+													<option value=9>9</option>
+													<option value=10>10</option>
+												</select>
+											</div>
 										</div>
+
 									</div>
-								</div>
+								</fieldset>
+							<div id="scoredd_form__ID">
 							</div>
-							
-							
-							<!--  -->
+							</div>-->
 							</fieldset>
 							</div>
 							</div>
@@ -186,9 +202,8 @@
 			</div>
 		</div>
 	</div>
-	VmInclude:__COMPONENT__/m/model.01.html
-    <script>		
-
+    <script>
+	
 		function textAreaAdjust__ID(o) {
 			//console.log(o)
 			o.style.height = "1px";
@@ -198,9 +213,6 @@
     	function F__ID(){
     		//-------------------------------------
             VmInclude:__COMPONENT__/f/form.01.js
-			VmInclude:__COMPONENT__/f/form-item-a.01.js
-			VmInclude:__CURRENT_PATH__/purchase-form.html.item_a_list.js
-
 			//-------------------------------------
 			m.before_submit = function (data, index) {
 				data.staff = 'Researcher: '+ data.staff_r + '\n' + 'Sleep Technician: '+data.staff_st;
@@ -213,22 +225,35 @@
 					"Is this Study medicared? " + medicared
 
 
+//******************************************************//
+// To find the values and then add them to the list for studies to be scored
+// Will potentially need to take a step further and add the functionality of adding several studies?
+//  Logic: 
+// 1. Are there any additional studies (?)
+// 2. type of studies (mwt, kdt, etc. )
+// 3. Number of studies 
+// 4. Add it in as a new entry?
+//
+//******************************************************
+
+
+
+
 				)
 			
 			}
-		//-------------------------------------
-		$('#D__ID').on('load',function(){
-			var today = new Date();
-			var dd = String(today.getDate()).padStart(2, '0');
-			var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-			var yyyy = today.getFullYear();
+			//-------------------------------------
+			$('#D__ID').on('load',function(){
+				var today = new Date();
+				var dd = String(today.getDate()).padStart(2, '0');
+				var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+				var yyyy = today.getFullYear();
 
-			today = dd + '/' + mm + '/' + yyyy;
-			$('#date__ID').val(today);
+				today = dd + '/' + mm + '/' + yyyy;
+				$('#date__ID').val(today);
 		//-------------------------------------
 			
 		//-------------------------------------
-		// Prefill studies via URL
 			var url=window.location.href
 			var url_1=url.split('@')[1];
 			if (url_1==undefined){
@@ -259,101 +284,218 @@
 					$("#scoredd__ID").hide()
 					}
 
-				})
-			}) 
+			})
+		}) 
+	//--------------------------------------
+	// var container = document.getElementById('scoredd_form__ID');
+
+	// Put a mini table in???
+
+	// for(i=1;i<11;i++){
+	// var txt = "<div id='scoredd_form" + [i] + "__ID'>"
+	// txt+="<div class='row'>"
+	// txt+="<div class='col-lg-6 col-sm-6'>"
+	// txt+="<div class='input-group-sm '>"
+	// txt+="<label><span class=''>Study ID </span></label><br>"
+	// txt+="<input type=text class=form-control name=study_id" + [i] + " id=study_id_" + [i] + "__ID"
+	// txt+="placeholder='Please put one Study ID only...' required>"
+	// txt+="</div>"
+	// txt+="</div>"
+	// txt+="</div>"
+	// txt+="<br>"
+	// txt+="<fieldset class='subquestions'>"
+	// txt+="<div><label><span class=''>"
+	// txt+="Is this a medicared study?"
+	// txt+="</span ></label ></div >"
+	// txt+="<div class='row'>"
+	// txt+="<div class='col-lg-2 col-sm-2'>"
+	// txt+="<div class='input-group-sm '>"
+	// txt+="<input type=radio name=medicared" + [i] + " id=medicared" + [i] +"__ID value='on' required>Yes</input>"
+	// txt+="</div>"
+	// txt+="</div>"
+	// txt+="<div class='col-lg-2 col-sm-2'>"
+	// txt+="<div class='input-group-sm '>"
+	// txt+="<input type=radio name=medicared"+[i]+"id=medicared" + [i] +"__ID value='off'>No</input>"
+	// txt+="</div>"
+	// txt+="</div>"
+	// txt+="</div>"
+	// txt+="</fieldset>"
+	// txt+="<br>"
+	// txt+="</div>"
+
+	// }
+	// var study_form=$("#scoredd_form__ID").html(txt)
+	// // $("#scoredd_form__ID").html(txt)
+	// no_studies= $("#no_studies__ID").val();
+	//  $("#no_studies__ID").on('change',function(){
 	
-			//******************************************************//
-			// To find the values and then add them to the list for studies to be scored
-			// Will potentially need to take a step further and add the functionality of adding several studies?
-			//  Logic: 
-			// 1. Are there any additional studies (?)
-			// 2. type of studies (mwt, kdt, etc. )
-			// 3. Number of studies 
-			// 4. Add it in as a new entry?
+	// if (no_studies==2){
+	// 	$("#scoredd_form1__ID").show()
+	// 	$("#scoredd_form2__ID").show()
+	// 	$("#scoredd_form3__ID").hide()
+	// 	$("#scoredd_form4__ID").hide()
+	// 	$("#scoredd_form5__ID").hide()
+	// 	$("#scoredd_form6__ID").hide()
+	// 	$("#scoredd_form7__ID").hide()
+	// 	$("#scoredd_form8__ID").hide()
+	// 	$("#scoredd_form9__ID").hide()
+	// 	$("#scoredd_form10__ID").hide()
+
+	// }
+	// })
+
+	// //--------------------------------------
+	// // Creating new div depending on number of studies response: 
+	// 	// 	$("#scoredd_form1__ID").show()
+	// 	// 	$("#scoredd_form2__ID").hide()
+	// 	// 	$("#scoredd_form3__ID").hide()
+	// 	// 	$("#scoredd_form4__ID").hide()
+	// 	// 	$("#scoredd_form5__ID").hide()
+	// 	// 	$("#scoredd_form6__ID").hide()
+	// 	// 	$("#scoredd_form7__ID").hide()
+	// 	// 	$("#scoredd_form8__ID").hide()
+	// 	// 	$("#scoredd_form9__ID").hide()
+	// 	// 	$("#scoredd_form10__ID").hide()
+
+	// 	// 	$("#no_studies__ID").on('change',function(){
+	// 	// 	console.log($("#no_studies__ID").val())
+	// 	// 	no_studies= $("#no_studies__ID").val();
+	// 	// 	// scoring=$("#scoredd_form__ID");
+	// 	// 	if(no_studies==1){
+	// 	// 	$("#scoredd_form1__ID").show()
+	// 	// 	$("#scoredd_form2__ID").hide()
+	// 	// 	$("#scoredd_form3__ID").hide()
+	// 	// 	$("#scoredd_form4__ID").hide()
+	// 	// 	$("#scoredd_form5__ID").hide()
+	// 	// 	$("#scoredd_form6__ID").hide()
+	// 	// 	$("#scoredd_form7__ID").hide()
+	// 	// 	$("#scoredd_form8__ID").hide()
+	// 	// 	$("#scoredd_form9__ID").hide()
+	// 	// 	$("#scoredd_form10__ID").hide()
+	// 	// 		}	
+	// 	// 	if (no_studies == 2) {
+	// 	// 	$("#scoredd_form1__ID").show()
+	// 	// 	$("#scoredd_form2__ID").show()
+	// 	// 	$("#scoredd_form3__ID").hide()
+	// 	// 	$("#scoredd_form4__ID").hide()
+	// 	// 	$("#scoredd_form5__ID").hide()
+	// 	// 	$("#scoredd_form6__ID").hide()
+	// 	// 	$("#scoredd_form7__ID").hide()
+	// 	// 	$("#scoredd_form8__ID").hide()
+	// 	// 	$("#scoredd_form9__ID").hide()
+	// 	// 	$("#scoredd_form10__ID").hide()
+	// 	// 	}	
+	// 	// 	if (no_studies == 3) {
+	// 	// 	$("#scoredd_form1__ID").show()
+	// 	// 	$("#scoredd_form2__ID").show()
+	// 	// 	$("#scoredd_form3__ID").show()
+	// 	// 	$("#scoredd_form4__ID").hide()
+	// 	// 	$("#scoredd_form5__ID").hide()
+	// 	// 	$("#scoredd_form6__ID").hide()
+	// 	// 	$("#scoredd_form7__ID").hide()
+	// 	// 	$("#scoredd_form8__ID").hide()
+	// 	// 	$("#scoredd_form9__ID").hide()
+	// 	// 	$("#scoredd_form10__ID").hide()
+	// 	// 	}	
+	// 	// 	if (no_studies == 4) {
+	// 	// 	$("#scoredd_form1__ID").show()
+	// 	// 	$("#scoredd_form2__ID").show()
+	// 	// 	$("#scoredd_form3__ID").show()
+	// 	// 	$("#scoredd_form4__ID").show()
+	// 	// 	$("#scoredd_form5__ID").hide()
+	// 	// 	$("#scoredd_form6__ID").hide()
+	// 	// 	$("#scoredd_form7__ID").hide()
+	// 	// 	$("#scoredd_form8__ID").hide()
+	// 	// 	$("#scoredd_form9__ID").hide()
+	// 	// 	$("#scoredd_form10__ID").hide()
+	// 	// 	}	
+	// 	// 	if (no_studies == 5) {
+	// 	// 	$("#scoredd_form1__ID").show()
+	// 	// 	$("#scoredd_form2__ID").show()
+	// 	// 	$("#scoredd_form3__ID").show()
+	// 	// 	$("#scoredd_form4__ID").show()
+	// 	// 	$("#scoredd_form5__ID").show()
+	// 	// 	$("#scoredd_form6__ID").hide()
+	// 	// 	$("#scoredd_form7__ID").hide()
+	// 	// 	$("#scoredd_form8__ID").hide()
+	// 	// 	$("#scoredd_form9__ID").hide()
+	// 	// 	$("#scoredd_form10__ID").hide()
+	// 	// 	}
+	// 	// 	if (no_studies == 6) {
+	// 	// 	$("#scoredd_form1__ID").show()
+	// 	// 	$("#scoredd_form2__ID").show()
+	// 	// 	$("#scoredd_form3__ID").show()
+	// 	// 	$("#scoredd_form4__ID").show()
+	// 	// 	$("#scoredd_form5__ID").show()
+	// 	// 	$("#scoredd_form6__ID").show()
+	// 	// 	$("#scoredd_form7__ID").hide()
+	// 	// 	$("#scoredd_form8__ID").hide()
+	// 	// 	$("#scoredd_form9__ID").hide()
+	// 	// 	$("#scoredd_form10__ID").hide()
+	// 	// 	}
+	// 	// 	if (no_studies == 7) {
+	// 	// 	$("#scoredd_form1__ID").show()
+	// 	// 	$("#scoredd_form2__ID").show()
+	// 	// 	$("#scoredd_form3__ID").show()
+	// 	// 	$("#scoredd_form4__ID").show()
+	// 	// 	$("#scoredd_form5__ID").show()
+	// 	// 	$("#scoredd_form6__ID").show()
+	// 	// 	$("#scoredd_form7__ID").show()
+	// 	// 	$("#scoredd_form8__ID").hide()
+	// 	// 	$("#scoredd_form9__ID").hide()
+	// 	// 	$("#scoredd_form10__ID").hide()
+	// 	// }
+	// 	// 	if (no_studies == 8) {
+	// 	// 	$("#scoredd_form1__ID").show()
+	// 	// 	$("#scoredd_form2__ID").show()
+	// 	// 	$("#scoredd_form3__ID").show()
+	// 	// 	$("#scoredd_form4__ID").show()
+	// 	// 	$("#scoredd_form5__ID").show()
+	// 	// 	$("#scoredd_form6__ID").show()
+	// 	// 	$("#scoredd_form7__ID").show()
+	// 	// 	$("#scoredd_form8__ID").show()
+	// 	// 	$("#scoredd_form9__ID").hide()
+	// 	// 	$("#scoredd_form10__ID").hide()
+	// 	// }
+	// 	// 	if (no_studies == 9) {
+	// 	// 	$("#scoredd_form1__ID").show()
+	// 	// 	$("#scoredd_form2__ID").show()
+	// 	// 	$("#scoredd_form3__ID").show()
+	// 	// 	$("#scoredd_form4__ID").show()
+	// 	// 	$("#scoredd_form5__ID").show()
+	// 	// 	$("#scoredd_form6__ID").show()
+	// 	// 	$("#scoredd_form7__ID").show()
+	// 	// 	$("#scoredd_form8__ID").show()
+	// 	// 	$("#scoredd_form9__ID").show()
+	// 	// 	$("#scoredd_form10__ID").hide()
+	// 	// }
+	// 	// 	if (no_studies == 10) {
+	// 	// 	$("#scoredd_form1__ID").show()
+	// 	// 	$("#scoredd_form2__ID").show()
+	// 	// 	$("#scoredd_form3__ID").show()
+	// 	// 	$("#scoredd_form4__ID").show()
+	// 	// 	$("#scoredd_form5__ID").show()
+	// 	// 	$("#scoredd_form6__ID").show()
+	// 	// 	$("#scoredd_form7__ID").show()
+	// 	// 	$("#scoredd_form8__ID").show()
+	// 	// 	$("#scoredd_form9__ID").show()
+	// 	// 	$("#scoredd_form10__ID").show()
+	// 	// }
 
 
-			// Add a mini table which they can designate the number of rows for scoring
-			//
-			//
-			//******************************************************
+
+	// 	// 	})
+	
 
 
 		
-		
 
-			// new ResizeObserver($vm.responsive).observe(form_container__ID);
-			m.storage_type = 's0';
-			item_a_list();
-			// --------------------------------------
-			var item_a_list = function () {
-				//----------------------------------
-				//item a part
-				m.item_a_fields = "Item_No,Description,Unit_Price,Quantity,GST,Amount,_Remove";
-				//----------------------------------
-				$('#item_a_add__ID').on('click', function () { m.item_a_add(); })
-				//----------------------------------
-				m.item_a_cell_render = function (records, I, field, td, set_value, source) {
-					switch (field) {
-						case "Amount":
-							td.find('div:first').removeAttr('contenteditable');
-							break;
-						case "GST":
-							var html = '<input type=checkbox />';
-							$vm.render_checkbox_field(records[I], '__ID', td, html)
-							td.find('input').on('change', function () {
-								cal();
-							})
-							break;
-					}
-				}
-				//----------------------------------
-				m.item_a_after_change = function (records, I, field, td, set_value, source) {
-					switch (field) {
-						case "Unit_Price":
-						case "Quantity":
-							/*case "GST":*/
-							cal();
-							break;
-					}
-				}
-				//----------------------------------
-				m.item_a_after_remove = function () {
-					cal();
-				}
-				$('#F__ID input[name=Delivery]').on('change', function () {
-					cal();
-				})
-				//----------------------------------
-				var cal = function () {
-					var total = 0, subtotal = 0, gst = 0;
-					for (var i = 0; i < m.item_a_records.length; i++) {
-						var p = parseFloat(m.item_a_records[i].Unit_Price);
-						var q = parseFloat(m.item_a_records[i].Quantity);
-						if (m.item_a_records[i].Unit_Price == '') p = 0;
-						if (m.item_a_records[i].Quantity == '') q = 0;
-						var a = p * q;
-						if (m.item_a_records[i].GST == '1') {
-							gst += a * 0.1;
-							a = a * 1.1;
-						}
-						m.item_a_records[i].Amount = a.toFixed(2);
-						total += a;
-					}
-					$('#F__ID input[name=GST_Amount]').val(gst.toFixed(2));
-					$('#F__ID input[name=Total_Amount]').val(total.toFixed(2));
-					m.item_a_render();
-				}
-				//----------------------------------
-			}
-			//-----------------------------------
-			var item_a_render = function () {
-				//-------item a part
-				m.item_a_records = []; if (m.input.record != undefined && m.input.record.Data.items != undefined) m.item_a_records = m.input.record.Data.items;
-				m.item_a_render();
-				//-------
-			}
-			//-----------------------------------
-			//--------------------------------------
+
+	//--------------------------------------
+	
+
+
+	//--------------------------------------
 
 	}
 	//--------------------------------------
