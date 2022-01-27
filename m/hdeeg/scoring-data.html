@@ -14,11 +14,11 @@
 		//-------------------------------------
 		VmInclude: __COMPONENT__/g/grid.01.js
 		//-------------------------------------
-		var fields = "Date of Study|date,Research Project|research_project,Study_ID|study_id,File Location|location,Medicare|medicare,Scorer|scorer,Scorers Comments|scorer_comment,Scored|scored,Scored on|timestamp,Scored by|scored_by";
+		var fields = "Date of Study|date,Research Project|research_project,Study_ID|study_id,File Location|location,Medicare|medicared,Scorer|scorer,Scorers Comments|scorer_comment,Scored|scored,Scored on|timestamp,Scored by|scored_by";
 		m.fields = "_Form," + fields + ",Submit_date,Submitted_by,_Delete";
 		//-------------------------------------
 	//-------------------------------------
-		
+		[{"data.research_project":"Local Sleep"}]
 		// Queries the default value as "To be scored"
 		var start_v = ($('#F__ID input[name=scored]')).val()
 		start_v = "off"

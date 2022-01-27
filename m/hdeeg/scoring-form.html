@@ -156,73 +156,73 @@
 			VmInclude: __COMPONENT__/f/form.01.js
 			//-------------------------------------
 		
-			var autocomplete_req2 = {cmd: "find", field: '.Data.s_name', table: 'people-setup',query:{"Data.position":"Scorer"}, options: {}, skip: 0, limit: 10 }
-			var autocomplete_callback2 = function (item) {
-				$('input[name=scorer]').val(item.label);
-			}	
-			var autocomplete_list2 = function (records) {
-				var items = [];
-				for (var i = 0; i < records.length; i++) {
-					var obj = {};
-					obj.label = records[i].Data["s_name"];
-					items.push(obj);
-				}
-				return items;
-			}
-			var wait2 = function () {
-				$vm.autocomplete($('#F__ID input[name=scorer]'), autocomplete_req2, autocomplete_list2, autocomplete_callback2);
-			}
-			var I2 = 0; var loop_2 = setInterval(function () {
-				if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop_2); wait2(); }
-				I2++; if (I2 > 50) { clearInterval(loop_2); alert("jquery-ui.min.js is not installed."); }
-			}, 100);
+		// 	var autocomplete_req2 = {cmd: "find", field: '.Data.s_name', table: 'people-setup',query:{"Data.position":"Scorer"}, options: {}, skip: 0, limit: 10 }
+		// 	var autocomplete_callback2 = function (item) {
+		// 		$('input[name=scorer]').val(item.label);
+		// 	}	
+		// 	var autocomplete_list2 = function (records) {
+		// 		var items = [];
+		// 		for (var i = 0; i < records.length; i++) {
+		// 			var obj = {};
+		// 			obj.label = records[i].Data["s_name"];
+		// 			items.push(obj);
+		// 		}
+		// 		return items;
+		// 	}
+		// 	var wait2 = function () {
+		// 		$vm.autocomplete($('#F__ID input[name=scorer]'), autocomplete_req2, autocomplete_list2, autocomplete_callback2);
+		// 	}
+		// 	var I2 = 0; var loop_2 = setInterval(function () {
+		// 		if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop_2); wait2(); }
+		// 		I2++; if (I2 > 50) { clearInterval(loop_2); alert("jquery-ui.min.js is not installed."); }
+		// 	}, 100);
 		
-			//---------------------------------------------------------------
+		// 	//---------------------------------------------------------------
 			
-			var autocomplete_req3 = { cmd: "find", field: '.Data.Research_study', table: 'researchstudies-setup', options: {}, skip: 0, limit: 10 }
-			var autocomplete_callback3 = function (item) {
-				$('input[name=research_project]').val(item.label);
-			}
-			var autocomplete_list3 = function (records) {
-				var items = [];
-				for (var i = 0; i < records.length; i++) {
-					var obj = {};
-					obj.label = records[i].Data["Research_study"];
-					items.push(obj);
-				}
-				return items;
-			}
-			var wait3 = function () {
-				$vm.autocomplete($('#F__ID input[name=research_project]'), autocomplete_req3, autocomplete_list3, autocomplete_callback3);
-			}
-			var I3 = 0; var loop_3 = setInterval(function () {
-				if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop_3); wait3(); }
-				I3++; if (I3 > 50) { clearInterval(loop_3); alert("jquery-ui.min.js is not installed."); }
-			}, 100);	
+		// 	var autocomplete_req3 = { cmd: "find", field: '.Data.Research_study', table: 'researchstudies-setup', options: {}, skip: 0, limit: 10 }
+		// 	var autocomplete_callback3 = function (item) {
+		// 		$('input[name=research_project]').val(item.label);
+		// 	}
+		// 	var autocomplete_list3 = function (records) {
+		// 		var items = [];
+		// 		for (var i = 0; i < records.length; i++) {
+		// 			var obj = {};
+		// 			obj.label = records[i].Data["Research_study"];
+		// 			items.push(obj);
+		// 		}
+		// 		return items;
+		// 	}
+		// 	var wait3 = function () {
+		// 		$vm.autocomplete($('#F__ID input[name=research_project]'), autocomplete_req3, autocomplete_list3, autocomplete_callback3);
+		// 	}
+		// 	var I3 = 0; var loop_3 = setInterval(function () {
+		// 		if ($vm['jquery-ui-min-js'] != undefined) { clearInterval(loop_3); wait3(); }
+		// 		I3++; if (I3 > 50) { clearInterval(loop_3); alert("jquery-ui.min.js is not installed."); }
+		// 	}, 100);	
 			
-		//-------------------------------
-			 ($('#scored__ID').on('click',function(){
-				var now_time = new Date();
-				now_time = now_time.toString().split(" ");
-				now_time = now_time[4];
-				var now_date = $vm.date_to_string_dmy(new Date());
-				var timestamp = ($('#F__ID input[name=timestamp]')).val();
-				var timestamp = now_date + ' ' + now_time;
+		// //-------------------------------
+		// 	 ($('#scored__ID').on('click',function(){
+		// 		var now_time = new Date();
+		// 		now_time = now_time.toString().split(" ");
+		// 		now_time = now_time[4];
+		// 		var now_date = $vm.date_to_string_dmy(new Date());
+		// 		var timestamp = ($('#F__ID input[name=timestamp]')).val();
+		// 		var timestamp = now_date + ' ' + now_time;
 
-			if ($('#scored__ID').is(':checked')){
-				($('#F__ID input[name=timestamp]')).val(timestamp);
-				($('#F__ID input[name=scored_by]')).val($vm.user_name);
-				($('#F__ID input[name=scored]')).val("Yes");
-				}
-			else{ 
-				($('#F__ID input[name=timestamp]')).val("");
-				($('#F__ID input[name=scored_by]')).val("");
-				($('#F__ID input[name=scored]')).val("No");
-				}
-				console.log($('#scored__ID').val())
-					}
-				)
-			);
+		// 	if ($('#scored__ID').is(':checked')){
+		// 		($('#F__ID input[name=timestamp]')).val(timestamp);
+		// 		($('#F__ID input[name=scored_by]')).val($vm.user_name);
+		// 		($('#F__ID input[name=scored]')).val("Yes");
+		// 		}
+		// 	else{ 
+		// 		($('#F__ID input[name=timestamp]')).val("");
+		// 		($('#F__ID input[name=scored_by]')).val("");
+		// 		($('#F__ID input[name=scored]')).val("No");
+		// 		}
+		// 		console.log($('#scored__ID').val())
+		// 			}
+		// 		)
+		// 	);
 		//-------------------------------
 
 

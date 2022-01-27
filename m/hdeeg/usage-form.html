@@ -62,19 +62,20 @@
 								<!-- Start -->
 									<br>
 							<div id="scoredd__ID">
+							<!-- <input type="number" id=numbers__ID>How many studies to be scored?</input> -->
 								<hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
 								<div>
 									<div w='100|100'>
 										<u class=c_print style='cursor:pointer;margin-bottom:3px;display:inline-block' id=item_a_add__ID><i class="fa fa-plus"></i> Add a study</u>
-										<table id=grid_item_a__ID></table>
+										<table id=grid_item_a__ID>
+										<tr><th>ID</th><th>Research Study</th><th>Study ID</th><th>Medicared</th><th>Type of Study</th><th>Delete</th><tr>
+										</table>
+										<button class=btn-black id=checker__ID>Checkeroni</button>
 										<div id=total__ID style='text-align: right;padding-top:6px'>
 										</div>
 									</div>
 								</div>
 							</div>
-							
-							
-							<!--  -->
 							</fieldset>
 							</div>
 							</div>
@@ -208,12 +209,16 @@
 				study_id = ($('#study_id__ID').val());
 				medicared = ($('#medicared__ID').val())
 				additional_studies = ($('#more_studies__ID').val());
+				type_of_study=($('#study_type__ID').val());
 				alert("Research study is " + research_study + "\n"
-					+ "Study id  id " + study_id + "\n" +
-					"Is this Study medicared? " + medicared
+				+ "Study id  id " + study_id + "\n" +
+				"Is this Study medicared? " + medicared + "\n"+
+				"Type of Study is : "+ type_of_study
 
 
 				)
+
+			
 			
 			}
 		//-------------------------------------
@@ -230,7 +235,9 @@
 		//-------------------------------------
 		// Prefill studies via URL
 			var url=window.location.href
-			var url_1=url.split('@')[1];
+			var url_1=url.split('&').pop()
+			var url_1= url.split('=').pop();
+			
 			if (url_1==undefined){
 			document.getElementById('research_study__ID').readOnly = false;
 			// console.log("hello")
@@ -277,87 +284,58 @@
 			//
 			//******************************************************
 
+			
+			// for (var i_k=0;i_k<11;i_k++){
+			i_k=0
+			$("#item_a_add__ID").on('click',function(){
+			i_k++
 
+			var study_id = "<input type='text' class=form-control name=study_id id=study_id_"+i_k+"__ID></input>"
+			var checkbox="<center><input type='checkbox' id=medicared_"+i_k+"__ID></input></center></td><td><center>"
+			var study_type= "<center><select id=study_type_"+i_k+"__ID class=form-control><option>PSG</option><option>KDT</option><option>MWT</option></select></center>"
+
+			var table = document.getElementById("grid_item_a__ID")
+			var row = table.insertRow()
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			var cell3 = row.insertCell(2);
+			var cell4 = row.insertCell(3);
+			var cell5 = row.insertCell(4);
+			var cell6 = row.insertCell(5);
+			cell1.innerHTML = i_k;		
+			cell2.innerHTML = $('#research_study__ID').val()
+			cell3.innerHTML = study_id;	
+			cell4.innerHTML = checkbox ;
+			cell5.innerHTML = study_type ;
+			cell6.innerHTML = "<center><i class='fa fa-trash' aria-hidden='true' onclick=alert('hello')></i></center>"
+ 			});
+			// function Delete() {
+			// document.getElementById("grid_item_a__ID").deleteRow();
+			// // }
+			// }
+
+			
 		
-		
 
-			// new ResizeObserver($vm.responsive).observe(form_container__ID);
-			m.storage_type = 's0';
-			item_a_list();
-			// --------------------------------------
-			var item_a_list = function () {
-				//----------------------------------
-				//item a part
-				m.item_a_fields = "Item_No,Description,Unit_Price,Quantity,GST,Amount,_Remove";
-				//----------------------------------
-				$('#item_a_add__ID').on('click', function () { m.item_a_add(); })
-				//----------------------------------
-				m.item_a_cell_render = function (records, I, field, td, set_value, source) {
-					switch (field) {
-						case "Amount":
-							td.find('div:first').removeAttr('contenteditable');
-							break;
-						case "GST":
-							var html = '<input type=checkbox />';
-							$vm.render_checkbox_field(records[I], '__ID', td, html)
-							td.find('input').on('change', function () {
-								cal();
-							})
-							break;
-					}
-				}
-				//----------------------------------
-				m.item_a_after_change = function (records, I, field, td, set_value, source) {
-					switch (field) {
-						case "Unit_Price":
-						case "Quantity":
-							/*case "GST":*/
-							cal();
-							break;
-					}
-				}
-				//----------------------------------
-				m.item_a_after_remove = function () {
-					cal();
-				}
-				$('#F__ID input[name=Delivery]').on('change', function () {
-					cal();
-				})
-				//----------------------------------
-				var cal = function () {
-					var total = 0, subtotal = 0, gst = 0;
-					for (var i = 0; i < m.item_a_records.length; i++) {
-						var p = parseFloat(m.item_a_records[i].Unit_Price);
-						var q = parseFloat(m.item_a_records[i].Quantity);
-						if (m.item_a_records[i].Unit_Price == '') p = 0;
-						if (m.item_a_records[i].Quantity == '') q = 0;
-						var a = p * q;
-						if (m.item_a_records[i].GST == '1') {
-							gst += a * 0.1;
-							a = a * 1.1;
-						}
-						m.item_a_records[i].Amount = a.toFixed(2);
-						total += a;
-					}
-					$('#F__ID input[name=GST_Amount]').val(gst.toFixed(2));
-					$('#F__ID input[name=Total_Amount]').val(total.toFixed(2));
-					m.item_a_render();
-				}
-				//----------------------------------
-			}
-			//-----------------------------------
-			var item_a_render = function () {
-				//-------item a part
-				m.item_a_records = []; if (m.input.record != undefined && m.input.record.Data.items != undefined) m.item_a_records = m.input.record.Data.items;
-				m.item_a_render();
-				//-------
-			}
-			//-----------------------------------
-			//--------------------------------------
+	$("#checker__ID").on('click', function () {
+		if (i_k != 0) {
+			no_of_studies = i_k
+			alert('there are ' + no_of_studies + ' studies')
+			// alert(no_of_studies)	
+			for (ii=1;ii<no_of_studies+1;ii++){
+				// ale.log()
+				var si = $("#study_id_"+[ii]+"__ID").val()
+				var med= $("#medicared_"+ [ii] +"__ID").val()
+				var st= $("#study_type_"+[ii]+"__ID").val()
+				var ar=[si.toString(),med.toString(),st.toString()]
+				// alert(ar)
 
-	}
+			}
+
+			}
+		});
 	//--------------------------------------
-
+		}
     </script>
     <style>
         #form_container__ID{
