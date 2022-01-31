@@ -1,0 +1,54 @@
+<section>
+    VmInclude:__COMPONENT__/g/grid.01.html
+</section>
+<script>
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/g/grid.01.js
+        //-------------------------------------
+        var fields="Date|date,Study_ID,Medicared,Type_of_Study";
+        m.fields="_Form,"+fields;//+",Submit_date,Submitted_by,_Delete";
+        //-------------------------------------
+        m.data_process=function(res){
+
+			console.log(res.result);			
+			
+			m.original_records=res.result;
+			m.records=[]
+			for(var i=0;i<res.result.length;i++){
+				if(res.result[i].Data.items!=undefined){
+					for(var j=0;j<res.result[i].Data.items.length;j++){
+						var nr={"Data":{}};
+						nr._id=res.result[i]._id;
+						nr.II=i;
+						nr.Data.date=res.result[i].Data.date;
+						nr.Data.Study_ID=res.result[i].Data.items[j].Study_ID;
+						nr.Data.Medicared=res.result[i].Data.items[j].Medicared;
+						nr.Data.Type_of_Study=res.result[i].Data.items[j].Type_of_Study;
+						m.records.push(nr);
+					}
+				}
+			}
+		}
+        //-------------------------------------
+		m.cell_render=function(records,I,field,td){
+		//console.log(data)
+            switch(field){
+               	case '_Form':
+					td.html("<u style='cursor:pointer'>Edit</u>");
+					td.find('u').on('click',function(){
+						var _id=records[I]._id;
+						var II=records[I].II;
+						//alert(_id);
+						//alert(II);
+						$vm.load_module(m.form_module,$vm.root_layout_content_slot,{record:m.original_records[II]});
+					})
+				break	
+			}
+        };
+        //-------------------------------------
+    }
+</script>
+<style>
+    VmInclude:__COMPONENT__/g/grid.01.css
+</style>

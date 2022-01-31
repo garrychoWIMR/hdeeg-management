@@ -33,7 +33,9 @@
 	"stock_data":      			{ url: "$H/m/hdeeg/inventory-data.html", Table: "stock-setup",form_module:"stock_form"},
 	"stock_form": 				{ url: "$H/m/hdeeg/inventory-form.html", Table: "stock-setup"},
 	"usage_data": 				{ url: "$H/m/hdeeg/usage-data.html", Table: "stock-setup", form_module: "usage_form" },
+	"usage_data_study": 		{ url: "$H/m/hdeeg/usage-data-study.html", Table: "stock-setup",form_module: "usage_form"},
 	"usage_form": 				{ url: "$H/m/hdeeg/usage-form.html", Table: "stock-setup" },
+	"usage_form2": 				{ url: "$H/m/hdeeg/usage-form2.html", Table: "stock-setup" },
 	"scoring-data": 			{ url: "$H/m/hdeeg/scoring-data.html", Table: "stock-setup", form_module: "scoring-form" },
 	"scoring-form": 			{ url: "$H/m/hdeeg/scoring-form.html", Table: "stock-setup" },
 

@@ -1,0 +1,348 @@
+<div id=D__ID>
+	<!--third html start -->
+	<div class="container mt-95 mb-3">
+		<div class="row">
+			<!-- form container start -->
+			<div class="col-6 col-lg-12 col-md-12 col-sm-12 mx-auto formbox">
+				<div class="row">
+					<div class="col-12">
+						<!-- form start -->
+						<form id="F__ID">
+							<h3>Post Study Form</span></h3>
+							<div>
+								<!-- Start -->
+									<div class="form-group ">
+										<div class="questiongroup ">
+											<fieldset class="subquestions">
+											<div><label><span class=""><h4><u>Inventory Details</u></h4></span></label></div>
+												<div class="row">
+													<div class="col-lg-2 col-sm-2">
+														<div class="input-group-sm ">
+															<label><span class="">Date</span></label>
+															<input type=text class=form-control name=date id=date__ID required>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-5 col-sm-5">
+														<div class="input-group-sm ">
+															<label><span class="">Research Study</span></label>
+															<input type=text class=form-control  name=research_study id=research_study__ID>
+														</div>
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-lg-5 col-sm-5">
+														<div class="input-group-sm ">
+															<label><span class="">Researcher</span></label>
+															<input type=text class=form-control name=staff_r id=staff_r__ID required>
+															<label><span class="">Sleep Technician</span></label>
+															<input type=text class=form-control name=staff_st id=staff_st__ID required>
+														</div>
+													</div>
+												</div>
+											</fieldset>
+										</div>
+									</div>
+								<!-- End -->
+								<div class="form-group ">
+									<div class="questiongroup ">
+										<fieldset class="subquestions">
+											<div><label><span >
+											<h4><u>Does this study/studies need scoring?</u></h4>
+											</span></label></div>
+											<div class="row" >
+												<div class="col-lg-2 col-sm-2">
+													<div class="input-group-sm ">
+														<input type="checkbox" name="scoring_needed" id=nd_scoring__ID>Yes</input>
+													</div>
+												</div>
+											</div>
+										
+								<!-- Start -->
+									<br>
+							<div id="scoredd__ID">
+							<!-- <input type="number" id=numbers__ID>How many studies to be scored?</input> -->
+								<hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
+								<div>
+									<div w='100|100'>
+										<u class=c_print style='cursor:pointer;margin-bottom:3px;display:inline-block' id=item_a_add__ID><i class="fa fa-plus"></i> Add a study</u>
+										<table id=grid_item_a__ID>
+										<tr><th>ID</th><th>Research Study</th><th>Study ID</th><th>Medicared</th><th>Type of Study</th><th>Delete</th><tr>
+										</table>
+										<button class=btn-black id=checker__ID>Checkeroni</button>
+										<div id=total__ID style='text-align: right;padding-top:6px'>
+										</div>
+									</div>
+								</div>
+							</div>
+							</fieldset>
+							</div>
+							</div>
+
+ 
+
+
+								<!-- Start -->
+								<div class="form-group ">
+									<div class="questiongroup ">
+										<fieldset class="subquestions">
+											<div><label><span class=""><h4><u>What size net did you use? </u></h4></span></label></div>
+											<div class="row">
+												<div class="col-lg-2 col-sm-2">
+													<div class="input-group-sm ">
+													<select name=net_size id=net_size__ID required>
+													<option default></option>
+													<option value="LTM Paed large - H11500">Paediatric Large <b>(H11500)</b></option>
+													<option value="LTM small - H6963">LTM Small (H6963)</option>
+													<option value="LTM medium - H6965">LTM Medium (H6965)</option>
+													<option value="LTM medium - S-000939">LTM Medium (S-000939)</option>
+													<option value="LTM large - H9539">LTM Large (H9539)</option>
+													<option value="DN small - H10358">DINAD Small (H10358)</option>
+													<option value="DN medium - H10357">DINAD Medium (H10357)</option>
+													<option value="DN large - H10356">DINAD Medium (H10357)</option>
+													<option value="DN Xlarge - H10355">DINAD Xlarge(H10355)</option>
+													<option value="MR small - H7106">MR Small</option>
+													<option value="MR med - H7105">MR Medium</option>
+													<option value="MR lg - H8570">MR Large</option>				
+													</select>
+													</div>
+												</div>
+										
+												<!--  -->
+											</div>
+										</fieldset>
+									</div>
+								</div>
+								<!-- End -->
+								<!-- Start -->
+								<div class="form-group ">
+									<div class="questiongroup ">
+										<fieldset class="subquestions">
+											<div><label><span class="">
+											<h4><u>Was there any Equipment Failures?</u></h4>
+											</span></label></div>
+											<div class="row">
+												<div class="col-lg-2 col-sm-2">
+													<div class="input-group-sm ">
+														<input type=radio name=broken id=broken__ID value='on' required>Yes</input>
+													</div>
+												</div>
+												<div class="col-lg-2 col-sm-2">
+													<div class="input-group-sm ">
+														<input type=radio  name=broken id=broken__ID value='off'>No</input>
+													</div>
+												</div>
+												<!--  -->
+											</div>
+											<div class="row">
+												<div class="col-lg-12 col-sm-12">
+													<div class="input-group-sm ">
+														<!-- <label><span class="">What Equipment has broken or requires checking</span></label> -->
+														<textarea name=broken_type id=broken_type__ID style="width:100%;resize:none" placeholder="What equipment broke,description of issue and what troubleshooting was performed..."></textarea>
+													</div>
+												</div>
+											</div>
+											<label><span class="">Was the equipment(s) replaced?</span></label>
+											<div class="row">
+												<div class="col-lg-2 col-sm-2">
+													<div class="input-group-sm ">
+														<input type=radio name=replacement id=replacement__ID value='on' required>Yes</input>
+													</div>
+												</div>
+												<div class="col-lg-2 col-sm-2">
+													<div class="input-group-sm ">
+														<input type=radio name=replacement id=replacement__ID value='off' >No</input>
+													</div>
+												</div>
+											</div>
+										</fieldset>
+									</div>
+								</div>
+								<!-- End -->
+								<!-- Start -->
+								<div class="form-group ">
+									<div class="questiongroup ">
+										<fieldset class="subquestions">
+											<div><label><span class="">
+											<h4><u>Notes</u></h4></span></label></div>
+												<div class="row">
+													<div class="col-lg-12 col-sm-12">
+														<div class="input-group-sm ">
+														<textarea class="form-control" rows=3 name=usage_comments id=usage_comments__ID placeholder="e.g. Consumable stock running low, MAC computer space is close to full.."></textarea>
+													</div>
+												</div>
+												<!--  -->
+											</div>
+										</fieldset>
+									</div>
+								</div>
+								<!-- End -->
+								<button type="submit" id="submit__ID" class="btn btn-primary btn-lg">Submit</button>
+								<!-- <button id=delete__ID type="button" class="btn btn-primary btn-lg">Delete</button> -->
+								</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	VmInclude:__COMPONENT__/m/model.01.html
+    <script>		
+
+		function textAreaAdjust__ID(o) {
+			//console.log(o)
+			o.style.height = "1px";
+			o.style.height = (25+o.scrollHeight)+"px";
+		}
+			//-------------------------------------
+    	function F__ID(){
+    		//-------------------------------------
+            VmInclude:__COMPONENT__/f/form.01.js
+			VmInclude:__COMPONENT__/f/form-item-a.01.js
+			VmInclude:__CURRENT_PATH__/purchase-form.html.item_a_list.js
+
+			//-------------------------------------
+			m.before_submit = function (data, index) {
+				data.staff = 'Researcher: '+ data.staff_r + '\n' + 'Sleep Technician: '+data.staff_st;
+				research_study = ($('#research_study__ID').val());
+				study_id = ($('#study_id__ID').val());
+				medicared = ($('#medicared__ID').val())
+				additional_studies = ($('#more_studies__ID').val());
+				type_of_study=($('#study_type__ID').val());
+				alert("Research study is " + research_study + "\n"
+				+ "Study id  id " + study_id + "\n" +
+				"Is this Study medicared? " + medicared + "\n"+
+				"Type of Study is : "+ type_of_study
+
+
+				)
+
+			
+			
+			}
+		//-------------------------------------
+		$('#D__ID').on('load',function(){
+			var today = new Date();
+			var dd = String(today.getDate()).padStart(2, '0');
+			var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+			var yyyy = today.getFullYear();
+
+			today = dd + '/' + mm + '/' + yyyy;
+			$('#date__ID').val(today);
+		//-------------------------------------
+			
+		//-------------------------------------
+		// Prefill studies via URL
+			var url=window.location.href
+			var url_1=url.split('&').pop()
+			var url_1= url.split('=').pop();
+			
+			if (url_1==undefined){
+			document.getElementById('research_study__ID').readOnly = false;
+			// console.log("hello")
+			}
+			else{
+			// var url_2= url_1.split('=')[1]
+			var research_study=url_1.replace("%20"," ");
+			document.getElementById('research_study__ID').readOnly = true;
+			console.log('research study is ' + research_study)
+			$('#research_study__ID').val(research_study);
+			}
+			
+			//-------------------------------------
+			$("#scoredd__ID").hide();
+			$('input[name=scoring_needed]').on('change', function () {
+				var scoring_needed = ($('#nd_scoring__ID'))
+				// var scoring_needed_n = ($('#nd_scoring__ID'))
+				// $('#needs_score__ID')
+				//alert(scoring_needed.val())
+				if (scoring_needed.is(':checked')){
+					$("#scoredd__ID").show()
+					
+				
+				}
+				else {
+					$("#scoredd__ID").hide()
+					}
+
+				})
+			}) 
+	
+			//******************************************************//
+			// To find the values and then add them to the list for studies to be scored
+			// Will potentially need to take a step further and add the functionality of adding several studies?
+			//  Logic: 
+			// 1. Are there any additional studies (?)
+			// 2. type of studies (mwt, kdt, etc. )
+			// 3. Number of studies 
+			// 4. Add it in as a new entry?
+
+
+			// Add a mini table which they can designate the number of rows for scoring
+			//
+			//
+			//******************************************************
+
+			
+			// for (var i_k=0;i_k<11;i_k++){
+			i_k=0
+			$("#item_a_add__ID").on('click',function(){
+			i_k++
+
+			var study_id = "<input type='text' class=form-control name=study_id id=study_id_"+i_k+"__ID></input>"
+			var checkbox="<center><input type='checkbox' id=medicared_"+i_k+"__ID></input></center></td><td><center>"
+			var study_type= "<center><select id=study_type_"+i_k+"__ID class=form-control><option>PSG</option><option>KDT</option><option>MWT</option></select></center>"
+
+			var table = document.getElementById("grid_item_a__ID")
+			var row = table.insertRow()
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			var cell3 = row.insertCell(2);
+			var cell4 = row.insertCell(3);
+			var cell5 = row.insertCell(4);
+			var cell6 = row.insertCell(5);
+			cell1.innerHTML = i_k;		
+			cell2.innerHTML = $('#research_study__ID').val()
+			cell3.innerHTML = study_id;	
+			cell4.innerHTML = checkbox ;
+			cell5.innerHTML = study_type ;
+			cell6.innerHTML = "<center><i class='fa fa-trash' aria-hidden='true' onclick=alert('hello')></i></center>"
+ 			});
+			// function Delete() {
+			// document.getElementById("grid_item_a__ID").deleteRow();
+			// // }
+			// }
+
+			
+		
+
+	$("#checker__ID").on('click', function () {
+		if (i_k != 0) {
+			no_of_studies = i_k
+			alert('there are ' + no_of_studies + ' studies')
+			// alert(no_of_studies)	
+			for (ii=1;ii<no_of_studies+1;ii++){
+				// ale.log()
+				var si = $("#study_id_"+[ii]+"__ID").val()
+				var med= $("#medicared_"+ [ii] +"__ID").val()
+				var st= $("#study_type_"+[ii]+"__ID").val()
+				var ar=[si.toString(),med.toString(),st.toString()]
+				// alert(ar)
+
+			}
+
+			}
+		});
+	//--------------------------------------
+		}
+    </script>
+    <style>
+        #form_container__ID{
+            max-width:800px;
+        }
+        VmInclude:__CURRENT_PATH__/wappsystem-form.css
+		VmInclude:__COMPONENT__/f/form-item-a.01.css
+
+    </style>
+</div>
