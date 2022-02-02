@@ -1,34 +1,177 @@
 <div id=D__ID>
     <section id=form_container__ID>
     	<div id=header__ID>
-    		Form
+        Post Study Form
     	</div>
     	<form id=F__ID>
     		<div class="container">
-				<div class="row row__ID" id=row_participant__ID>
-					<div class="col-sm-12 col-lg-12 input__ID">
-						<span class=label__ID>Date</span><br>
-						<input type=text class=form-control name=date id=date__ID required>
-					</div>
-                </div>
-                <hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
-                <br>
-                <div class="row" id=items__ID>
-                    <div class=col>
-                        <u style='cursor:pointer;margin-bottom:3px;display:inline-block' id=item_a_add__ID><i class="fa fa-plus"></i> Add a study</u>
-    				    <table id=grid_item_a__ID></table>
+                
+				<!-- <div class="row row__ID" id=row_participant__ID> -->
+					<!-- <div class="col-sm-12 col-lg-12 input__ID"> -->
+        <div class="form-group ">
+            <div class="questiongroup ">
+                <fieldset class="subquestions">
+        
+                    <div class="row">
+                        <div class="col-lg-5 col-sm-5">
+                            <div class="input-group-sm ">
+                            <label><span class="">Date of Study</span></label><br>
+                            <input type=date class=form-control name=date id=date__ID re_quired>
+					        </div>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div class="col-lg-5 col-sm-5">
+                        <div class="input-group-sm ">
+                            <label><span class="">Research Study</span></label>
+                            <input type=text class=form-control  name=research_study id=research_study__ID>
+                        </div>
                     </div>
                 </div>
-                <br>
+                <div class="row">
+                    <div class="col-lg-5 col-sm-5">
+                        <div class="input-group-sm ">
+                            <label><span class="">Researcher</span></label>
+                            <input type=text class=form-control name=staff_r id=staff_r__ID re_quired>
+                            <label><span class="">Sleep Technician</span></label>
+                            <input type=text class=form-control name=staff_st id=staff_st__ID re_quired>
+                        </div>
+                    </div>
+                </div>
+                </fieldset>
+            </div>
+        </div>
+                <hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
+                <div class="form-group ">
+                    <div class="questiongroup ">
+                        <fieldset class="subquestions">
+                            <div><label><span><h4><u>Does this study/studies need scoring?</u></h4></span></label></div>
+                                <div class="row" >
+                                    <div class="col-lg-2 col-sm-2">
+                                         <div class="input-group-sm ">
+                                            <input type="checkbox" name="scoring_needed" id=nd_scoring__ID>Yes</input>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="scoredd__ID">
+                                    <br>
+                                    <div class="row" id=items__ID>
+                                        <div class=col>
+                                            <u style='cursor:pointer;margin-bottom:3px;display:inline-block' id=item_a_add__ID><i class="fa fa-plus"></i> Add a study</u>
+                                            <table id=grid_item_a__ID></table>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <button type=button class='btn btn-secondary' id=checkeronis name=checkeroni>CHECKKKKS</button>
+                                </div>
+
+                        </fieldset>
+                    </div>
+                </div> 
+            <div class="form-group ">
+                <div class="questiongroup "> 
+                    <fieldset class="subquestions">
+                        <div><label><span class=""><h4><u>What size net did you use? </u></h4></span></label></div>
+                        <div class="row">
+                            <div class="col-lg-2 col-sm-2">
+                                <div class="input-group-sm ">
+                                <select name=net_size id=net_size__ID re_quired>
+                                <option default></option>
+                                <option value="LTM Paed large - H11500">Paediatric Large <b>(H11500)</b></option>
+                                <option value="LTM small - H6963">LTM Small (H6963)</option>
+                                <option value="LTM medium - H6965">LTM Medium (H6965)</option>
+                                <option value="LTM medium - S-000939">LTM Medium (S-000939)</option>
+                                <option value="LTM large - H9539">LTM Large (H9539)</option>
+                                <option value="DN small - H10358">DINAD Small (H10358)</option>
+                                <option value="DN medium - H10357">DINAD Medium (H10357)</option>
+                                <option value="DN large - H10356">DINAD Medium (H10357)</option>
+                                <option value="DN Xlarge - H10355">DINAD Xlarge(H10355)</option>
+                                <option value="MR small - H7106">MR Small</option>
+                                <option value="MR med - H7105">MR Medium</option>
+                                <option value="MR lg - H8570">MR Large</option>				
+                                </select>
+                                </div>
+                            </div>
+                    
+                            <!--  -->
+                        <!-- </div> -->
+                    </fieldset>
+                </div>
+            </div>
+            <!-- End -->
+            <!-- Start -->
+            <div class="form-group ">
+                <div class="questiongroup ">
+                    <fieldset class="subquestions">
+                        <div><label><span class="">
+                        <h4><u>Was there any Equipment Failures?</u></h4>
+                        </span></label></div>
+                        <div class="row">
+                            <div class="col-lg-2 col-sm-2">
+                                <div class="input-group-sm ">
+                                    <input type=radio name=broken id=broken__ID value='on' re_quired>Yes</input>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-2">
+                                <div class="input-group-sm ">
+                                    <input type=radio  name=broken id=broken__ID value='off'>No</input>
+                                </div>
+                            </div>
+                            <!--  -->
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-sm-12">
+                                <div class="input-group-sm ">
+                                    <!-- <label><span class="">What Equipment has broken or requires checking</span></label> -->
+                                    <textarea name=broken_type id=broken_type__ID style="width:100%;resize:none" placeholder="What equipment broke,description of issue and what troubleshooting was performed..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <label><span class="">Was the equipment(s) replaced?</span></label>
+                        <div class="row">
+                            <div class="col-lg-2 col-sm-2">
+                                <div class="input-group-sm ">
+                                    <input type=radio name=replacement id=replacement__ID value='on' re_quired>Yes</input>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-sm-2">
+                                <div class="input-group-sm ">
+                                    <input type=radio name=replacement id=replacement__ID value='off' >No</input>
+                                </div>
+                            </div>
+                        <!-- </div> -->
+                    </fieldset>
+                </div>
+            </div>
+            <!-- End -->
+            <!-- Start -->
+            <div class="form-group ">
+                <div class="questiongroup ">
+                    <fieldset class="subquestions">
+                        <div><label><span class="">
+                        <h4><u>Notes</u></h4></span></label></div>
+                            <div class="row">
+                                <div class="col-lg-12 col-sm-12">
+                                    <div class="input-group-sm ">
+                                    <textarea class="form-control" rows=3 name=usage_comments id=usage_comments__ID placeholder="e.g. Consumable stock running low, MAC computer space is close to full.."></textarea>
+                                </div>
+                            </div>
+                            <!--  -->
+                        <!-- </div> -->
+                    </fieldset>
+                </div>
+            </div>
+
                 <hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
 				<div class="row">
 					<div class=col>
-						<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
+						<!-- <button id=submit__ID type="submit" class="btn btn-secondary">Submit</button> -->
 					</div>
 				</div>
-    		</div>
+    		<!-- </div> -->
     	</form>
     </section>
+
     <script>
         function F__ID(){
             //-------------------------------------
@@ -41,6 +184,58 @@
     		$('#submit2__ID').on('click',function(event){   m.draft=0;	$('#submit0__ID').trigger('click');		});
     		//--------------------------------------------------------
 			*/
+            $('#D__ID').on('load',function(){
+			var today = new Date();
+			var dd = String(today.getDate()).padStart(2, '0');
+			var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+			var yyyy = today.getFullYear();
+
+			today = dd + '/' + mm + '/' + yyyy;
+			$('#date__ID').val(today);
+		//-------------------------------------
+			
+		//-------------------------------------
+		// Prefill studies via URL
+			var url=window.location.href
+			var url_1=url.split('&').pop()
+			var url_1= url.split('=').pop();
+
+			if (url_1==url){
+			document.getElementById('research_study__ID').readOnly = false;
+			}
+			else{
+			// var url_2= url_1.split('=')[1]
+			var research_study=url_1.replace("%20"," ");
+			document.getElementById('research_study__ID').readOnly = true;
+			console.log('research study is ' + research_study)
+			$('#research_study__ID').val(research_study);
+			}
+			
+			//-------------------------------------
+			$("#scoredd__ID").hide();
+			$('input[name=scoring_needed]').on('change', function () {
+				var scoring_needed = ($('#nd_scoring__ID'))
+				// var scoring_needed_n = ($('#nd_scoring__ID'))
+				// $('#needs_score__ID')
+				//alert(scoring_needed.val())
+				if (scoring_needed.is(':checked')){
+					$("#scoredd__ID").show()
+					
+				
+				}
+				else {
+					$("#scoredd__ID").hide()
+					}
+
+				})
+			}) 
+	
+
+
+
+
+
+
 			m.before_submit=function(data,index){
                 data.items=m.item_a_get_data();
                 return true;
@@ -78,18 +273,37 @@
 
             //----------------------------------
             //item a part
-            m.item_a_fields="Study_ID,Medicared,Type_of_Study,_Remove";
+            m.item_a_fields="Study_ID,Medicared,Type of Study|study_type,_Remove";
             //----------------------------------
             $('#item_a_add__ID').on('click',function(){ m.item_a_add(); })
             //----------------------------------
             m.item_a_cell_render=function(records,I,field,td,set_value,source){
                 switch(field){
-    				case "Medicared":
-                        var html='<input type=checkbox />';
-                        $vm.render_checkbox_field(records[I],'__ID',td,html)
+                    case "study_date":
+                    var ht="<input type=date class=form-control id='date'/>"
+                        $vm.render_checkbox_field(records[I],'__ID',td,ht)
                         break;
-                }
+                    case "Study_ID":
+                        var htm=
+                        td.html("<input type=text class=form-control id=study_id />")
+                        // $vm.render(records[I],'__ID',td,htm)
+                        break;
+    				case "Medicared":
+                        var html2="<center><input type=checkbox id='medicared' /></center>"
+                        $vm.render_checkbox_field(records[I],'__ID',td,html2)
+                        break;
+                    case "study_type":
+                        var html1="<select class=form-control id='study_type'><option value='PSG'>PSG</option><option value='KDT'>KDT</option><option value='MWT'>MWT</option></select>"
+                        // $vm.render_checkbox_field(records[I],'__ID',td,html1)
+                        break;
+                    }
             }
+            $("#checkeronis").on("click",function(){
+                alert($("#study_type").val())
+                // console.log("study type is  " + $("#study_type").val())
+                // console.log("Medicared?  " + $("#Medicared").val())
+                // console.log("study Id is  " + $("#Study_ID").val())
+                })
             //----------------------------------
 			m.item_a_after_change=function(records,I,field,td,set_value,source){
                 /*
@@ -106,14 +320,26 @@
             m.item_a_after_remove=function(){
                 //cal();
             }
+
+
             //----------------------------------
+        
+        
         }
+
+
+    
+
     </script>
     <style>
         #form_container__ID{
             max-width:800px;
         }
-        VmInclude:__COMPONENT__/f/form.01.css
+
+        VmInclude:__CURRENT_PATH__/wappsystem-form.css
         VmInclude:__COMPONENT__/f/form-item-a.01.css
+        VmInclude:__COMPONENT__/f/form.01.css
+
+
     </style>
 </div>

@@ -1,115 +1,70 @@
 <section>
-<section style="background-color:#cccccc">
-<select id=filter1__ID>
-	<option value="" name=scored>All</option>
-	<option value="off" name=scored selected>To be scored</option>
-	<option value="Yes"name=scored>Scored</option>
-</select>
-
-</section>
-	VmInclude:__COMPONENT__/g/grid.01.html
+    VmInclude:__COMPONENT__/g/grid.01.html
 </section>
 <script>
-	function F__ID() {
-		//-------------------------------------
-		VmInclude: __COMPONENT__/g/grid.01.js
-		//-------------------------------------
-		var fields = "Date of Study|date,Research Project|research_project,Study_ID|study_id,File Location|location,Medicare|medicared,Scorer|scorer,Scorers Comments|scorer_comment,Scored|scored,Scored on|timestamp,Scored by|scored_by";
-		m.fields = "_Form," + fields + ",Submit_date,Submitted_by,_Delete";
-		//-------------------------------------
-	//-------------------------------------
-		[{"data.research_project":"Local Sleep"}]
-		// Queries the default value as "To be scored"
-		var start_v = ($('#F__ID input[name=scored]')).val()
-		start_v = "off"
-		m.query = {
-			"Data.scored": start_v
-		}
-		{m.set_req(); m.request_data();}
+    function F__ID(){
+        //-------------------------------------
+        VmInclude:__COMPONENT__/g/grid.01.js
+        //-------------------------------------
+        // var fields="Date|date,Study_ID,Medicared,Type_of_Study";
+		var fields="Date of Study|date,research_study,Study_ID,Medicared,Type_of_Study|study_type,Scorer,Scored";
 
-		//  On changing the the dropdown values - you can change the filters
-		 ($('#filter1__ID').on('change',function(){
-			 var sc = $('#filter1__ID').val() 
-			 var scd = ($('#F__ID input[name=scored]')).val()
-			 scd=sc
-			 m.query={
-				"Data.scored":scd
-				}
-			 if ($('#filter1__ID').val()==""){
-					m.query = {
-					 $or: [{"Data.scored":"Yes"},{"Data.scored":"on"},{"Data.scored":"off"},{"Data.scored":""}]
-							}
-						}
+        m.fields="_Form,"+fields;//+",Submit_date,Submitted_by,_Delete";
+        //-------------------------------------
+        m.data_process=function(res){
+
+			console.log(res.result);			
 			
-			{m.set_req(); m.request_data();}
-			 }))
-	//-------------------------------------
-	//-------------------------------------
-		m.cell_render = function (records, I, field, td) {	
-				switch (field) {
-					case 'scored':
-						if (records[I].Data[field] == 'Yes') {
-							td.html("<i class='fas fa-check'></i>");
-							td.css('text-align', 'center');
-						}
-						else {
-							td.html('');
-						}
-						break;
-				case 'medicare':
-					var c = "#fff";
-					switch (records[I].Data[field]) {
-						case "Yes": td.html("Yes");
-						c = "#f00";
-						td.css('text-align','center');
-						td.css('color','white')
-						break;
-						case "off": td.html("");
-						break;
+			m.original_records=res.result;
+			m.records=[]
+			for(var i=0;i<res.result.length;i++){
+				if(res.result[i].Data.items!=undefined){
+					for(var j=0;j<res.result[i].Data.items.length;j++){
+						var nr={"Data":{}};
+						nr._id=res.result[i]._id;
+						nr.II=i;
+						nr.Data.date=res.result[i].Data.date;
+						nr.Data.Study_ID=res.result[i].Data.items[j].Study_ID;
+						nr.Data.Medicared=res.result[i].Data.items[j].Medicared;
+						nr.Data.research_study=res.result[i].Data.research_study;
+						nr.Data.study_type=res.result[i].Data.items[j].study_type;
+						m.records.push(nr);
 					}
-		td.css('background-color', c);
-						break;
 				}
-
-//-------------------------------------------
-			switch(field){
-				case 'date':
-				if (records[I].Data[field] != undefined){
-				var date= records[I].Data[field].split("-")
-				var day = date[2]
-				var month = date[1]
-				var year = date[0]
-				if (day==undefined || month ==undefined || year==undefined){
-				td.html("")
-				break;
-				}
-				else{
-				td.html(day + "/" + month + "/" + year);
-				// td.css('text-align', 'center');
-				break;
 			}
 		}
-	}
-	
-	
-	
-	
-//-------------------------------------------
-		}
-	}
-
-
-
+        //-------------------------------------
+		m.cell_render=function(records,I,field,td,res,result){
+		//console.log(data)
+            switch(field){
+               	case '_Form':
+					td.html("<u style='cursor:pointer'>Edit</u>");
+					td.find('u').on('click',function(){
+						var _id=records[I]._id;
+						var II=records[I].II;
+						//alert(_id);
+						//alert(II);
+						$vm.load_module(m.form_module,$vm.root_layout_content_slot,{record:m.original_records[II]});
+					})
+				break	
+				case 'Medicared':
+					if (records[I].Data[field]=="1"){
+						// alert("hello")	
+						td.html("<center style='background-color:red;font-color:white'>Yes</center>")
+					}
+					else{
+						td.html("<center>No</center>")
+					}
+				break;
+				// case 'research_study':
+				// alert(records[I].Data[field])
+				// // td.html(records[I].Data[field])
+				
+			}
+        };
+        //-------------------------------------
+    }
 </script>
-
 <style>
-	VmInclude:__COMPONENT__/g/grid.01.css
-
-	#filter1__ID{
-		display:inline-block;
-		margin-left:60px;
-		height:30px;
-		width:150px;
-		border-radius:5px;
-	}
+    VmInclude:__COMPONENT__/g/grid.01.css
 </style>
