@@ -165,7 +165,7 @@
                 <hr style="border-top: 1px solid #888;width: 100%;margin:10px 0">
 				<div class="row">
 					<div class=col>
-						<!-- <button id=submit__ID type="submit" class="btn btn-secondary">Submit</button> -->
+						<button id=submit__ID type="submit" class="btn btn-secondary">Submit</button>
 					</div>
 				</div>
     		<!-- </div> -->
@@ -239,6 +239,11 @@
 			m.before_submit=function(data,index){
                 data.items=m.item_a_get_data();
                 return true;
+                /*
+                console.log(m.item_a_records);
+                console.log(data.items);
+                return false;
+                */
             }
             //--------------------------------------------------------
             var load=m.load;
@@ -283,17 +288,38 @@
                     var ht="<input type=date class=form-control id='date'/>"
                         $vm.render_checkbox_field(records[I],'__ID',td,ht)
                         break;
+                    /*
                     case "Study_ID":
                         var htm=
                         td.html("<input type=text class=form-control id=study_id />")
                         // $vm.render(records[I],'__ID',td,htm)
                         break;
+                    */
     				case "Medicared":
                         var html2="<center><input type=checkbox id='medicared' /></center>"
                         $vm.render_checkbox_field(records[I],'__ID',td,html2)
                         break;
                     case "study_type":
                         var html1="<select class=form-control id='study_type'><option value='PSG'>PSG</option><option value='KDT'>KDT</option><option value='MWT'>MWT</option></select>"
+                        td.html(html1);
+                        
+                        
+                        td.find('select').on('change', function(){
+                            records[I][field]=$(this).val();
+                            /*
+                            var value='0';
+
+                            if(value!==record[field]){
+                                record.vm_dirty=1;
+                                record[field]=value;
+                                $('#save'+mID).css('background','#E00');
+                            }
+                            */
+                           //alert( $(this).val() );
+                        });
+                        
+                        
+                        
                         // $vm.render_checkbox_field(records[I],'__ID',td,html1)
                         break;
                     }
